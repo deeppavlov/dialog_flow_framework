@@ -12,7 +12,7 @@ on:
 
 
 jobs:
-  lint:
+  flake8:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -23,9 +23,39 @@ jobs:
           python-version: 3.9
 
       - name: install dependencies
-        run: |
-            make venv
+        run: make venv
 
-      - name: run codestyle
-        run: |
-            make lint
+      - name: run flake8
+        run: make flake8
+
+  black:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: set up python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: install dependencies
+        run: make venv
+
+      - name: run black
+        run: make black
+
+  mypy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: set up python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: install dependencies
+        run: make venv
+
+      - name: run mypy
+        run: make mypy

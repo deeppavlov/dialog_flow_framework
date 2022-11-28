@@ -50,6 +50,29 @@ mypy_dependencies = [
     "mypy",
 ]
 
+parser_dependencies = [
+    "libcst>=0.4.1",
+    "ruamel.yaml>=0.17.21",
+    "pyflakes>=2.3.1",
+    "black ==20.8b1",
+]
+
+graph_dependencies = [
+    "networkx>=2.5.1",
+]
+
+script_viewer_dependencies = merge_req_lists(
+    [
+        parser_dependencies,
+        graph_dependencies,
+        [
+            "graphviz==0.17",
+            "dash==2.6.2",
+            "plotly<=5.10.0",
+        ]
+    ]
+)
+
 sqlite_dependencies = [
     "sqlalchemy>=1.4.27",
 ]
@@ -106,6 +129,9 @@ full = merge_req_lists(
         mysql_dependencies,
         postgresql_dependencies,
         ydb_dependencies,
+        parser_dependencies,
+        graph_dependencies,
+        script_viewer_dependencies,
     ]
 )
 
@@ -132,6 +158,9 @@ EXTRA_DEPENDENCIES = {
     "full": full,
     "test_full": tests_full,
     "devel_full": devel_full,
+    "parser": parser_dependencies,
+    "graph": graph_dependencies,
+    "script_viewer": script_viewer_dependencies,
     "sqlite": sqlite_dependencies,
     "redis": redis_dependencies,
     "mongodb": mongodb_dependencies,
@@ -171,4 +200,14 @@ setup(
     install_requires=core,  # Optional
     test_suite="tests",
     extras_require=EXTRA_DEPENDENCIES,
+    entry_points={
+        "console_scripts": [
+            "dff.py2yaml = dff.script.import_export.parser.cli:py2yaml_cli",
+            "dff.yaml2py = dff.script.import_export.parser.cli:yaml2py_cli",
+            "dff.py2graph = dff.script.import_export.parser.cli:py2graph_cli",
+            "dff.graph2py = dff.script.import_export.parser.cli:graph2py_cli",
+            "dff.script_viewer.server=dff.script.utils.script_viewer:make_server",
+            "dff.script_viewer.image=dff.script.utils.script_viewer:make_image",
+        ]
+    },
 )

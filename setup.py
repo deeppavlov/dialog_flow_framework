@@ -50,9 +50,11 @@ mypy_dependencies = [
     "mypy",
 ]
 
-sqlite_dependencies = [
-    "sqlalchemy>=1.4.27",
+sql_dependencies = [
+    "sqlalchemy==1.4.27",
 ]
+
+sqlite_dependencies = sql_dependencies
 
 redis_dependencies = [
     "redis>=4.1.2",
@@ -63,20 +65,45 @@ mongodb_dependencies = [
     "bson>=0.5.10",
 ]
 
-mysql_dependencies = [
-    "sqlalchemy>=1.4.27",
-    "pymysql>=1.0.2",
-    "cryptography>=36.0.2",
-]
+mysql_dependencies = merge_req_lists(
+    [
+        sql_dependencies,
+        [
+            "pymysql>=1.0.2",
+            "cryptography>=36.0.2",
+        ],
+    ]
+)
 
-postgresql_dependencies = [
-    "sqlalchemy>=1.4.27",
-    "psycopg2-binary==2.9.4",  # TODO: change to >= when psycopg2 will be stabe for windows
-]
+postgresql_dependencies = merge_req_lists(
+    [
+        sql_dependencies,
+        [
+            "psycopg2-binary==2.9.4",  # TODO: change to >= when psycopg2 will be stable for windows
+            "asyncpg>=0.26.0",
+        ],
+    ]
+)
 
 ydb_dependencies = [
     "ydb>=2.5.0",
 ]
+
+clickhouse_dependencies = [
+    "aiochclient>=2.2.0",
+    "httpx<=0.23.0",
+]
+
+stats_dependencies = merge_req_lists(
+    [
+        sql_dependencies,
+        [
+            "tqdm==4.62.3",
+            "omegaconf>=2.2.2",
+            "requests>=2.28.1",
+        ],
+    ]
+)
 
 test_requirements = [
     "pytest >=6.2.4,<7.0.0",
@@ -106,6 +133,8 @@ full = merge_req_lists(
         mysql_dependencies,
         postgresql_dependencies,
         ydb_dependencies,
+        clickhouse_dependencies,
+        stats_dependencies,
     ]
 )
 
@@ -139,6 +168,8 @@ EXTRA_DEPENDENCIES = {
     "mysql": mysql_dependencies,
     "postgresql": postgresql_dependencies,
     "ydb": ydb_dependencies,
+    "clickhouse": clickhouse_dependencies,
+    "stats": stats_dependencies,
 }
 
 setup(
@@ -172,4 +203,5 @@ setup(
     install_requires=core,  # Optional
     test_suite="tests",
     extras_require=EXTRA_DEPENDENCIES,
+    entry_points={"console_scripts": ["dff.stats=dff.stats.__main__:main"]},
 )

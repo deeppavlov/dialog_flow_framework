@@ -17,7 +17,6 @@ jobs:
       fail-fast: false
 
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
 
@@ -46,7 +45,17 @@ jobs:
           rm -rf /tmp/backup
           touch venv  # disable venv target
 
+      - name: Create gdf_account.json
+        uses: jsdaniell/create-json@v1.2.1
+        with:
+          name: "gdf_account.json"
+          json: ${{ secrets.GDF_ACCOUNT_JSON }}
+
       - name: run tests
         run: |
           make test
         shell: bash
+        env:
+          RASA_API_KEY: rasa
+          HF_API_KEY: ${{ secrets.HF_API_KEY }}
+          GDF_ACCOUNT_JSON: ./gdf_account.json

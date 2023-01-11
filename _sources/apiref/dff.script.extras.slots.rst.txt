@@ -1,0 +1,10 @@
+dff.script.extras.slots package
+===============================
+
+Module contents
+---------------
+
+.. automodule:: dff.script.extras.slots
+   :members:
+   :undoc-members:
+   :show-inheritance:

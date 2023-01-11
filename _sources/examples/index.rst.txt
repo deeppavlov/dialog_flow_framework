@@ -1,0 +1,14 @@
+:orphan:
+
+.. This is an auto-generated RST index file representing examples directory structure
+
+Examples
+========
+
+.. nbgallery::
+   :glob:
+   :caption: Examples
+
+   context_storages/index
+   pipeline/index
+   script/index

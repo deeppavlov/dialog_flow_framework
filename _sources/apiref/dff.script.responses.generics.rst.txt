@@ -1,0 +1,4 @@
+.. automodule:: dff.script.responses.generics
+   :members:
+   :undoc-members:
+   :show-inheritance:

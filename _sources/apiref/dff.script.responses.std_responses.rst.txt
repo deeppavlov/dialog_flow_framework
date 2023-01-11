@@ -1,0 +1,4 @@
+.. automodule:: dff.script.responses.std_responses
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,4 @@
+.. automodule:: dff.pipeline.pipeline.pipeline
+   :members:
+   :undoc-members:
+   :show-inheritance:

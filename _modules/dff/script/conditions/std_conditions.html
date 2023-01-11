@@ -1,0 +1,705 @@
+
+
+
+    
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+    <head>
+       <meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>dff.script.conditions.std_conditions &mdash; Dialog Flow Framework 0.1.0rc0 documentation</title>
+
+
+<!-- FAVICON -->
+
+
+<!-- CANONICAL URL -->
+
+
+<!-- BASE URL -->
+
+
+<!-- CSS -->
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css">
+
+<link rel="stylesheet" href="../../../../_static/styles/theme.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../_static/styles/theme.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../_static/copybutton.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../_static/gallery.css" type="text/css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../_static/katex-math.css" type="text/css" />
+
+<!-- OPENSEARCH -->
+
+        <link rel="index" title="Index" href="../../../../genindex.html" />
+        <link rel="search" title="Search" href="../../../../search.html" />
+    <!-- Google Analytics TODO: disable if not needed -->
+    
+    <!-- End Google Analytics -->
+
+
+<!-- Keep modernizr in head - http://modernizr.com/docs/#installing -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"></script>
+    </head>
+
+    <div class="container-fluid header-holder" id="header-holder">
+    <div class="header-logo-container">
+        <a class="header-logo" href="../../../../intro_dff/index.html" aria-label="PyTorch"></a>
+    </div>
+
+    <div class="container">
+        <div class="header-container">
+            <div class="main-menu">
+                <ul>
+                    <li>
+                        <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+                            <a class="resource-option with-down-orange-arrow">Intro</a>
+                            <div class="resources-dropdown-menu">
+                                <a class="doc-dropdown-option nav-dropdown-item" href="#">
+                                    <span class="dropdown-title">Dialog Flow Framework</span>
+                                </a>
+                                <a class="doc-dropdown-option nav-dropdown-item" href="#">
+                                    <span class="dropdown-title">Addons</span>
+                                </a>
+                                <a class="doc-dropdown-option nav-dropdown-item" href="#">
+                                    <span class="dropdown-title">Designer</span>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a href="#">Get Started</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Tutorials</a>
+                    </li>
+
+                    <li class="active">
+                        <a href="./">Documentation</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Ecosystem</a>
+                    </li>
+
+                    <li>
+                        <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+                            <a class="resource-option with-down-orange-arrow">About</a>
+                            <div class="resources-dropdown-menu">
+                                <a class="doc-dropdown-option nav-dropdown-item" href="#">
+                                    <span class="dropdown-title">About Us</span>
+                                </a>
+                                <a class="doc-dropdown-option nav-dropdown-item" href="https://forum.deeppavlov.ai/c/dff-is-a-dialog-flow-framework-it-is-an-open-source-framework-built-to-enable-scenario-driven-skills-chatbots-development/51">
+                                    <span class="dropdown-title">Forums</span>
+                                </a>
+                                <a class="doc-dropdown-option nav-dropdown-item" href="https://t.me/DeepPavlovDreamDiscussions">
+                                    <span class="dropdown-title">Telegram</span>
+                                </a>
+                                <a class="doc-dropdown-option nav-dropdown-item" href="https://github.com/deeppavlov/dialog_flow_framework">
+                                    <span class="dropdown-title">GitHub</span>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
+        </div>
+    </div>
+</div>
+
+    <body class="pytorch-body">
+
+         
+
+        
+            <!-- SIDE NAV, TOGGLES ON MOBILE -->
+
+<div class="table-of-contents-link-wrapper">
+    <span>Table of Contents</span>
+    <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+</div>
+
+<nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
+    <div class="pytorch-side-scroll">
+        <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+            <div class="pytorch-left-menu-search">
+                
+                    
+    <div role="search">
+        <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+            <input type="text" name="q" placeholder="Search" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                
+            </div>
+
+            
+                <!-- The singlehtml builder doesn't handle this toctree call when the toctree is empty. Skip building this for now. -->
+                
+                    
+                
+                
+                    <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class='nested-toc-container'>
+<li class="toctree-l1"><a class="reference internal" href="../../../../apiref/index_Context%20Storages.html">Context Storages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../apiref/index_Messenger%20Interfaces.html">Messenger Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../apiref/index_Pipeline.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../apiref/index_Script.html">Script</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul class='nested-toc-container'>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples/context_storages/index.html">Context Storages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples/pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples/script/index.html">Script</a></li>
+</ul>
+
+                
+            
+        </div>
+    </div>
+</nav>
+        
+
+        <div class="pytorch-container">
+            <div class="pytorch-page-level-bar" id="pytorch-page-level-bar">
+                <div class="pytorch-breadcrumbs-wrapper">
+                    
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+    <ul class="pytorch-breadcrumbs">
+        
+            
+                <li><a href="../../../index.html">Module code</a> &gt;</li>
+            
+            <li>dff.script.conditions.std_conditions</li>
+        
+    </ul>
+
+    
+
+    
+        <div class="pytorch-breadcrumbs-aside">
+            
+        </div>
+    
+</div>
+                </div>
+
+                <div class="pytorch-shortcuts-wrapper" id="pytorch-shortcuts-wrapper">
+                    Navigation
+                </div>
+            </div>
+
+            <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
+                <div class="pytorch-content-left">
+                    
+                        
+                            <div class="rst-content">
+                        
+                                <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+                                        <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
+                                            
+  <h1>Source code for dff.script.conditions.std_conditions</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Conditions</span>
+<span class="sd">---------------------------</span>
+<span class="sd">Conditions are one of the most important components of the dialog graph,</span>
+<span class="sd">which determine the possibility of transition from one node of the graph to another.</span>
+<span class="sd">This is a standard set of scripting conditions.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Pattern</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">validate_arguments</span>
+
+<span class="kn">from</span> <span class="nn">dff.script</span> <span class="kn">import</span> <span class="n">NodeLabel2Type</span><span class="p">,</span> <span class="n">Actor</span><span class="p">,</span> <span class="n">Context</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="exact_match"><a class="viewcode-back" href="../../../../apiref/dff.script.conditions.std_conditions.html#dff.script.conditions.std_conditions.exact_match">[docs]</a><span class="nd">@validate_arguments</span>
+<span class="k">def</span> <span class="nf">exact_match</span><span class="p">(</span><span class="n">match</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Context</span><span class="p">,</span> <span class="n">Actor</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="nb">bool</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns function handler. This handler returns `True` only if the last user phrase is exactly</span>
+<span class="sd">    the same as the :py:const:`match`.</span>
+
+<span class="sd">    :param match: The variable of the same type as :py:class:`~dff.script.last_request`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">exact_match_condition_handler</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">,</span> <span class="n">actor</span><span class="p">:</span> <span class="n">Actor</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="n">request</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">last_request</span>
+        <span class="k">return</span> <span class="n">match</span> <span class="o">==</span> <span class="n">request</span>
+
+    <span class="k">return</span> <span class="n">exact_match_condition_handler</span></div>
+
+
+<div class="viewcode-block" id="regexp"><a class="viewcode-back" href="../../../../apiref/dff.script.conditions.std_conditions.html#dff.script.conditions.std_conditions.regexp">[docs]</a><span class="nd">@validate_arguments</span>
+<span class="k">def</span> <span class="nf">regexp</span><span class="p">(</span>
+    <span class="n">pattern</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Pattern</span><span class="p">],</span> <span class="n">flags</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">RegexFlag</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Context</span><span class="p">,</span> <span class="n">Actor</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="nb">bool</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns function handler. This handler returns `True` only if the last user phrase contains</span>
+<span class="sd">    :py:const:`pattern &lt;Union[str, Pattern]&gt;` with :py:const:`flags &lt;Union[int, re.RegexFlag]&gt;`.</span>
+
+<span class="sd">    :param pattern: The `RegExp` pattern.</span>
+<span class="sd">    :param flags: Flags for this pattern. Defaults to 0.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">regexp_condition_handler</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">,</span> <span class="n">actor</span><span class="p">:</span> <span class="n">Actor</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="n">request</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">last_request</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">pattern</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">request</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;request has to be str type, but got request=</span><span class="si">{</span><span class="n">request</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">return</span> <span class="n">regexp_condition_handler</span></div>
+
+
+<div class="viewcode-block" id="check_cond_seq"><a class="viewcode-back" href="../../../../apiref/dff.script.conditions.std_conditions.html#dff.script.conditions.std_conditions.check_cond_seq">[docs]</a><span class="nd">@validate_arguments</span>
+<span class="k">def</span> <span class="nf">check_cond_seq</span><span class="p">(</span><span class="n">cond_seq</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Checks if the list consists only of Callables.</span>
+
+<span class="sd">    :param cond_seq: List of conditions to check.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">cond</span> <span class="ow">in</span> <span class="n">cond_seq</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cond</span><span class="p">,</span> <span class="n">Callable</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cond_seq</span><span class="si">}</span><span class="s2"> has to consist of callable objects&quot;</span><span class="p">)</span></div>
+
+
+<span class="n">_any</span> <span class="o">=</span> <span class="nb">any</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">_any is an alias for any.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">_all</span> <span class="o">=</span> <span class="nb">all</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">_all is an alias for all.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="aggregate"><a class="viewcode-back" href="../../../../apiref/dff.script.conditions.std_conditions.html#dff.script.conditions.std_conditions.aggregate">[docs]</a><span class="nd">@validate_arguments</span>
+<span class="k">def</span> <span class="nf">aggregate</span><span class="p">(</span>
+    <span class="n">cond_seq</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">aggregate_func</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">=</span> <span class="n">_any</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Context</span><span class="p">,</span> <span class="n">Actor</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="nb">bool</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Aggregates multiple functions into one by using aggregating function.</span>
+
+<span class="sd">    :param cond_seq: List of conditions to check.</span>
+<span class="sd">    :param aggregate_func: Function to aggregate conditions. Defaults to :py:func:`_any`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">check_cond_seq</span><span class="p">(</span><span class="n">cond_seq</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">aggregate_condition_handler</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">,</span> <span class="n">actor</span><span class="p">:</span> <span class="n">Actor</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">aggregate_func</span><span class="p">([</span><span class="n">cond</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">actor</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="k">for</span> <span class="n">cond</span> <span class="ow">in</span> <span class="n">cond_seq</span><span class="p">]))</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Exception </span><span class="si">{</span><span class="n">exc</span><span class="si">}</span><span class="s2"> for </span><span class="si">{</span><span class="n">cond_seq</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">aggregate_func</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">ctx</span><span class="o">.</span><span class="n">last_request</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="n">exc</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">return</span> <span class="n">aggregate_condition_handler</span></div>
+
+
+<div class="viewcode-block" id="any"><a class="viewcode-back" href="../../../../apiref/dff.script.conditions.std_conditions.html#dff.script.conditions.std_conditions.any">[docs]</a><span class="nd">@validate_arguments</span>
+<span class="k">def</span> <span class="nf">any</span><span class="p">(</span><span class="n">cond_seq</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Context</span><span class="p">,</span> <span class="n">Actor</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="nb">bool</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns function handler. This handler returns `True`</span>
+<span class="sd">    if any function from the list is `True`.</span>
+
+<span class="sd">    :param cond_seq: List of conditions to check.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_agg</span> <span class="o">=</span> <span class="n">aggregate</span><span class="p">(</span><span class="n">cond_seq</span><span class="p">,</span> <span class="n">_any</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">any_condition_handler</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">,</span> <span class="n">actor</span><span class="p">:</span> <span class="n">Actor</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_agg</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">actor</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">any_condition_handler</span></div>
+
+
+<div class="viewcode-block" id="all"><a class="viewcode-back" href="../../../../apiref/dff.script.conditions.std_conditions.html#dff.script.conditions.std_conditions.all">[docs]</a><span class="nd">@validate_arguments</span>
+<span class="k">def</span> <span class="nf">all</span><span class="p">(</span><span class="n">cond_seq</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Context</span><span class="p">,</span> <span class="n">Actor</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="nb">bool</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns function handler. This handler returns `True` only</span>
+<span class="sd">    if all functions from the list are `True`.</span>
+
+<span class="sd">    :param cond_seq: List of conditions to check.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_agg</span> <span class="o">=</span> <span class="n">aggregate</span><span class="p">(</span><span class="n">cond_seq</span><span class="p">,</span> <span class="n">_all</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">all_condition_handler</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">,</span> <span class="n">actor</span><span class="p">:</span> <span class="n">Actor</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_agg</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">actor</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">all_condition_handler</span></div>
+
+
+<div class="viewcode-block" id="negation"><a class="viewcode-back" href="../../../../apiref/dff.script.conditions.std_conditions.html#dff.script.conditions.std_conditions.negation">[docs]</a><span class="nd">@validate_arguments</span>
+<span class="k">def</span> <span class="nf">negation</span><span class="p">(</span><span class="n">condition</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Context</span><span class="p">,</span> <span class="n">Actor</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="nb">bool</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns function handler. This handler returns negation of the :py:func:`~condition`: `False`</span>
+<span class="sd">    if :py:func:`~condition` holds `True` and returns `True` otherwise.</span>
+
+<span class="sd">    :param condition: Any :py:func:`~condition`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">negation_condition_handler</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">,</span> <span class="n">actor</span><span class="p">:</span> <span class="n">Actor</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="ow">not</span> <span class="n">condition</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">actor</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">negation_condition_handler</span></div>
+
+
+<div class="viewcode-block" id="has_last_labels"><a class="viewcode-back" href="../../../../apiref/dff.script.conditions.std_conditions.html#dff.script.conditions.std_conditions.has_last_labels">[docs]</a><span class="nd">@validate_arguments</span>
+<span class="k">def</span> <span class="nf">has_last_labels</span><span class="p">(</span>
+    <span class="n">flow_labels</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">labels</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">NodeLabel2Type</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">last_n_indices</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Context</span><span class="p">,</span> <span class="n">Actor</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="nb">bool</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns condition handler. This handler returns `True` if any label from</span>
+<span class="sd">    last :py:const:`last_n_indices` context labels is in</span>
+<span class="sd">    the :py:const:`flow_labels` list or in</span>
+<span class="sd">    the :py:const:`~dff.script.NodeLabel2Type` list.</span>
+
+<span class="sd">    :param flow_labels: List of labels to check. Every label has type `str`. Empty if not set.</span>
+<span class="sd">    :param labels: List of labels corresponding to the nodes. Empty if not set.</span>
+<span class="sd">    :param last_n_indices: Number of last utterances to check.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">flow_labels</span> <span class="o">=</span> <span class="p">[]</span> <span class="k">if</span> <span class="n">flow_labels</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">flow_labels</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[]</span> <span class="k">if</span> <span class="n">labels</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">labels</span>
+
+    <span class="k">def</span> <span class="nf">has_last_labels_condition_handler</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">,</span> <span class="n">actor</span><span class="p">:</span> <span class="n">Actor</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">labels</span><span class="o">.</span><span class="n">values</span><span class="p">())[</span><span class="o">-</span><span class="n">last_n_indices</span><span class="p">:]</span>
+        <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">labels</span><span class="o">.</span><span class="n">values</span><span class="p">())[</span><span class="o">-</span><span class="n">last_n_indices</span><span class="p">:]:</span>
+            <span class="n">label</span> <span class="o">=</span> <span class="n">label</span> <span class="k">if</span> <span class="n">label</span> <span class="k">else</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">label</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">flow_labels</span> <span class="ow">or</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">return</span> <span class="n">has_last_labels_condition_handler</span></div>
+
+
+<div class="viewcode-block" id="true"><a class="viewcode-back" href="../../../../apiref/dff.script.conditions.std_conditions.html#dff.script.conditions.std_conditions.true">[docs]</a><span class="nd">@validate_arguments</span>
+<span class="k">def</span> <span class="nf">true</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Context</span><span class="p">,</span> <span class="n">Actor</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="nb">bool</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns function handler. This handler always returns `True`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">true_handler</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">,</span> <span class="n">actor</span><span class="p">:</span> <span class="n">Actor</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">return</span> <span class="n">true_handler</span></div>
+
+
+<div class="viewcode-block" id="false"><a class="viewcode-back" href="../../../../apiref/dff.script.conditions.std_conditions.html#dff.script.conditions.std_conditions.false">[docs]</a><span class="nd">@validate_arguments</span>
+<span class="k">def</span> <span class="nf">false</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Context</span><span class="p">,</span> <span class="n">Actor</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="nb">bool</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns function handler. This handler always returns `False`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">false_handler</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">,</span> <span class="n">actor</span><span class="p">:</span> <span class="n">Actor</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">return</span> <span class="n">false_handler</span></div>
+
+
+<span class="c1"># aliases</span>
+<span class="n">agg</span> <span class="o">=</span> <span class="n">aggregate</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">:py:func:`~agg` is an alias for :py:func:`~aggregate`.</span>
+<span class="sd">:rtype:</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">neg</span> <span class="o">=</span> <span class="n">negation</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">:py:func:`~neg` is an alias for :py:func:`~negation`.</span>
+<span class="sd">:rtype:</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+
+                                        </article>
+                                        
+                                </div>
+                                <footer>
+    
+
+    <hr>
+
+    <div role="contentinfo">
+        <p>
+                    &copy; Copyright 2023, DeepPavlov.
+        </p>
+            
+                <div>
+                    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/deeppavlov/dff_sphinx_theme">theme</a> provided by <a href="https://deeppavlov.ai">DeepPavlov</a>.
+                </div>
+            
+    </div> 
+</footer>
+                            </div>
+                </div>
+
+                <nav class="pytorch-right-menu" id="pytorch-right-menu">
+                    <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
+                        <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="additional navigation">
+                            
+                        </div>
+                    </div>
+                </nav>
+            </section>
+        </div> 
+
+        <div class="container-fluid docs-tutorials-resources" id="docs-tutorials-resources">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <h2 class="white-header">Docs</h2>
+                <p>Access comprehensive developer documentation for DFF</p>
+                <a class="with-right-arrow" href="../../../../../documentation">View Docs</a>
+            </div>
+
+            <div class="col-md-4 text-center">
+                <h2 class="white-header">Tutorials</h2>
+                <p>Get in-depth tutorials for beginners and advanced developers</p>
+                <a class="with-right-arrow" href="../../../../../tutorials">View Tutorials</a>
+            </div>
+
+            <!--TODO: fix!!-->
+            <div class="col-md-4 text-center">
+                <h2 class="white-header">Resources</h2>
+                <p>Find development resources and get your questions answered</p>
+                <a class="with-right-arrow" href="https://pytorch.org/resources">View Resources</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="site-footer">
+    <div class="container footer-container">
+        <!--TODO: fix!!-->
+        <div class="footer-logo-wrapper">
+            <a href="../../../../../intro_dff" class="footer-logo"></a>
+        </div>
+
+        <div class="footer-links-wrapper">
+            <div class="footer-links-col">
+                <ul>
+                    <!--TODO: fix!!-->
+                    <li class="list-title">
+                        <a href="../../../../../intro_dff">DialogFlow Framework</a>
+                    </li>
+
+                    <li>
+                        <a href="../../../../../get_started">Get Started</a>
+                    </li>
+
+                    <!--TODO: fix!!-->
+                    <li>
+                        <a href="https://pytorch.org/features">Features</a>
+                    </li>
+
+                    <li>
+                        <a href="../../../../../ecosystem">Ecosystem</a>
+                    </li>
+
+                    <li>
+                        <a href="https://github.com/deeppavlov/dialog_flow_framework/blob/master/CONTRIBUTING.md">Contributing</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-links-col">
+                <ul>
+                    <!--TODO: fix!!-->
+                    <li class="list-title">
+                        <a href="https://pytorch.org/resources">Resources</a>
+                    </li>
+
+                    <li>
+                        <a href="../../../../../tutorials">Tutorials</a>
+                    </li>
+
+                    <li>
+                        <a href="../../../../../documentation">Docs</a>
+                    </li>
+
+                    <li>
+                        <a href="https://t.me/DeepPavlovDreamDiscussions" target="_blank">Discuss</a>
+                    </li>
+
+                    <li>
+                        <a href="https://github.com/deeppavlov/dialog_flow_framework/issues" target="_blank">Github Issues</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-links-col follow-us-col">
+                <ul>
+                    <li class="list-title">Stay Connected</li>
+                </ul>
+
+                <div class="footer-social-icons">
+                    <a href="https://www.facebook.com/deepmipt" target="_blank" class="facebook"></a>
+                    <a href="https://twitter.com/deeppavlov" target="_blank" class="twitter"></a>
+                    <a href="https://www.youtube.com/c/deeppavlov" target="_blank" class="youtube"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div class="cookie-banner-wrapper">
+    <div class="container">
+        <p class="gdpr-notice">To analyze traffic and optimize your experience, we serve cookies on this site. By clicking or navigating, you agree to allow our usage of cookies. As the current maintainers of this site, Facebook’s Cookies Policy applies. Learn more, including about available controls: <a href="https://www.facebook.com/policies/cookies/">Cookies Policy</a>.</p>
+        <span class="close-button"></span>
+    </div>
+</div>
+
+        <div class="mobile-main-menu">
+    <div class="container-fluid">
+        <div class="container header-holder-mobile">
+            <div class="mobile-main-menu-header-container">
+                <a class="header-logo" href="../../../../intro_dff/index.html" aria-label="PyTorch"></a>
+                <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-main-menu-links-container">
+        <div class="main-menu">
+            <ul>
+                <li class="resources-mobile-menu-title">
+                    Intro
+                </li>
+
+                <ul class="resources-mobile-menu-items">
+                    <li>
+                        <a href="#">
+                            <span class="dropdown-title">Dialog Flow Framework</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span class="dropdown-title">Addons</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span class="dropdown-title">Designer</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <li>
+                    <a href="#">Get Started</a>
+                </li>
+
+                <li>
+                    <a href="#">Tutorials</a>
+                </li>
+
+                <li class="active">
+                    <a href="./">Documentation</a>
+                </li>
+
+                <li>
+                    <a href="#">Ecosystem</a>
+                </li>
+
+                <li class="resources-mobile-menu-title">
+                    About
+                </li>
+
+                <ul class="resources-mobile-menu-items">
+                    <li>
+                        <a href="#">
+                            <span class="dropdown-title">About Us</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://forum.deeppavlov.ai/c/dff-is-a-dialog-flow-framework-it-is-an-open-source-framework-built-to-enable-scenario-driven-skills-chatbots-development/51">
+                            <span class="dropdown-title">Forums</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://t.me/DeepPavlovDreamDiscussions">
+                            <span class="dropdown-title">Telegram</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://github.com/deeppavlov/dialog_flow_framework">
+                            <span class="dropdown-title">GitHub</span>
+                        </a>
+                    </li>
+                </ul>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+
+
+
+    
+        <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+            <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+            <script src="../../../../_static/doctools.js"></script>
+            <script src="../../../../_static/sphinx_highlight.js"></script>
+            <script src="../../../../_static/clipboard.min.js"></script>
+            <script src="../../../../_static/copybutton.js"></script>
+            <script src="../../../../_static/katex.min.js"></script>
+            <script src="../../../../_static/auto-render.min.js"></script>
+            <script src="../../../../_static/katex_autorenderer.js"></script>
+            <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+
+    
+
+
+
+<script type="text/javascript" src="../../../../_static/scripts/theme.min.js" enable="true"></script>
+    </body>
+</html>

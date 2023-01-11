@@ -1,0 +1,20 @@
+:orphan:
+
+.. This is an auto-generated RST file representing documentation source directory structure
+
+Context Storages
+================
+
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
+
+   dff.context_storages.redis
+   dff.context_storages.pickle
+   dff.context_storages.protocol
+   dff.context_storages.sql
+   dff.context_storages.database
+   dff.context_storages.json
+   dff.context_storages.ydb
+   dff.context_storages.mongo
+   dff.context_storages.shelve

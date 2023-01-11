@@ -1,0 +1,1114 @@
+
+
+
+    
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+    <head>
+       <meta charset="utf-8">
+<meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>4. Transitions &mdash; Dialog Flow Framework 0.1.0rc0 documentation</title>
+
+
+<!-- FAVICON -->
+
+
+<!-- CANONICAL URL -->
+
+
+<!-- BASE URL -->
+
+
+<!-- CSS -->
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css">
+
+<link rel="stylesheet" href="../../../_static/styles/theme.css" type="text/css" />
+        <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="../../../_static/styles/theme.css" type="text/css" />
+        <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+        <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" type="text/css" />
+        <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+
+<!-- OPENSEARCH -->
+
+        <link rel="index" title="Index" href="../../../genindex.html" />
+        <link rel="search" title="Search" href="../../../search.html" />
+        <link rel="next" title="5. Global transitions" href="5_global_transitions.html" />
+        <link rel="prev" title="3. Responses" href="3_responses.html" />
+    <!-- Google Analytics TODO: disable if not needed -->
+    
+    <!-- End Google Analytics -->
+
+
+<!-- Keep modernizr in head - http://modernizr.com/docs/#installing -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"></script>
+    </head>
+
+    <div class="container-fluid header-holder" id="header-holder">
+    <div class="header-logo-container">
+        <a class="header-logo" href="../../../intro_dff/index.html" aria-label="PyTorch"></a>
+    </div>
+
+    <div class="container">
+        <div class="header-container">
+            <div class="main-menu">
+                <ul>
+                    <li>
+                        <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+                            <a class="resource-option with-down-orange-arrow">Intro</a>
+                            <div class="resources-dropdown-menu">
+                                <a class="doc-dropdown-option nav-dropdown-item" href="#">
+                                    <span class="dropdown-title">Dialog Flow Framework</span>
+                                </a>
+                                <a class="doc-dropdown-option nav-dropdown-item" href="#">
+                                    <span class="dropdown-title">Addons</span>
+                                </a>
+                                <a class="doc-dropdown-option nav-dropdown-item" href="#">
+                                    <span class="dropdown-title">Designer</span>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a href="#">Get Started</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Tutorials</a>
+                    </li>
+
+                    <li class="active">
+                        <a href="./">Documentation</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Ecosystem</a>
+                    </li>
+
+                    <li>
+                        <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+                            <a class="resource-option with-down-orange-arrow">About</a>
+                            <div class="resources-dropdown-menu">
+                                <a class="doc-dropdown-option nav-dropdown-item" href="#">
+                                    <span class="dropdown-title">About Us</span>
+                                </a>
+                                <a class="doc-dropdown-option nav-dropdown-item" href="https://forum.deeppavlov.ai/c/dff-is-a-dialog-flow-framework-it-is-an-open-source-framework-built-to-enable-scenario-driven-skills-chatbots-development/51">
+                                    <span class="dropdown-title">Forums</span>
+                                </a>
+                                <a class="doc-dropdown-option nav-dropdown-item" href="https://t.me/DeepPavlovDreamDiscussions">
+                                    <span class="dropdown-title">Telegram</span>
+                                </a>
+                                <a class="doc-dropdown-option nav-dropdown-item" href="https://github.com/deeppavlov/dialog_flow_framework">
+                                    <span class="dropdown-title">GitHub</span>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
+        </div>
+    </div>
+</div>
+
+    <body class="pytorch-body">
+
+         
+
+        
+            <!-- SIDE NAV, TOGGLES ON MOBILE -->
+
+<div class="table-of-contents-link-wrapper">
+    <span>Table of Contents</span>
+    <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+</div>
+
+<nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
+    <div class="pytorch-side-scroll">
+        <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+            <div class="pytorch-left-menu-search">
+                
+                    
+    <div role="search">
+        <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+            <input type="text" name="q" placeholder="Search" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                
+            </div>
+
+            
+                <!-- The singlehtml builder doesn't handle this toctree call when the toctree is empty. Skip building this for now. -->
+                
+                    
+                
+                
+                    <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class='nested-toc-container'>
+<li class="toctree-l1"><a class="reference internal" href="../../../apiref/index_Context%20Storages.html">Context Storages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../apiref/index_Messenger%20Interfaces.html">Messenger Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../apiref/index_Pipeline.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../apiref/index_Script.html">Script</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../context_storages/index.html">Context Storages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Script</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Core</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="1_basics.html">1. Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_conditions.html">2. Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_responses.html">3. Responses</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">4. Transitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_global_transitions.html">5. Global transitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_context_serialization.html">6. Context serialization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_pre_response_processing.html">7. Pre-response processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_misc.html">8. Misc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_pre_transitions_processing.html">9. Pre-transitions processing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../responses/index.html">Responses</a></li>
+</ul>
+</li>
+</ul>
+
+                
+            
+        </div>
+    </div>
+</nav>
+        
+
+        <div class="pytorch-container">
+            <div class="pytorch-page-level-bar" id="pytorch-page-level-bar">
+                <div class="pytorch-breadcrumbs-wrapper">
+                    
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+    <ul class="pytorch-breadcrumbs">
+        
+            
+                <li><a href="../index.html">Script</a> &gt;</li>
+            
+                <li><a href="index.html">Core</a> &gt;</li>
+            
+            <li>4. Transitions</li>
+        
+    </ul>
+
+    
+
+    
+        <div class="pytorch-breadcrumbs-aside">
+            
+                
+                    
+                        <!-- User defined GitHub URL -->
+                        <a href="deeppavlov/dialog_flow_framework">
+                            <i class="fa-brands fa-github">Edit on GitHub</i>
+                        </a>
+                    
+                
+            
+        </div>
+    
+</div>
+                </div>
+
+                <div class="pytorch-shortcuts-wrapper" id="pytorch-shortcuts-wrapper">
+                    Navigation
+                </div>
+            </div>
+
+            <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
+                <div class="pytorch-content-left">
+                    
+                        <div class="pytorch-call-to-action-links">
+                            <div id="tutorial-type" data-name="examples/script/core/4_transitions" data-path="." data-github="deeppavlov/dialog_flow_framework"></div>
+
+                            <div id="google-colab-link">
+                                <span class="pytorch-colab call-to-action-any"></span>
+                                <div class="call-to-action-desktop-view">Run in Google Colab</div>
+                                <div class="call-to-action-mobile-view">Colab</div>
+                            </div>
+                            <div id="download-notebook-link">
+                                <span class="pytorch-download call-to-action-any"></span>
+                                <div class="call-to-action-desktop-view">Download Notebook</div>
+                                <div class="call-to-action-mobile-view">Notebook</div>
+                            </div>
+                            <div id="github-view-link">
+                                <span class="pytorch-github call-to-action-any"></span>
+                                <div class="call-to-action-desktop-view">View on GitHub</div>
+                                <div class="call-to-action-mobile-view">GitHub</div>
+                            </div>
+                        </div>
+                    
+                        
+                            <div class="rst-content">
+                        
+                                <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+                                        <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
+                                            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars and line breaks on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+    white-space: pre;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt .copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+.jp-RenderedHTMLCommon table,
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+.jp-RenderedHTMLCommon thead,
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+.jp-RenderedHTMLCommon tr,
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td,
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+.jp-RenderedHTMLCommon th,
+div.rendered_html th {
+  font-weight: bold;
+}
+.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+.jp-RenderedHTMLCommon tbody tr:hover,
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<section id="4.-Transitions">
+<h1>4. Transitions<a class="headerlink" href="#4.-Transitions" title="Permalink to this heading">¶</a></h1>
+<p>This example shows settings for transitions between flows and nodes. First of all, let’s do all the necessary imports from <code class="docutils literal notranslate"><span class="pre">dff</span></code>.</p>
+<p><strong>Installing dependencies</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-q<span class="w"> </span>dff<span class="o">[</span>examples<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-yellow-fg">WARNING: dff 0.1a7 does not provide the extra &#39;examples&#39;</span><span class="ansi-yellow-fg">
+</span>
+</pre></div></div>
+</div>
+<p><strong>Running example</strong></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="kn">from</span> <span class="nn">dff.script</span> <span class="kn">import</span> <span class="n">TRANSITIONS</span><span class="p">,</span> <span class="n">RESPONSE</span><span class="p">,</span> <span class="n">Context</span><span class="p">,</span> <span class="n">Actor</span><span class="p">,</span> <span class="n">NodeLabel3Type</span>
+<span class="kn">import</span> <span class="nn">dff.script.conditions</span> <span class="k">as</span> <span class="nn">cnd</span>
+<span class="kn">import</span> <span class="nn">dff.script.labels</span> <span class="k">as</span> <span class="nn">lbl</span>
+<span class="kn">from</span> <span class="nn">dff.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">dff.utils.testing.common</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">check_happy_path</span><span class="p">,</span>
+    <span class="n">is_interactive_mode</span><span class="p">,</span>
+    <span class="n">run_interactive_mode</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Let’s define the functions with a special type of return value:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>NodeLabel3Type == tuple[str, str, float]
+</pre></div>
+</div>
+<p>which means that transition returns a <code class="docutils literal notranslate"><span class="pre">tuple</span></code> with flow name, node name and priority.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greeting_flow_n2_transition</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">,</span> <span class="n">actor</span><span class="p">:</span> <span class="n">Actor</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NodeLabel3Type</span><span class="p">:</span>
+    <span class="k">return</span> <span class="p">(</span><span class="s2">&quot;greeting_flow&quot;</span><span class="p">,</span> <span class="s2">&quot;node2&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">high_priority_node_transition</span><span class="p">(</span><span class="n">flow_label</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">transition</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">,</span> <span class="n">actor</span><span class="p">:</span> <span class="n">Actor</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NodeLabel3Type</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">flow_label</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">transition</span>
+</pre></div>
+</div>
+</div>
+<p>Priority is needed to select a condition in the situation where more than one condition is <code class="docutils literal notranslate"><span class="pre">True</span></code>. All conditions in <code class="docutils literal notranslate"><span class="pre">TRANSITIONS</span></code> are being checked. Of the set of <code class="docutils literal notranslate"><span class="pre">True</span></code> conditions, the one that has the highest priority will be executed. Of the set of <code class="docutils literal notranslate"><span class="pre">True</span></code> conditions with largest priority the first met condition will be executed.</p>
+<p>Out of the box <code class="docutils literal notranslate"><span class="pre">dff.script.core.labels</span></code> offers the following methods:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">lbl.repeat()</span></code> returns transition handler which returns <code class="docutils literal notranslate"><span class="pre">NodeLabelType</span></code> to the last node,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lbl.previous()</span></code> returns transition handler which returns <code class="docutils literal notranslate"><span class="pre">NodeLabelType</span></code> to the previous node,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lbl.to_start()</span></code> returns transition handler which returns <code class="docutils literal notranslate"><span class="pre">NodeLabelType</span></code> to the start node,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lbl.to_fallback()</span></code> returns transition handler which returns <code class="docutils literal notranslate"><span class="pre">NodeLabelType</span></code> to the fallback node,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lbl.forward()</span></code> returns transition handler which returns <code class="docutils literal notranslate"><span class="pre">NodeLabelType</span></code> to the forward node,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lbl.backward()</span></code> returns transition handler which returns <code class="docutils literal notranslate"><span class="pre">NodeLabelType</span></code> to the backward node.</p></li>
+</ul>
+<p>There are three flows here: <code class="docutils literal notranslate"><span class="pre">global_flow</span></code>, <code class="docutils literal notranslate"><span class="pre">greeting_flow</span></code>, <code class="docutils literal notranslate"><span class="pre">music_flow</span></code>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">toy_script</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;global_flow&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;start_node&quot;</span><span class="p">:</span> <span class="p">{</span>  <span class="c1"># This is an initial node,</span>
+            <span class="c1"># it doesn&#39;t need a `RESPONSE`.</span>
+            <span class="n">RESPONSE</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="n">TRANSITIONS</span><span class="p">:</span> <span class="p">{</span>
+                <span class="p">(</span><span class="s2">&quot;music_flow&quot;</span><span class="p">,</span> <span class="s2">&quot;node1&quot;</span><span class="p">):</span> <span class="n">cnd</span><span class="o">.</span><span class="n">regexp</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;talk about music&quot;</span><span class="p">),</span>  <span class="c1"># first check</span>
+                <span class="p">(</span><span class="s2">&quot;greeting_flow&quot;</span><span class="p">,</span> <span class="s2">&quot;node1&quot;</span><span class="p">):</span> <span class="n">cnd</span><span class="o">.</span><span class="n">regexp</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;hi|hello&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">),</span>  <span class="c1"># second check</span>
+                <span class="s2">&quot;fallback_node&quot;</span><span class="p">:</span> <span class="n">cnd</span><span class="o">.</span><span class="n">true</span><span class="p">(),</span>  <span class="c1"># third check</span>
+                <span class="c1"># &quot;fallback_node&quot; is equivalent to</span>
+                <span class="c1"># (&quot;global_flow&quot;, &quot;fallback_node&quot;).</span>
+            <span class="p">},</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;fallback_node&quot;</span><span class="p">:</span> <span class="p">{</span>  <span class="c1"># We get to this node if</span>
+            <span class="c1"># an error occurred while the agent was running.</span>
+            <span class="n">RESPONSE</span><span class="p">:</span> <span class="s2">&quot;Ooops&quot;</span><span class="p">,</span>
+            <span class="n">TRANSITIONS</span><span class="p">:</span> <span class="p">{</span>
+                <span class="p">(</span><span class="s2">&quot;music_flow&quot;</span><span class="p">,</span> <span class="s2">&quot;node1&quot;</span><span class="p">):</span> <span class="n">cnd</span><span class="o">.</span><span class="n">regexp</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;talk about music&quot;</span><span class="p">),</span>  <span class="c1"># first check</span>
+                <span class="p">(</span><span class="s2">&quot;greeting_flow&quot;</span><span class="p">,</span> <span class="s2">&quot;node1&quot;</span><span class="p">):</span> <span class="n">cnd</span><span class="o">.</span><span class="n">regexp</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;hi|hello&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">),</span>  <span class="c1"># second check</span>
+                <span class="n">lbl</span><span class="o">.</span><span class="n">previous</span><span class="p">():</span> <span class="n">cnd</span><span class="o">.</span><span class="n">regexp</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;previous&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">),</span>  <span class="c1"># third check</span>
+                <span class="c1"># lbl.previous() is equivalent</span>
+                <span class="c1"># to (&quot;previous_flow&quot;, &quot;previous_node&quot;)</span>
+                <span class="n">lbl</span><span class="o">.</span><span class="n">repeat</span><span class="p">():</span> <span class="n">cnd</span><span class="o">.</span><span class="n">true</span><span class="p">(),</span>  <span class="c1"># fourth check</span>
+                <span class="c1"># lbl.repeat() is equivalent to (&quot;global_flow&quot;, &quot;fallback_node&quot;)</span>
+            <span class="p">},</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;greeting_flow&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;node1&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">RESPONSE</span><span class="p">:</span> <span class="s2">&quot;Hi, how are you?&quot;</span><span class="p">,</span>
+            <span class="c1"># When the agent goes to node1, we return &quot;Hi, how are you?&quot;</span>
+            <span class="n">TRANSITIONS</span><span class="p">:</span> <span class="p">{</span>
+                <span class="p">(</span>
+                    <span class="s2">&quot;global_flow&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;fallback_node&quot;</span><span class="p">,</span>
+                    <span class="mf">0.1</span><span class="p">,</span>
+                <span class="p">):</span> <span class="n">cnd</span><span class="o">.</span><span class="n">true</span><span class="p">(),</span>  <span class="c1"># second check</span>
+                <span class="s2">&quot;node2&quot;</span><span class="p">:</span> <span class="n">cnd</span><span class="o">.</span><span class="n">regexp</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;how are you&quot;</span><span class="p">),</span>  <span class="c1"># first check</span>
+                <span class="c1"># &quot;node2&quot; is equivalent to (&quot;greeting_flow&quot;, &quot;node2&quot;, 1.0)</span>
+            <span class="p">},</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;node2&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">RESPONSE</span><span class="p">:</span> <span class="s2">&quot;Good. What do you want to talk about?&quot;</span><span class="p">,</span>
+            <span class="n">TRANSITIONS</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">lbl</span><span class="o">.</span><span class="n">to_fallback</span><span class="p">(</span><span class="mf">0.1</span><span class="p">):</span> <span class="n">cnd</span><span class="o">.</span><span class="n">true</span><span class="p">(),</span>  <span class="c1"># third check</span>
+                <span class="c1"># lbl.to_fallback(0.1) is equivalent</span>
+                <span class="c1"># to (&quot;global_flow&quot;, &quot;fallback_node&quot;, 0.1)</span>
+                <span class="n">lbl</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mf">0.5</span><span class="p">):</span> <span class="n">cnd</span><span class="o">.</span><span class="n">regexp</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;talk about&quot;</span><span class="p">),</span>  <span class="c1"># second check</span>
+                <span class="c1"># lbl.forward(0.5) is equivalent</span>
+                <span class="c1"># to (&quot;greeting_flow&quot;, &quot;node3&quot;, 0.5)</span>
+                <span class="p">(</span><span class="s2">&quot;music_flow&quot;</span><span class="p">,</span> <span class="s2">&quot;node1&quot;</span><span class="p">):</span> <span class="n">cnd</span><span class="o">.</span><span class="n">regexp</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;talk about music&quot;</span><span class="p">),</span>  <span class="c1"># first check</span>
+                <span class="c1"># (&quot;music_flow&quot;, &quot;node1&quot;) is equivalent</span>
+                <span class="c1"># to (&quot;music_flow&quot;, &quot;node1&quot;, 1.0)</span>
+                <span class="n">lbl</span><span class="o">.</span><span class="n">previous</span><span class="p">():</span> <span class="n">cnd</span><span class="o">.</span><span class="n">regexp</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;previous&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">),</span>  <span class="c1"># third check</span>
+            <span class="p">},</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;node3&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">RESPONSE</span><span class="p">:</span> <span class="s2">&quot;Sorry, I can not talk about that now.&quot;</span><span class="p">,</span>
+            <span class="n">TRANSITIONS</span><span class="p">:</span> <span class="p">{</span><span class="n">lbl</span><span class="o">.</span><span class="n">forward</span><span class="p">():</span> <span class="n">cnd</span><span class="o">.</span><span class="n">regexp</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;bye&quot;</span><span class="p">)},</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;node4&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">RESPONSE</span><span class="p">:</span> <span class="s2">&quot;Bye&quot;</span><span class="p">,</span>
+            <span class="n">TRANSITIONS</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;node1&quot;</span><span class="p">:</span> <span class="n">cnd</span><span class="o">.</span><span class="n">regexp</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;hi|hello&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">),</span>  <span class="c1"># first check</span>
+                <span class="n">lbl</span><span class="o">.</span><span class="n">to_fallback</span><span class="p">():</span> <span class="n">cnd</span><span class="o">.</span><span class="n">true</span><span class="p">(),</span>  <span class="c1"># second check</span>
+            <span class="p">},</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;music_flow&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;node1&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">RESPONSE</span><span class="p">:</span> <span class="s2">&quot;I love `System of a Down` group,&quot;</span> <span class="s2">&quot; would you like to talk about it?&quot;</span><span class="p">,</span>
+            <span class="n">TRANSITIONS</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">lbl</span><span class="o">.</span><span class="n">forward</span><span class="p">():</span> <span class="n">cnd</span><span class="o">.</span><span class="n">regexp</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;yes|yep|ok&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">),</span>
+                <span class="n">lbl</span><span class="o">.</span><span class="n">to_fallback</span><span class="p">():</span> <span class="n">cnd</span><span class="o">.</span><span class="n">true</span><span class="p">(),</span>
+            <span class="p">},</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;node2&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">RESPONSE</span><span class="p">:</span> <span class="s2">&quot;System of a Down is an Armenian-American&quot;</span>
+            <span class="s2">&quot; heavy metal band formed in 1994.&quot;</span><span class="p">,</span>
+            <span class="n">TRANSITIONS</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">lbl</span><span class="o">.</span><span class="n">forward</span><span class="p">():</span> <span class="n">cnd</span><span class="o">.</span><span class="n">regexp</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;next&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">),</span>
+                <span class="n">lbl</span><span class="o">.</span><span class="n">repeat</span><span class="p">():</span> <span class="n">cnd</span><span class="o">.</span><span class="n">regexp</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;repeat&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">),</span>
+                <span class="n">lbl</span><span class="o">.</span><span class="n">to_fallback</span><span class="p">():</span> <span class="n">cnd</span><span class="o">.</span><span class="n">true</span><span class="p">(),</span>
+            <span class="p">},</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;node3&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">RESPONSE</span><span class="p">:</span> <span class="s2">&quot;The band achieved commercial success&quot;</span>
+            <span class="s2">&quot; with the release of five studio albums.&quot;</span><span class="p">,</span>
+            <span class="n">TRANSITIONS</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">lbl</span><span class="o">.</span><span class="n">forward</span><span class="p">():</span> <span class="n">cnd</span><span class="o">.</span><span class="n">regexp</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;next&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">),</span>
+                <span class="n">lbl</span><span class="o">.</span><span class="n">backward</span><span class="p">():</span> <span class="n">cnd</span><span class="o">.</span><span class="n">regexp</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;back&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">),</span>
+                <span class="n">lbl</span><span class="o">.</span><span class="n">repeat</span><span class="p">():</span> <span class="n">cnd</span><span class="o">.</span><span class="n">regexp</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;repeat&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">),</span>
+                <span class="n">lbl</span><span class="o">.</span><span class="n">to_fallback</span><span class="p">():</span> <span class="n">cnd</span><span class="o">.</span><span class="n">true</span><span class="p">(),</span>
+            <span class="p">},</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;node4&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">RESPONSE</span><span class="p">:</span> <span class="s2">&quot;That&#39;s all what I know.&quot;</span><span class="p">,</span>
+            <span class="n">TRANSITIONS</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">greeting_flow_n2_transition</span><span class="p">:</span> <span class="n">cnd</span><span class="o">.</span><span class="n">regexp</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;next&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">),</span>  <span class="c1"># second check</span>
+                <span class="n">high_priority_node_transition</span><span class="p">(</span><span class="s2">&quot;greeting_flow&quot;</span><span class="p">,</span> <span class="s2">&quot;node4&quot;</span><span class="p">):</span> <span class="n">cnd</span><span class="o">.</span><span class="n">regexp</span><span class="p">(</span>
+                    <span class="sa">r</span><span class="s2">&quot;next time&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span>
+                <span class="p">),</span>  <span class="c1"># first check</span>
+                <span class="n">lbl</span><span class="o">.</span><span class="n">to_fallback</span><span class="p">():</span> <span class="n">cnd</span><span class="o">.</span><span class="n">true</span><span class="p">(),</span>  <span class="c1"># third check</span>
+            <span class="p">},</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+
+
+<span class="c1"># testing</span>
+<span class="n">happy_path</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">(</span><span class="s2">&quot;hi&quot;</span><span class="p">,</span> <span class="s2">&quot;Hi, how are you?&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;i&#39;m fine, how are you?&quot;</span><span class="p">,</span> <span class="s2">&quot;Good. What do you want to talk about?&quot;</span><span class="p">),</span>
+    <span class="p">(</span>
+        <span class="s2">&quot;talk about music.&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;I love `System of a Down` group, would you like to talk about it?&quot;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="p">(</span>
+        <span class="s2">&quot;yes&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;System of a Down is an Armenian-American&quot;</span> <span class="s2">&quot; heavy metal band formed in 1994.&quot;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="p">(</span>
+        <span class="s2">&quot;next&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;The band achieved commercial success&quot;</span> <span class="s2">&quot; with the release of five studio albums.&quot;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="p">(</span>
+        <span class="s2">&quot;back&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;System of a Down is an Armenian-American&quot;</span> <span class="s2">&quot; heavy metal band formed in 1994.&quot;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="p">(</span>
+        <span class="s2">&quot;repeat&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;System of a Down is an Armenian-American&quot;</span> <span class="s2">&quot; heavy metal band formed in 1994.&quot;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="p">(</span>
+        <span class="s2">&quot;next&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;The band achieved commercial success&quot;</span> <span class="s2">&quot; with the release of five studio albums.&quot;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;next&quot;</span><span class="p">,</span> <span class="s2">&quot;That&#39;s all what I know.&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;next&quot;</span><span class="p">,</span> <span class="s2">&quot;Good. What do you want to talk about?&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;previous&quot;</span><span class="p">,</span> <span class="s2">&quot;That&#39;s all what I know.&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;next time&quot;</span><span class="p">,</span> <span class="s2">&quot;Bye&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;stop&quot;</span><span class="p">,</span> <span class="s2">&quot;Ooops&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;previous&quot;</span><span class="p">,</span> <span class="s2">&quot;Bye&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;stop&quot;</span><span class="p">,</span> <span class="s2">&quot;Ooops&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;nope&quot;</span><span class="p">,</span> <span class="s2">&quot;Ooops&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;hi&quot;</span><span class="p">,</span> <span class="s2">&quot;Hi, how are you?&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;stop&quot;</span><span class="p">,</span> <span class="s2">&quot;Ooops&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;previous&quot;</span><span class="p">,</span> <span class="s2">&quot;Hi, how are you?&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;i&#39;m fine, how are you?&quot;</span><span class="p">,</span> <span class="s2">&quot;Good. What do you want to talk about?&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;let&#39;s talk about something.&quot;</span><span class="p">,</span> <span class="s2">&quot;Sorry, I can not talk about that now.&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Ok, goodbye.&quot;</span><span class="p">,</span> <span class="s2">&quot;Bye&quot;</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="o">.</span><span class="n">from_script</span><span class="p">(</span>
+    <span class="n">toy_script</span><span class="p">,</span>
+    <span class="n">start_label</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;global_flow&quot;</span><span class="p">,</span> <span class="s2">&quot;start_node&quot;</span><span class="p">),</span>
+    <span class="n">fallback_label</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;global_flow&quot;</span><span class="p">,</span> <span class="s2">&quot;fallback_node&quot;</span><span class="p">),</span>
+<span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">check_happy_path</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">happy_path</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">is_interactive_mode</span><span class="p">():</span>
+        <span class="n">run_interactive_mode</span><span class="p">(</span><span class="n">pipeline</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(user) &gt;&gt;&gt; hi
+ (bot) &lt;&lt;&lt; Hi, how are you?
+(user) &gt;&gt;&gt; i&#39;m fine, how are you?
+ (bot) &lt;&lt;&lt; Good. What do you want to talk about?
+(user) &gt;&gt;&gt; talk about music.
+ (bot) &lt;&lt;&lt; I love `System of a Down` group, would you like to talk about it?
+(user) &gt;&gt;&gt; yes
+ (bot) &lt;&lt;&lt; System of a Down is an Armenian-American heavy metal band formed in 1994.
+(user) &gt;&gt;&gt; next
+ (bot) &lt;&lt;&lt; The band achieved commercial success with the release of five studio albums.
+(user) &gt;&gt;&gt; back
+ (bot) &lt;&lt;&lt; System of a Down is an Armenian-American heavy metal band formed in 1994.
+(user) &gt;&gt;&gt; repeat
+ (bot) &lt;&lt;&lt; System of a Down is an Armenian-American heavy metal band formed in 1994.
+(user) &gt;&gt;&gt; next
+ (bot) &lt;&lt;&lt; The band achieved commercial success with the release of five studio albums.
+(user) &gt;&gt;&gt; next
+ (bot) &lt;&lt;&lt; That&#39;s all what I know.
+(user) &gt;&gt;&gt; next
+ (bot) &lt;&lt;&lt; Good. What do you want to talk about?
+(user) &gt;&gt;&gt; previous
+ (bot) &lt;&lt;&lt; That&#39;s all what I know.
+(user) &gt;&gt;&gt; next time
+ (bot) &lt;&lt;&lt; Bye
+(user) &gt;&gt;&gt; stop
+ (bot) &lt;&lt;&lt; Ooops
+(user) &gt;&gt;&gt; previous
+ (bot) &lt;&lt;&lt; Bye
+(user) &gt;&gt;&gt; stop
+ (bot) &lt;&lt;&lt; Ooops
+(user) &gt;&gt;&gt; nope
+ (bot) &lt;&lt;&lt; Ooops
+(user) &gt;&gt;&gt; hi
+ (bot) &lt;&lt;&lt; Hi, how are you?
+(user) &gt;&gt;&gt; stop
+ (bot) &lt;&lt;&lt; Ooops
+(user) &gt;&gt;&gt; previous
+ (bot) &lt;&lt;&lt; Hi, how are you?
+(user) &gt;&gt;&gt; i&#39;m fine, how are you?
+ (bot) &lt;&lt;&lt; Good. What do you want to talk about?
+(user) &gt;&gt;&gt; let&#39;s talk about something.
+ (bot) &lt;&lt;&lt; Sorry, I can not talk about that now.
+(user) &gt;&gt;&gt; Ok, goodbye.
+ (bot) &lt;&lt;&lt; Bye
+</pre></div></div>
+</div>
+</section>
+
+
+                                        </article>
+                                        
+                                </div>
+                                <footer>
+    
+        <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+            
+                <a href="5_global_transitions.html" class="btn btn-neutral float-right" title="5. Global transitions" accesskey="n" rel="next">
+                    Next
+                    <span class="next-page"></span>
+                </a>
+            
+            
+                <a href="3_responses.html" class="btn btn-neutral" title="3. Responses" accesskey="p" rel="prev">
+                    <span class="previous-page"></span>
+                    Previous
+                </a>
+            
+        </div>
+    
+
+    <hr>
+
+    <div role="contentinfo">
+        <p>
+                    &copy; Copyright 2023, DeepPavlov.
+        </p>
+            
+                <div>
+                    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/deeppavlov/dff_sphinx_theme">theme</a> provided by <a href="https://deeppavlov.ai">DeepPavlov</a>.
+                </div>
+            
+    </div> 
+</footer>
+                            </div>
+                </div>
+
+                <nav class="pytorch-right-menu" id="pytorch-right-menu">
+                    <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
+                        <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="additional navigation">
+                            <ul>
+<li><a class="reference internal" href="#">4. Transitions</a></li>
+</ul>
+
+                        </div>
+                    </div>
+                </nav>
+            </section>
+        </div> 
+
+        <div class="container-fluid docs-tutorials-resources" id="docs-tutorials-resources">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <h2 class="white-header">Docs</h2>
+                <p>Access comprehensive developer documentation for DFF</p>
+                <a class="with-right-arrow" href="../../../../documentation">View Docs</a>
+            </div>
+
+            <div class="col-md-4 text-center">
+                <h2 class="white-header">Tutorials</h2>
+                <p>Get in-depth tutorials for beginners and advanced developers</p>
+                <a class="with-right-arrow" href="../../../../tutorials">View Tutorials</a>
+            </div>
+
+            <!--TODO: fix!!-->
+            <div class="col-md-4 text-center">
+                <h2 class="white-header">Resources</h2>
+                <p>Find development resources and get your questions answered</p>
+                <a class="with-right-arrow" href="https://pytorch.org/resources">View Resources</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="site-footer">
+    <div class="container footer-container">
+        <!--TODO: fix!!-->
+        <div class="footer-logo-wrapper">
+            <a href="../../../../intro_dff" class="footer-logo"></a>
+        </div>
+
+        <div class="footer-links-wrapper">
+            <div class="footer-links-col">
+                <ul>
+                    <!--TODO: fix!!-->
+                    <li class="list-title">
+                        <a href="../../../../intro_dff">DialogFlow Framework</a>
+                    </li>
+
+                    <li>
+                        <a href="../../../../get_started">Get Started</a>
+                    </li>
+
+                    <!--TODO: fix!!-->
+                    <li>
+                        <a href="https://pytorch.org/features">Features</a>
+                    </li>
+
+                    <li>
+                        <a href="../../../../ecosystem">Ecosystem</a>
+                    </li>
+
+                    <li>
+                        <a href="https://github.com/deeppavlov/dialog_flow_framework/blob/master/CONTRIBUTING.md">Contributing</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-links-col">
+                <ul>
+                    <!--TODO: fix!!-->
+                    <li class="list-title">
+                        <a href="https://pytorch.org/resources">Resources</a>
+                    </li>
+
+                    <li>
+                        <a href="../../../../tutorials">Tutorials</a>
+                    </li>
+
+                    <li>
+                        <a href="../../../../documentation">Docs</a>
+                    </li>
+
+                    <li>
+                        <a href="https://t.me/DeepPavlovDreamDiscussions" target="_blank">Discuss</a>
+                    </li>
+
+                    <li>
+                        <a href="https://github.com/deeppavlov/dialog_flow_framework/issues" target="_blank">Github Issues</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-links-col follow-us-col">
+                <ul>
+                    <li class="list-title">Stay Connected</li>
+                </ul>
+
+                <div class="footer-social-icons">
+                    <a href="https://www.facebook.com/deepmipt" target="_blank" class="facebook"></a>
+                    <a href="https://twitter.com/deeppavlov" target="_blank" class="twitter"></a>
+                    <a href="https://www.youtube.com/c/deeppavlov" target="_blank" class="youtube"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div class="cookie-banner-wrapper">
+    <div class="container">
+        <p class="gdpr-notice">To analyze traffic and optimize your experience, we serve cookies on this site. By clicking or navigating, you agree to allow our usage of cookies. As the current maintainers of this site, Facebook’s Cookies Policy applies. Learn more, including about available controls: <a href="https://www.facebook.com/policies/cookies/">Cookies Policy</a>.</p>
+        <span class="close-button"></span>
+    </div>
+</div>
+
+        <div class="mobile-main-menu">
+    <div class="container-fluid">
+        <div class="container header-holder-mobile">
+            <div class="mobile-main-menu-header-container">
+                <a class="header-logo" href="../../../intro_dff/index.html" aria-label="PyTorch"></a>
+                <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-main-menu-links-container">
+        <div class="main-menu">
+            <ul>
+                <li class="resources-mobile-menu-title">
+                    Intro
+                </li>
+
+                <ul class="resources-mobile-menu-items">
+                    <li>
+                        <a href="#">
+                            <span class="dropdown-title">Dialog Flow Framework</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span class="dropdown-title">Addons</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span class="dropdown-title">Designer</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <li>
+                    <a href="#">Get Started</a>
+                </li>
+
+                <li>
+                    <a href="#">Tutorials</a>
+                </li>
+
+                <li class="active">
+                    <a href="./">Documentation</a>
+                </li>
+
+                <li>
+                    <a href="#">Ecosystem</a>
+                </li>
+
+                <li class="resources-mobile-menu-title">
+                    About
+                </li>
+
+                <ul class="resources-mobile-menu-items">
+                    <li>
+                        <a href="#">
+                            <span class="dropdown-title">About Us</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://forum.deeppavlov.ai/c/dff-is-a-dialog-flow-framework-it-is-an-open-source-framework-built-to-enable-scenario-driven-skills-chatbots-development/51">
+                            <span class="dropdown-title">Forums</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://t.me/DeepPavlovDreamDiscussions">
+                            <span class="dropdown-title">Telegram</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://github.com/deeppavlov/dialog_flow_framework">
+                            <span class="dropdown-title">GitHub</span>
+                        </a>
+                    </li>
+                </ul>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+
+
+
+    
+        <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+            <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+            <script src="../../../_static/doctools.js"></script>
+            <script src="../../../_static/sphinx_highlight.js"></script>
+            <script src="../../../_static/clipboard.min.js"></script>
+            <script src="../../../_static/copybutton.js"></script>
+            <script src="../../../_static/katex.min.js"></script>
+            <script src="../../../_static/auto-render.min.js"></script>
+            <script src="../../../_static/katex_autorenderer.js"></script>
+            <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+
+    
+
+
+
+<script type="text/javascript" src="../../../_static/scripts/theme.min.js" enable="true"></script>
+    </body>
+</html>

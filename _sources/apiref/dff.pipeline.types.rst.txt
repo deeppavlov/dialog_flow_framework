@@ -1,0 +1,4 @@
+.. automodule:: dff.pipeline.types
+   :members:
+   :undoc-members:
+   :show-inheritance:

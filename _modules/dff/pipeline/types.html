@@ -1,0 +1,730 @@
+
+
+
+    
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+    <head>
+       <meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>dff.pipeline.types &mdash; Dialog Flow Framework 0.1.0rc0 documentation</title>
+
+
+<!-- FAVICON -->
+
+
+<!-- CANONICAL URL -->
+
+
+<!-- BASE URL -->
+
+
+<!-- CSS -->
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css">
+
+<link rel="stylesheet" href="../../../_static/styles/theme.css" type="text/css" />
+        <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="../../../_static/styles/theme.css" type="text/css" />
+        <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+        <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" type="text/css" />
+        <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+
+<!-- OPENSEARCH -->
+
+        <link rel="index" title="Index" href="../../../genindex.html" />
+        <link rel="search" title="Search" href="../../../search.html" />
+    <!-- Google Analytics TODO: disable if not needed -->
+    
+    <!-- End Google Analytics -->
+
+
+<!-- Keep modernizr in head - http://modernizr.com/docs/#installing -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"></script>
+    </head>
+
+    <div class="container-fluid header-holder" id="header-holder">
+    <div class="header-logo-container">
+        <a class="header-logo" href="../../../intro_dff/index.html" aria-label="PyTorch"></a>
+    </div>
+
+    <div class="container">
+        <div class="header-container">
+            <div class="main-menu">
+                <ul>
+                    <li>
+                        <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+                            <a class="resource-option with-down-orange-arrow">Intro</a>
+                            <div class="resources-dropdown-menu">
+                                <a class="doc-dropdown-option nav-dropdown-item" href="#">
+                                    <span class="dropdown-title">Dialog Flow Framework</span>
+                                </a>
+                                <a class="doc-dropdown-option nav-dropdown-item" href="#">
+                                    <span class="dropdown-title">Addons</span>
+                                </a>
+                                <a class="doc-dropdown-option nav-dropdown-item" href="#">
+                                    <span class="dropdown-title">Designer</span>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a href="#">Get Started</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Tutorials</a>
+                    </li>
+
+                    <li class="active">
+                        <a href="./">Documentation</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Ecosystem</a>
+                    </li>
+
+                    <li>
+                        <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+                            <a class="resource-option with-down-orange-arrow">About</a>
+                            <div class="resources-dropdown-menu">
+                                <a class="doc-dropdown-option nav-dropdown-item" href="#">
+                                    <span class="dropdown-title">About Us</span>
+                                </a>
+                                <a class="doc-dropdown-option nav-dropdown-item" href="https://forum.deeppavlov.ai/c/dff-is-a-dialog-flow-framework-it-is-an-open-source-framework-built-to-enable-scenario-driven-skills-chatbots-development/51">
+                                    <span class="dropdown-title">Forums</span>
+                                </a>
+                                <a class="doc-dropdown-option nav-dropdown-item" href="https://t.me/DeepPavlovDreamDiscussions">
+                                    <span class="dropdown-title">Telegram</span>
+                                </a>
+                                <a class="doc-dropdown-option nav-dropdown-item" href="https://github.com/deeppavlov/dialog_flow_framework">
+                                    <span class="dropdown-title">GitHub</span>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
+        </div>
+    </div>
+</div>
+
+    <body class="pytorch-body">
+
+         
+
+        
+            <!-- SIDE NAV, TOGGLES ON MOBILE -->
+
+<div class="table-of-contents-link-wrapper">
+    <span>Table of Contents</span>
+    <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+</div>
+
+<nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
+    <div class="pytorch-side-scroll">
+        <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+            <div class="pytorch-left-menu-search">
+                
+                    
+    <div role="search">
+        <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+            <input type="text" name="q" placeholder="Search" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                
+            </div>
+
+            
+                <!-- The singlehtml builder doesn't handle this toctree call when the toctree is empty. Skip building this for now. -->
+                
+                    
+                
+                
+                    <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class='nested-toc-container'>
+<li class="toctree-l1"><a class="reference internal" href="../../../apiref/index_Context%20Storages.html">Context Storages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../apiref/index_Messenger%20Interfaces.html">Messenger Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../apiref/index_Pipeline.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../apiref/index_Script.html">Script</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul class='nested-toc-container'>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/context_storages/index.html">Context Storages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/script/index.html">Script</a></li>
+</ul>
+
+                
+            
+        </div>
+    </div>
+</nav>
+        
+
+        <div class="pytorch-container">
+            <div class="pytorch-page-level-bar" id="pytorch-page-level-bar">
+                <div class="pytorch-breadcrumbs-wrapper">
+                    
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+    <ul class="pytorch-breadcrumbs">
+        
+            
+                <li><a href="../../index.html">Module code</a> &gt;</li>
+            
+            <li>dff.pipeline.types</li>
+        
+    </ul>
+
+    
+
+    
+        <div class="pytorch-breadcrumbs-aside">
+            
+        </div>
+    
+</div>
+                </div>
+
+                <div class="pytorch-shortcuts-wrapper" id="pytorch-shortcuts-wrapper">
+                    Navigation
+                </div>
+            </div>
+
+            <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
+                <div class="pytorch-content-left">
+                    
+                        
+                            <div class="rst-content">
+                        
+                                <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+                                        <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
+                                            
+  <h1>Source code for dff.pipeline.types</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Types</span>
+<span class="sd">-----</span>
+<span class="sd">This module contains several classes and special types (see below).</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span>
+<span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">unique</span><span class="p">,</span> <span class="n">Enum</span><span class="p">,</span> <span class="n">auto</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Awaitable</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">NewType</span><span class="p">,</span> <span class="n">Iterable</span>
+
+<span class="kn">from</span> <span class="nn">dff.context_storages</span> <span class="kn">import</span> <span class="n">DBAbstractContextStorage</span>
+<span class="kn">from</span> <span class="nn">dff.script</span> <span class="kn">import</span> <span class="n">Context</span><span class="p">,</span> <span class="n">Actor</span>
+<span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">NotRequired</span><span class="p">,</span> <span class="n">TypedDict</span><span class="p">,</span> <span class="n">TypeAlias</span>
+
+
+<span class="n">_ForwardPipelineComponent</span> <span class="o">=</span> <span class="n">NewType</span><span class="p">(</span><span class="s2">&quot;PipelineComponent&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">_ForwardService</span> <span class="o">=</span> <span class="n">NewType</span><span class="p">(</span><span class="s2">&quot;Service&quot;</span><span class="p">,</span> <span class="n">_ForwardPipelineComponent</span><span class="p">)</span>
+<span class="n">_ForwardServiceGroup</span> <span class="o">=</span> <span class="n">NewType</span><span class="p">(</span><span class="s2">&quot;ServiceGroup&quot;</span><span class="p">,</span> <span class="n">_ForwardPipelineComponent</span><span class="p">)</span>
+<span class="n">_ForwardComponentExtraHandler</span> <span class="o">=</span> <span class="n">NewType</span><span class="p">(</span><span class="s2">&quot;_ComponentExtraHandler&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">_ForwardProvider</span> <span class="o">=</span> <span class="n">NewType</span><span class="p">(</span><span class="s2">&quot;ABCProvider&quot;</span><span class="p">,</span> <span class="n">ABC</span><span class="p">)</span>
+<span class="n">_ForwardExtraHandlerFunction</span> <span class="o">=</span> <span class="n">NewType</span><span class="p">(</span><span class="s2">&quot;ExtraHandlerFunction&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="ComponentExecutionState"><a class="viewcode-back" href="../../../apiref/dff.pipeline.types.html#dff.pipeline.types.ComponentExecutionState">[docs]</a><span class="nd">@unique</span>
+<span class="k">class</span> <span class="nc">ComponentExecutionState</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Enum, representing pipeline component execution state.</span>
+<span class="sd">    These states are stored in `ctx.framework_keys[PIPELINE_STATE_KEY]`,</span>
+<span class="sd">    that should always be requested with `NOT_RUN` being default fallback.</span>
+<span class="sd">    Following states are supported:</span>
+
+<span class="sd">    - NOT_RUN: component has not been executed yet (the default one),</span>
+<span class="sd">    - RUNNING: component is currently being executed,</span>
+<span class="sd">    - FINISHED: component executed successfully,</span>
+<span class="sd">    - FAILED: component execution failed.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">NOT_RUN</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+    <span class="n">RUNNING</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+    <span class="n">FINISHED</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+    <span class="n">FAILED</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="GlobalExtraHandlerType"><a class="viewcode-back" href="../../../apiref/dff.pipeline.types.html#dff.pipeline.types.GlobalExtraHandlerType">[docs]</a><span class="nd">@unique</span>
+<span class="k">class</span> <span class="nc">GlobalExtraHandlerType</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Enum, representing types of global wrappers, that can be set applied for a pipeline.</span>
+<span class="sd">    The following types are supported:</span>
+
+<span class="sd">    - BEFORE_ALL: function called before each pipeline call,</span>
+<span class="sd">    - BEFORE: function called before each component,</span>
+<span class="sd">    - AFTER: function called after each component,</span>
+<span class="sd">    - AFTER_ALL: function called after each pipeline call.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">BEFORE_ALL</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+    <span class="n">BEFORE</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+    <span class="n">AFTER</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+    <span class="n">AFTER_ALL</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="ExtraHandlerType"><a class="viewcode-back" href="../../../apiref/dff.pipeline.types.html#dff.pipeline.types.ExtraHandlerType">[docs]</a><span class="nd">@unique</span>
+<span class="k">class</span> <span class="nc">ExtraHandlerType</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Enum, representing wrapper type, pre- or postprocessing.</span>
+<span class="sd">    The following types are supported:</span>
+
+<span class="sd">    - PREPROCESSING: wrapper function called before component,</span>
+<span class="sd">    - POSTPROCESSING: wrapper function called after component.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">UNDEFINED</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+    <span class="n">BEFORE</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+    <span class="n">AFTER</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span></div>
+
+
+<span class="n">PIPELINE_STATE_KEY</span> <span class="o">=</span> <span class="s2">&quot;PIPELINE&quot;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">PIPELINE: storage for services and groups execution status.</span>
+<span class="sd">Should be used in `ctx.framework_keys[PIPELINE_STATE_KEY]`.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="n">StartConditionCheckerFunction</span><span class="p">:</span> <span class="n">TypeAlias</span> <span class="o">=</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Context</span><span class="p">,</span> <span class="n">Actor</span><span class="p">],</span> <span class="nb">bool</span><span class="p">]</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A function type for components `start_conditions`.</span>
+<span class="sd">Accepts context and actor (current pipeline state), returns boolean (whether service can be launched).</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="n">StartConditionCheckerAggregationFunction</span><span class="p">:</span> <span class="n">TypeAlias</span> <span class="o">=</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Iterable</span><span class="p">[</span><span class="nb">bool</span><span class="p">]],</span> <span class="nb">bool</span><span class="p">]</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A function type for creating aggregation `start_conditions` for components.</span>
+<span class="sd">Accepts list of functions (other start_conditions to aggregate), returns boolean (whether service can be launched).</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="n">ExtraHandlerConditionFunction</span><span class="p">:</span> <span class="n">TypeAlias</span> <span class="o">=</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">bool</span><span class="p">]</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A function type used during global wrappers initialization to determine</span>
+<span class="sd">whether wrapper should be applied to component with given path or not.</span>
+<span class="sd">Checks components path to be in whitelist (if defined) and not to be in blacklist (if defined).</span>
+<span class="sd">Accepts str (component path), returns boolean (whether wrapper should be applied).</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="n">ServiceRuntimeInfo</span><span class="p">:</span> <span class="n">TypeAlias</span> <span class="o">=</span> <span class="n">TypedDict</span><span class="p">(</span>
+    <span class="s2">&quot;ServiceRuntimeInfo&quot;</span><span class="p">,</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="s2">&quot;timeout&quot;</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span>
+        <span class="s2">&quot;asynchronous&quot;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+        <span class="s2">&quot;execution_state&quot;</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ComponentExecutionState</span><span class="p">],</span>
+    <span class="p">},</span>
+<span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Type of dictionary, that is passed to components in runtime.</span>
+<span class="sd">Contains current component info (`name`, `path`, `timeout`, `asynchronous`).</span>
+<span class="sd">Also contains `execution_state` - a dictionary,</span>
+<span class="sd">containing other pipeline components execution stats mapped to their paths.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="n">ExtraHandlerRuntimeInfo</span><span class="p">:</span> <span class="n">TypeAlias</span> <span class="o">=</span> <span class="n">TypedDict</span><span class="p">(</span>
+    <span class="s2">&quot;ExtraHandlerRuntimeInfo&quot;</span><span class="p">,</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="n">_ForwardExtraHandlerFunction</span><span class="p">,</span>
+        <span class="s2">&quot;stage&quot;</span><span class="p">:</span> <span class="n">ExtraHandlerType</span><span class="p">,</span>
+        <span class="s2">&quot;component&quot;</span><span class="p">:</span> <span class="n">ServiceRuntimeInfo</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Type of dictionary, that is passed to wrappers in runtime.</span>
+<span class="sd">Contains current wrapper info (`name`, `stage`).</span>
+<span class="sd">Also contains `component` - runtime info dictionary of the component this wrapper is attached to.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="n">ExtraHandlerFunction</span><span class="p">:</span> <span class="n">TypeAlias</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span>
+    <span class="n">Callable</span><span class="p">[[</span><span class="n">Context</span><span class="p">],</span> <span class="kc">None</span><span class="p">],</span>
+    <span class="n">Callable</span><span class="p">[[</span><span class="n">Context</span><span class="p">,</span> <span class="n">Actor</span><span class="p">],</span> <span class="kc">None</span><span class="p">],</span>
+    <span class="n">Callable</span><span class="p">[[</span><span class="n">Context</span><span class="p">,</span> <span class="n">Actor</span><span class="p">,</span> <span class="n">ExtraHandlerRuntimeInfo</span><span class="p">],</span> <span class="kc">None</span><span class="p">],</span>
+<span class="p">]</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A function type for creating wrappers (before and after functions).</span>
+<span class="sd">Can accept current dialog context, actor, attached to the pipeline, and current wrapper info dictionary.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="n">ServiceFunction</span><span class="p">:</span> <span class="n">TypeAlias</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span>
+    <span class="n">Callable</span><span class="p">[[</span><span class="n">Context</span><span class="p">],</span> <span class="kc">None</span><span class="p">],</span>
+    <span class="n">Callable</span><span class="p">[[</span><span class="n">Context</span><span class="p">],</span> <span class="n">Awaitable</span><span class="p">[</span><span class="kc">None</span><span class="p">]],</span>
+    <span class="n">Callable</span><span class="p">[[</span><span class="n">Context</span><span class="p">,</span> <span class="n">Actor</span><span class="p">],</span> <span class="kc">None</span><span class="p">],</span>
+    <span class="n">Callable</span><span class="p">[[</span><span class="n">Context</span><span class="p">,</span> <span class="n">Actor</span><span class="p">],</span> <span class="n">Awaitable</span><span class="p">[</span><span class="kc">None</span><span class="p">]],</span>
+    <span class="n">Callable</span><span class="p">[[</span><span class="n">Context</span><span class="p">,</span> <span class="n">Actor</span><span class="p">,</span> <span class="n">ServiceRuntimeInfo</span><span class="p">],</span> <span class="kc">None</span><span class="p">],</span>
+    <span class="n">Callable</span><span class="p">[[</span><span class="n">Context</span><span class="p">,</span> <span class="n">Actor</span><span class="p">,</span> <span class="n">ServiceRuntimeInfo</span><span class="p">],</span> <span class="n">Awaitable</span><span class="p">[</span><span class="kc">None</span><span class="p">]],</span>
+<span class="p">]</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A function type for creating service handlers.</span>
+<span class="sd">Can accept current dialog context, actor, attached to the pipeline, and current service info dictionary.</span>
+<span class="sd">Can be both synchronous and asynchronous.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="n">ExtraHandlerBuilder</span><span class="p">:</span> <span class="n">TypeAlias</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span>
+    <span class="n">_ForwardComponentExtraHandler</span><span class="p">,</span>
+    <span class="n">TypedDict</span><span class="p">(</span>
+        <span class="s2">&quot;WrapperDict&quot;</span><span class="p">,</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;timeout&quot;</span><span class="p">:</span> <span class="n">NotRequired</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]],</span>
+            <span class="s2">&quot;asynchronous&quot;</span><span class="p">:</span> <span class="n">NotRequired</span><span class="p">[</span><span class="nb">bool</span><span class="p">],</span>
+            <span class="s2">&quot;functions&quot;</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">ExtraHandlerFunction</span><span class="p">],</span>
+        <span class="p">},</span>
+    <span class="p">),</span>
+    <span class="n">List</span><span class="p">[</span><span class="n">ExtraHandlerFunction</span><span class="p">],</span>
+<span class="p">]</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A type, representing anything that can be transformed to ExtraHandlers.</span>
+<span class="sd">It can be:</span>
+
+<span class="sd">- _ForwardComponentExtraHandler object</span>
+<span class="sd">- Dictionary, containing keys `timeout`, `asynchronous`, `functions`</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="n">ServiceBuilder</span><span class="p">:</span> <span class="n">TypeAlias</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span>
+    <span class="n">ServiceFunction</span><span class="p">,</span>
+    <span class="n">_ForwardService</span><span class="p">,</span>
+    <span class="n">Actor</span><span class="p">,</span>
+    <span class="n">TypedDict</span><span class="p">(</span>
+        <span class="s2">&quot;ServiceDict&quot;</span><span class="p">,</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;handler&quot;</span><span class="p">:</span> <span class="s2">&quot;ServiceBuilder&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;before_handler&quot;</span><span class="p">:</span> <span class="n">NotRequired</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="n">ExtraHandlerBuilder</span><span class="p">]],</span>
+            <span class="s2">&quot;after_handler&quot;</span><span class="p">:</span> <span class="n">NotRequired</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="n">ExtraHandlerBuilder</span><span class="p">]],</span>
+            <span class="s2">&quot;timeout&quot;</span><span class="p">:</span> <span class="n">NotRequired</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]],</span>
+            <span class="s2">&quot;asynchronous&quot;</span><span class="p">:</span> <span class="n">NotRequired</span><span class="p">[</span><span class="nb">bool</span><span class="p">],</span>
+            <span class="s2">&quot;start_condition&quot;</span><span class="p">:</span> <span class="n">NotRequired</span><span class="p">[</span><span class="n">StartConditionCheckerFunction</span><span class="p">],</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+        <span class="p">},</span>
+    <span class="p">),</span>
+<span class="p">]</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A type, representing anything that can be transformed to service.</span>
+<span class="sd">It can be:</span>
+
+<span class="sd">- ServiceFunction (will become handler)</span>
+<span class="sd">- Service object (will be spread and recreated)</span>
+<span class="sd">- Actor (will be wrapped in a Service as a handler)</span>
+<span class="sd">- Dictionary, containing keys that are present in Service constructor parameters</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="n">ServiceGroupBuilder</span><span class="p">:</span> <span class="n">TypeAlias</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span>
+    <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">ServiceBuilder</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">ServiceBuilder</span><span class="p">],</span> <span class="n">_ForwardServiceGroup</span><span class="p">]],</span>
+    <span class="n">_ForwardServiceGroup</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A type, representing anything that can be transformed to service group.</span>
+<span class="sd">It can be:</span>
+
+<span class="sd">- List of `ServiceBuilders`, `ServiceGroup` objects and lists (recursive)</span>
+<span class="sd">- `ServiceGroup` object (will be spread and recreated)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="n">PipelineBuilder</span><span class="p">:</span> <span class="n">TypeAlias</span> <span class="o">=</span> <span class="n">TypedDict</span><span class="p">(</span>
+    <span class="s2">&quot;PipelineBuilder&quot;</span><span class="p">,</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;messenger_interface&quot;</span><span class="p">:</span> <span class="n">NotRequired</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="n">_ForwardProvider</span><span class="p">]],</span>
+        <span class="s2">&quot;context_storage&quot;</span><span class="p">:</span> <span class="n">NotRequired</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">DBAbstractContextStorage</span><span class="p">,</span> <span class="n">Dict</span><span class="p">]]],</span>
+        <span class="s2">&quot;components&quot;</span><span class="p">:</span> <span class="n">ServiceGroupBuilder</span><span class="p">,</span>
+        <span class="s2">&quot;before_handler&quot;</span><span class="p">:</span> <span class="n">NotRequired</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="n">ExtraHandlerBuilder</span><span class="p">]],</span>
+        <span class="s2">&quot;after_handler&quot;</span><span class="p">:</span> <span class="n">NotRequired</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="n">ExtraHandlerBuilder</span><span class="p">]],</span>
+        <span class="s2">&quot;optimization_warnings&quot;</span><span class="p">:</span> <span class="n">NotRequired</span><span class="p">[</span><span class="nb">bool</span><span class="p">],</span>
+    <span class="p">},</span>
+<span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A type, representing anything that can be transformed to pipeline.</span>
+<span class="sd">It can be Dictionary, containing keys that are present in Pipeline constructor parameters.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+
+                                        </article>
+                                        
+                                </div>
+                                <footer>
+    
+
+    <hr>
+
+    <div role="contentinfo">
+        <p>
+                    &copy; Copyright 2023, DeepPavlov.
+        </p>
+            
+                <div>
+                    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/deeppavlov/dff_sphinx_theme">theme</a> provided by <a href="https://deeppavlov.ai">DeepPavlov</a>.
+                </div>
+            
+    </div> 
+</footer>
+                            </div>
+                </div>
+
+                <nav class="pytorch-right-menu" id="pytorch-right-menu">
+                    <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
+                        <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="additional navigation">
+                            
+                        </div>
+                    </div>
+                </nav>
+            </section>
+        </div> 
+
+        <div class="container-fluid docs-tutorials-resources" id="docs-tutorials-resources">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <h2 class="white-header">Docs</h2>
+                <p>Access comprehensive developer documentation for DFF</p>
+                <a class="with-right-arrow" href="../../../../documentation">View Docs</a>
+            </div>
+
+            <div class="col-md-4 text-center">
+                <h2 class="white-header">Tutorials</h2>
+                <p>Get in-depth tutorials for beginners and advanced developers</p>
+                <a class="with-right-arrow" href="../../../../tutorials">View Tutorials</a>
+            </div>
+
+            <!--TODO: fix!!-->
+            <div class="col-md-4 text-center">
+                <h2 class="white-header">Resources</h2>
+                <p>Find development resources and get your questions answered</p>
+                <a class="with-right-arrow" href="https://pytorch.org/resources">View Resources</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="site-footer">
+    <div class="container footer-container">
+        <!--TODO: fix!!-->
+        <div class="footer-logo-wrapper">
+            <a href="../../../../intro_dff" class="footer-logo"></a>
+        </div>
+
+        <div class="footer-links-wrapper">
+            <div class="footer-links-col">
+                <ul>
+                    <!--TODO: fix!!-->
+                    <li class="list-title">
+                        <a href="../../../../intro_dff">DialogFlow Framework</a>
+                    </li>
+
+                    <li>
+                        <a href="../../../../get_started">Get Started</a>
+                    </li>
+
+                    <!--TODO: fix!!-->
+                    <li>
+                        <a href="https://pytorch.org/features">Features</a>
+                    </li>
+
+                    <li>
+                        <a href="../../../../ecosystem">Ecosystem</a>
+                    </li>
+
+                    <li>
+                        <a href="https://github.com/deeppavlov/dialog_flow_framework/blob/master/CONTRIBUTING.md">Contributing</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-links-col">
+                <ul>
+                    <!--TODO: fix!!-->
+                    <li class="list-title">
+                        <a href="https://pytorch.org/resources">Resources</a>
+                    </li>
+
+                    <li>
+                        <a href="../../../../tutorials">Tutorials</a>
+                    </li>
+
+                    <li>
+                        <a href="../../../../documentation">Docs</a>
+                    </li>
+
+                    <li>
+                        <a href="https://t.me/DeepPavlovDreamDiscussions" target="_blank">Discuss</a>
+                    </li>
+
+                    <li>
+                        <a href="https://github.com/deeppavlov/dialog_flow_framework/issues" target="_blank">Github Issues</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-links-col follow-us-col">
+                <ul>
+                    <li class="list-title">Stay Connected</li>
+                </ul>
+
+                <div class="footer-social-icons">
+                    <a href="https://www.facebook.com/deepmipt" target="_blank" class="facebook"></a>
+                    <a href="https://twitter.com/deeppavlov" target="_blank" class="twitter"></a>
+                    <a href="https://www.youtube.com/c/deeppavlov" target="_blank" class="youtube"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div class="cookie-banner-wrapper">
+    <div class="container">
+        <p class="gdpr-notice">To analyze traffic and optimize your experience, we serve cookies on this site. By clicking or navigating, you agree to allow our usage of cookies. As the current maintainers of this site, Facebook’s Cookies Policy applies. Learn more, including about available controls: <a href="https://www.facebook.com/policies/cookies/">Cookies Policy</a>.</p>
+        <span class="close-button"></span>
+    </div>
+</div>
+
+        <div class="mobile-main-menu">
+    <div class="container-fluid">
+        <div class="container header-holder-mobile">
+            <div class="mobile-main-menu-header-container">
+                <a class="header-logo" href="../../../intro_dff/index.html" aria-label="PyTorch"></a>
+                <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-main-menu-links-container">
+        <div class="main-menu">
+            <ul>
+                <li class="resources-mobile-menu-title">
+                    Intro
+                </li>
+
+                <ul class="resources-mobile-menu-items">
+                    <li>
+                        <a href="#">
+                            <span class="dropdown-title">Dialog Flow Framework</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span class="dropdown-title">Addons</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span class="dropdown-title">Designer</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <li>
+                    <a href="#">Get Started</a>
+                </li>
+
+                <li>
+                    <a href="#">Tutorials</a>
+                </li>
+
+                <li class="active">
+                    <a href="./">Documentation</a>
+                </li>
+
+                <li>
+                    <a href="#">Ecosystem</a>
+                </li>
+
+                <li class="resources-mobile-menu-title">
+                    About
+                </li>
+
+                <ul class="resources-mobile-menu-items">
+                    <li>
+                        <a href="#">
+                            <span class="dropdown-title">About Us</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://forum.deeppavlov.ai/c/dff-is-a-dialog-flow-framework-it-is-an-open-source-framework-built-to-enable-scenario-driven-skills-chatbots-development/51">
+                            <span class="dropdown-title">Forums</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://t.me/DeepPavlovDreamDiscussions">
+                            <span class="dropdown-title">Telegram</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://github.com/deeppavlov/dialog_flow_framework">
+                            <span class="dropdown-title">GitHub</span>
+                        </a>
+                    </li>
+                </ul>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+
+
+
+    
+        <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+            <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+            <script src="../../../_static/doctools.js"></script>
+            <script src="../../../_static/sphinx_highlight.js"></script>
+            <script src="../../../_static/clipboard.min.js"></script>
+            <script src="../../../_static/copybutton.js"></script>
+            <script src="../../../_static/katex.min.js"></script>
+            <script src="../../../_static/auto-render.min.js"></script>
+            <script src="../../../_static/katex_autorenderer.js"></script>
+            <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+
+    
+
+
+
+<script type="text/javascript" src="../../../_static/scripts/theme.min.js" enable="true"></script>
+    </body>
+</html>

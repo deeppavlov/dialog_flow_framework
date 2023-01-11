@@ -1,0 +1,10 @@
+dff.messengers.telegram package
+===============================
+
+Module contents
+---------------
+
+.. automodule:: dff.messengers.telegram
+   :members:
+   :undoc-members:
+   :show-inheritance:

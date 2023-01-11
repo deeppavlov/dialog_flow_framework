@@ -1,0 +1,4 @@
+.. automodule:: dff.context_storages.pickle
+   :members:
+   :undoc-members:
+   :show-inheritance:

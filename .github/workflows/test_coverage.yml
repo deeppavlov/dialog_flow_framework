@@ -30,13 +30,13 @@ jobs:
         with:
           python-version: "3.10"
 
-      - name: install package
+      - name:  build & install package
         run: |
           python -m pip install build
           python -m build
           find . -name "*.whl" -exec python -m pip install {}[test_full] ';'
 
-      - name: prepare testing environment
+      - name: clean environment
         run: |
           export backup_files=( tests examples .env_file makefile )
           mkdir /tmp/backup
@@ -46,7 +46,17 @@ jobs:
           rm -rf /tmp/backup
           touch venv  # disable venv target
 
+      - name: create session file
+        run: echo "${{ secrets.TG_SESSION }}" | base64 --decode > anon.session
+        shell: bash
+
+      - name: set up mutex
+        uses: ben-z/gh-action-mutex@v1.0-alpha-6
+
       - name: run tests
+        env:
+          TG_API_HASH: ${{ secrets.TG_API_HASH }}
+          TG_API_ID: ${{ secrets.TG_API_ID }}
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
         run: |
           make test
-        shell: bash

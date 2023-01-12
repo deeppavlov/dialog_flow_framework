@@ -78,6 +78,13 @@ ydb_dependencies = [
     "ydb>=2.5.0",
 ]
 
+parser_dependencies = [
+    "cached-property==1.5.2; python_version<'3.8'",
+    "astunparse==1.6.3; python_version<'3.9'",
+    "ruamel.yaml",
+    "networkx",
+]
+
 test_requirements = [
     "pytest >=6.2.4,<7.0.0",
     "pytest-cov >=2.12.0,<3.0.0",
@@ -106,6 +113,7 @@ full = merge_req_lists(
         mysql_dependencies,
         postgresql_dependencies,
         ydb_dependencies,
+        parser_dependencies,
     ]
 )
 
@@ -139,6 +147,7 @@ EXTRA_DEPENDENCIES = {
     "mysql": mysql_dependencies,
     "postgresql": postgresql_dependencies,
     "ydb": ydb_dependencies,
+    "parser": parser_dependencies
 }
 
 setup(

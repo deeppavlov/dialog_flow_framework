@@ -35,5 +35,6 @@ and to locate and remove performance bottlenecks.
 
    user_guides/basic_conceptions
    user_guides/context_guide
+   user_guides/extended_conditions
    user_guides/superset_guide
    user_guides/optimization_guide

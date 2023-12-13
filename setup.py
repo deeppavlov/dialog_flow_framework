@@ -32,6 +32,10 @@ core = [
     "typing-extensions",
 ]
 
+requests_dependencies = [
+    "requests==2.31.0",
+]
+
 async_files_dependencies = [
     "aiofiles",
 ]
@@ -75,6 +79,32 @@ ydb_dependencies = [
     "six",
 ]
 
+sklearn_dependencies = ["scikit-learn>=1.1.3", "joblib==1.2.0"]
+
+extended_conditions_dependencies = merge_req_lists(requests_dependencies, sklearn_dependencies, ["pyyaml==6.0"])
+
+httpx_dependencies = [
+    "httpx==0.23.0",
+]
+
+huggingface_dependencies = merge_req_lists(
+    sklearn_dependencies,
+    [
+        "transformers[torch]<=4.16.2",
+    ],
+)
+
+gensim_dependencies = merge_req_lists(
+    sklearn_dependencies,
+    [
+        "gensim>=4.0.0",
+    ],
+)
+
+dialogflow_dependencies = [
+    "google-cloud-dialogflow==2.15.0",
+]
+
 telegram_dependencies = [
     "pytelegrambotapi",
 ]
@@ -95,8 +125,8 @@ otl_dependencies = [
 
 stats_dependencies = merge_req_lists(
     otl_dependencies,
+    requests_dependencies,
     [
-        "requests",
         "wrapt",
         "tqdm",
         "omegaconf",
@@ -115,11 +145,12 @@ full = merge_req_lists(
     stats_dependencies,
     telegram_dependencies,
     benchmark_dependencies,
+    extended_conditions_dependencies,
+    httpx_dependencies,
+    huggingface_dependencies,
+    gensim_dependencies,
+    dialogflow_dependencies,
 )
-
-requests_requirements = [
-    "requests==2.31.0",
-]
 
 test_requirements = merge_req_lists(
     [
@@ -136,7 +167,7 @@ test_requirements = merge_req_lists(
         "httpx<=0.23.0",
         "sqlparse==0.4.4",
     ],
-    requests_requirements,
+    requests_dependencies,
 )
 
 tutorial_dependencies = [
@@ -172,7 +203,7 @@ doc = merge_req_lists(
         "jupytext==1.15.0",
         "jupyter==1.0.0",
     ],
-    requests_requirements,
+    requests_dependencies,
 )
 
 devel = [
@@ -203,6 +234,12 @@ EXTRA_DEPENDENCIES = {
     "mysql": mysql_dependencies,  # dependencies for using MySQL
     "postgresql": postgresql_dependencies,  # dependencies for using PostgreSQL
     "ydb": ydb_dependencies,  # dependencies for using Yandex Database
+    "ext": extended_conditions_dependencies,  # all extended conditions dependencies
+    "sklearn": sklearn_dependencies,  # dependencies for using Sklearn
+    "async": httpx_dependencies,  # dependencies for using Httpx
+    "huggingface": huggingface_dependencies,  # dependencies for using Huggingface
+    "gensim": gensim_dependencies,  # dependencies for using Gensim
+    "dialogflow": dialogflow_dependencies,  # dependencies for using Dialogflow
     "stats": stats_dependencies,  # dependencies for statistics collection
     "telegram": telegram_dependencies,  # dependencies for using Telegram
     "benchmark": benchmark_dependencies,  # dependencies for benchmarking

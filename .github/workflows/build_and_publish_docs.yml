@@ -35,6 +35,16 @@ jobs:
         with:
           pandoc-version: '3.1.6'
 
+      - name: Create gdf_account.json
+        uses: jsdaniell/create-json@v1.2.1
+        with:
+          name: "gdf_account.json"
+          json: ${{ secrets.GDF_ACCOUNT_JSON }}
+
+      - name: write realpath to env
+        run: |
+            echo "GDF_ACCOUNT_JSON=$(realpath ./gdf_account.json)" >> $GITHUB_ENV
+
       - name: install dependencies
         run: |
             make venv
@@ -45,6 +55,8 @@ jobs:
           TG_API_ID: ${{ secrets.TG_API_ID }}
           TG_API_HASH: ${{ secrets.TG_API_HASH }}
           TG_BOT_USERNAME: ${{ secrets.TG_BOT_USERNAME }}
+          GDF_ACCOUNT_JSON: ${{ env.GDF_ACCOUNT_JSON }}
+          HF_API_KEY: ${{ secrets.HF_API_KEY }}
         run: |
             make doc
 

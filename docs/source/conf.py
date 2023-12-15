@@ -182,6 +182,7 @@ def setup(_):
                     ("responses", "Responses"),
                 ],
             ),
+            ("tutorials.slots", "Slots"),
             ("tutorials.utils", "Utils"),
             ("tutorials.stats", "Stats"),
         ]

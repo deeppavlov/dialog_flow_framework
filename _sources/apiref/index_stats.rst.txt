@@ -1,0 +1,14 @@
+:orphan:
+
+.. This is an auto-generated RST file representing documentation source directory structure
+
+Stats
+=====
+
+.. autosummary::
+   :toctree:
+
+   dff.stats.default_extractors
+   dff.stats.cli
+   dff.stats.instrumentor
+   dff.stats.utils

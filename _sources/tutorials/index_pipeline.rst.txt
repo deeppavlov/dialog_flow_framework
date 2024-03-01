@@ -1,0 +1,19 @@
+:orphan:
+
+.. This is an auto-generated RST index file representing tutorials directory structure
+
+Pipeline
+========
+
+.. nbgallery::
+   tutorials.pipeline.1_basics.py
+   tutorials.pipeline.2_pre_and_post_processors.py
+   tutorials.pipeline.3_pipeline_dict_with_services_basic.py
+   tutorials.pipeline.3_pipeline_dict_with_services_full.py
+   tutorials.pipeline.4_groups_and_conditions_basic.py
+   tutorials.pipeline.4_groups_and_conditions_full.py
+   tutorials.pipeline.5_asynchronous_groups_and_services_basic.py
+   tutorials.pipeline.5_asynchronous_groups_and_services_full.py
+   tutorials.pipeline.6_extra_handlers_basic.py
+   tutorials.pipeline.6_extra_handlers_full.py
+   tutorials.pipeline.7_extra_handlers_and_extensions.py

@@ -1,0 +1,6 @@
+:source_name: dff/stats/instrumentor
+
+.. automodule:: dff.stats.instrumentor
+   :members:
+   :undoc-members:
+   :show-inheritance:

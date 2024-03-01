@@ -1,0 +1,869 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dff.utils.testing.telegram &#8212; dff 0.7.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/katex-math.css?v=91adb8b6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css?v=b77b6cac" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=dc072ff8"></script>
+    <script src="../../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/katex.min.js?v=48ec3933"></script>
+    <script src="../../../../_static/auto-render.min.js?v=8b9f325c"></script>
+    <script src="../../../../_static/katex_autorenderer.js?v=bebc588a"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/dff/utils/testing/telegram';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo-simple.svg" class="logo__image only-light" alt="DFF logo (simple and nice)"/>
+    <script>document.write(`<img src="../../../../_static/logo-simple.svg" class="logo__image only-dark" alt="DFF logo (simple and nice)"/>`);</script>
+  
+  
+    <p class="title logo__title">Dialog Flow Framework</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../get_started.html">
+                        Getting started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../user_guides.html">
+                        User guides
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../tutorials.html">
+                        Tutorials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../examples.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../reference.html">
+                        API reference
+                      </a>
+                    </li>
+                
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../../../../development.html">
+                        Development
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../../../../community.html">
+                        Community
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../../../../about_us.html">
+                        About us
+                      </a>
+                    </li>
+                
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.deeppavlov.ai" title="DeepPavlov Forum" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../../_static/images/logo-deeppavlov.svg" class="icon-link-image" alt="DeepPavlov Forum"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://t.me/DeepPavlovDreamDiscussions" title="Telegram" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-telegram fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Telegram</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/deeppavlov/dialog_flow_framework" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../get_started.html">
+                        Getting started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../user_guides.html">
+                        User guides
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../tutorials.html">
+                        Tutorials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../examples.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../reference.html">
+                        API reference
+                      </a>
+                    </li>
+                
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links-2">
+                    More
+                </button>
+                <ul id="pst-nav-more-links-2" class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../../../../development.html">
+                        Development
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../../../../community.html">
+                        Community
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../../../../about_us.html">
+                        About us
+                      </a>
+                    </li>
+                
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.deeppavlov.ai" title="DeepPavlov Forum" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../../_static/images/logo-deeppavlov.svg" class="icon-link-image" alt="DeepPavlov Forum"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://t.me/DeepPavlovDreamDiscussions" title="Telegram" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-telegram fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Telegram</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/deeppavlov/dialog_flow_framework" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">dff.utils.te...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Source code for dff.utils.testing.telegram</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Telegram testing utils</span>
+<span class="sd">----------------------</span>
+<span class="sd">This module defines functions used to test Telegram interface.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">cast</span><span class="p">,</span> <span class="n">Tuple</span>
+<span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">asynccontextmanager</span><span class="p">,</span> <span class="n">nullcontext</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">from</span> <span class="nn">tempfile</span> <span class="kn">import</span> <span class="n">TemporaryDirectory</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+
+<span class="kn">from</span> <span class="nn">telethon.tl.types</span> <span class="kn">import</span> <span class="n">ReplyKeyboardHide</span>
+<span class="kn">from</span> <span class="nn">telethon</span> <span class="kn">import</span> <span class="n">TelegramClient</span>
+<span class="kn">from</span> <span class="nn">telethon.types</span> <span class="kn">import</span> <span class="n">User</span>
+<span class="kn">from</span> <span class="nn">telethon.custom</span> <span class="kn">import</span> <span class="n">Message</span> <span class="k">as</span> <span class="n">TlMessage</span>
+<span class="kn">from</span> <span class="nn">telebot</span> <span class="kn">import</span> <span class="n">types</span>
+
+<span class="kn">from</span> <span class="nn">dff.pipeline.pipeline.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">dff.script.core.message</span> <span class="kn">import</span> <span class="n">Message</span><span class="p">,</span> <span class="n">Attachments</span><span class="p">,</span> <span class="n">Attachment</span><span class="p">,</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Location</span>
+<span class="kn">from</span> <span class="nn">dff.messengers.telegram.interface</span> <span class="kn">import</span> <span class="n">PollingTelegramInterface</span>
+<span class="kn">from</span> <span class="nn">dff.messengers.telegram.message</span> <span class="kn">import</span> <span class="n">TelegramMessage</span><span class="p">,</span> <span class="n">TelegramUI</span><span class="p">,</span> <span class="n">RemoveKeyboard</span><span class="p">,</span> <span class="n">_ClickButton</span>
+
+
+<div class="viewcode-block" id="replace_click_button"><a class="viewcode-back" href="../../../../apiref/dff.utils.testing.telegram.html#dff.utils.testing.telegram.replace_click_button">[docs]</a><span class="k">def</span> <span class="nf">replace_click_button</span><span class="p">(</span><span class="n">happy_path</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Replace all _ClickButton instances in `happy_path`.</span>
+<span class="sd">    This allows using :py:func:`~dff.utils.testing.common.check_happy_path` instead of</span>
+<span class="sd">    :py:meth:~dff.utils.testing.telegram.TelegramTesting.check_happy_path`.</span>
+
+<span class="sd">    :return: A `happy_path` with all `_ClickButton` replaced with payload values of the buttons.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">happy_path</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">happy_path</span><span class="p">)):</span>
+        <span class="n">user_request</span> <span class="o">=</span> <span class="n">happy_path</span><span class="p">[</span><span class="n">index</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">user_request</span><span class="p">,</span> <span class="n">TelegramMessage</span><span class="p">):</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">user_request</span><span class="o">.</span><span class="n">callback_query</span><span class="p">,</span> <span class="n">_ClickButton</span><span class="p">):</span>
+            <span class="n">callback_query</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">bot_response</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">happy_path</span><span class="p">[:</span><span class="n">index</span><span class="p">]):</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">bot_response</span><span class="p">,</span> <span class="n">TelegramMessage</span><span class="p">)</span> <span class="ow">and</span> <span class="n">bot_response</span><span class="o">.</span><span class="n">ui</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">callback_query</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">callback_query</span> <span class="o">=</span> <span class="n">bot_response</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">buttons</span><span class="p">[</span><span class="n">user_request</span><span class="o">.</span><span class="n">callback_query</span><span class="o">.</span><span class="n">button_index</span><span class="p">]</span><span class="o">.</span><span class="n">payload</span>
+            <span class="k">if</span> <span class="n">callback_query</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Bot response with buttons not found.&quot;</span><span class="p">)</span>
+            <span class="n">result</span><span class="p">[</span><span class="n">index</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">callback_query</span> <span class="o">=</span> <span class="n">callback_query</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="get_bot_user"><a class="viewcode-back" href="../../../../apiref/dff.utils.testing.telegram.html#dff.utils.testing.telegram.get_bot_user">[docs]</a><span class="k">async</span> <span class="k">def</span> <span class="nf">get_bot_user</span><span class="p">(</span><span class="n">client</span><span class="p">:</span> <span class="n">TelegramClient</span><span class="p">,</span> <span class="n">username</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">client</span><span class="p">:</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get_entity</span><span class="p">(</span><span class="n">username</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TelegramTesting"><a class="viewcode-back" href="../../../../apiref/dff.utils.testing.telegram.html#dff.utils.testing.telegram.TelegramTesting">[docs]</a><span class="k">class</span> <span class="nc">TelegramTesting</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Defines functions for testing.</span>
+
+<span class="sd">    :param pipeline:</span>
+<span class="sd">        Pipeline with the telegram messenger interface.</span>
+<span class="sd">        Required for :py:meth:`~dff.utils.testing.telegram.TelegramTesting.send_and_check` and</span>
+<span class="sd">        :py:meth:`~dff.utils.testing.telegram.TelegramTesting.check_happy_path` with `run_bot=True`</span>
+<span class="sd">    :param api_credentials:</span>
+<span class="sd">        Telegram API id and hash.</span>
+<span class="sd">        Obtainable via https://core.telegram.org/api/obtaining_api_id.</span>
+<span class="sd">    :param session_file:</span>
+<span class="sd">        A `telethon` session file.</span>
+<span class="sd">        Obtainable by connecting to :py:class:`telethon.TelegramClient` and entering phone number and code.</span>
+<span class="sd">    :param client:</span>
+<span class="sd">        An alternative to passing `api_credentials` and `session_file`.</span>
+<span class="sd">    :param bot_username:</span>
+<span class="sd">        Either a link to the bot user or its handle. Used to determine whom to talk with as a client.</span>
+<span class="sd">    :param bot:</span>
+<span class="sd">        An alternative to passing `bot_username`.</span>
+<span class="sd">        Result of calling :py:func:`~dff.utils.testing.telegram.get_bot_user` with `bot_username` as parameter.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">pipeline</span><span class="p">:</span> <span class="n">Pipeline</span><span class="p">,</span>
+        <span class="n">api_credentials</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">session_file</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">client</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TelegramClient</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">bot_username</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">bot</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">User</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="k">if</span> <span class="n">client</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">api_credentials</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">session_file</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Pass either `client` or `api_credentials` and `session_file`.&quot;</span><span class="p">)</span>
+            <span class="n">client</span> <span class="o">=</span> <span class="n">TelegramClient</span><span class="p">(</span><span class="n">session_file</span><span class="p">,</span> <span class="o">*</span><span class="n">api_credentials</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">client</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Telegram client (not bot). Needed to verify bot replies.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pipeline</span> <span class="o">=</span> <span class="n">pipeline</span>
+        <span class="k">if</span> <span class="n">bot</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">bot_username</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Pass either `bot_username` or `bot`.&quot;</span><span class="p">)</span>
+            <span class="n">bot</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">get_bot_user</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">,</span> <span class="n">bot_username</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bot</span> <span class="o">=</span> <span class="n">bot</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Bot user (to know whom to send messages to from client).&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="TelegramTesting.send_message"><a class="viewcode-back" href="../../../../apiref/dff.utils.testing.telegram.html#dff.utils.testing.telegram.TelegramTesting.send_message">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">send_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">TelegramMessage</span><span class="p">,</span> <span class="n">last_bot_messages</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">TlMessage</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Send a message from client to bot.</span>
+<span class="sd">        If the message contains `callback_query`, only press the button, ignore other fields.</span>
+
+<span class="sd">        :param message: Message to send.</span>
+<span class="sd">        :param last_bot_messages:</span>
+<span class="sd">            The last bot response. Accepts a list because messages with multiple fields are split in telegram.</span>
+<span class="sd">            Can only contain one keyboard in the list.</span>
+<span class="sd">            Used to determine which button to press when message contains</span>
+<span class="sd">            :py:class:`~dff.messengers.telegram.message._ClickButton`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">callback_query</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">callback_query</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">_ClickButton</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Use `_ClickButton` during tests: </span><span class="si">{</span><span class="n">query</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">bot_message</span> <span class="ow">in</span> <span class="n">last_bot_messages</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">bot_message</span><span class="o">.</span><span class="n">buttons</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">await</span> <span class="n">bot_message</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="n">query</span><span class="o">.</span><span class="n">button_index</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">attachments</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">attachments</span><span class="o">.</span><span class="n">files</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bot</span><span class="p">,</span> <span class="n">message</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">attachments</span><span class="o">.</span><span class="n">files</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">attachment</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">attachments</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">files</span> <span class="o">=</span> <span class="n">attachment</span><span class="o">.</span><span class="n">source</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="n">file</span><span class="o">.</span><span class="n">source</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">message</span><span class="o">.</span><span class="n">attachments</span><span class="o">.</span><span class="n">files</span><span class="p">]</span>
+            <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">send_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bot</span><span class="p">,</span> <span class="n">files</span><span class="p">,</span> <span class="n">caption</span><span class="o">=</span><span class="n">message</span><span class="o">.</span><span class="n">text</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TelegramTesting.parse_responses"><a class="viewcode-back" href="../../../../apiref/dff.utils.testing.telegram.html#dff.utils.testing.telegram.TelegramTesting.parse_responses">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">parse_responses</span><span class="p">(</span><span class="n">responses</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">TlMessage</span><span class="p">],</span> <span class="n">file_download_destination</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Message</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert a list of bot responses into a single message.</span>
+<span class="sd">        This function accepts a list because messages with multiple attachments are split.</span>
+
+<span class="sd">        :param responses: A list of bot responses that are considered to be a single message.</span>
+<span class="sd">        :param file_download_destination: A directory to download sent media to.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">TelegramMessage</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">response</span> <span class="ow">in</span> <span class="n">responses</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span> <span class="ow">and</span> <span class="n">response</span><span class="o">.</span><span class="n">file</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">msg</span><span class="o">.</span><span class="n">text</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Several messages with text:</span><span class="se">\n</span><span class="si">{</span><span class="n">msg</span><span class="o">.</span><span class="n">text</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">msg</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span> <span class="ow">or</span> <span class="n">msg</span><span class="o">.</span><span class="n">text</span>
+            <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">file</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">file_download_destination</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">media</span><span class="o">.</span><span class="n">id</span><span class="p">)</span> <span class="o">+</span> <span class="n">response</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">ext</span><span class="p">)</span>
+                <span class="k">await</span> <span class="n">response</span><span class="o">.</span><span class="n">download_media</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="n">file</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">msg</span><span class="o">.</span><span class="n">attachments</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">msg</span><span class="o">.</span><span class="n">attachments</span> <span class="o">=</span> <span class="n">Attachments</span><span class="p">()</span>
+                <span class="n">msg</span><span class="o">.</span><span class="n">attachments</span><span class="o">.</span><span class="n">files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="n">Attachment</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">file</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">response</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">title</span> <span class="ow">or</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span> <span class="ow">or</span> <span class="kc">None</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">buttons</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">buttons</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">buttons</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">button</span> <span class="ow">in</span> <span class="n">row</span><span class="p">:</span>
+                        <span class="n">buttons</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                            <span class="n">Button</span><span class="p">(</span>
+                                <span class="n">source</span><span class="o">=</span><span class="n">button</span><span class="o">.</span><span class="n">url</span><span class="p">,</span>
+                                <span class="n">text</span><span class="o">=</span><span class="n">button</span><span class="o">.</span><span class="n">text</span><span class="p">,</span>
+                                <span class="n">payload</span><span class="o">=</span><span class="n">button</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+                            <span class="p">)</span>
+                        <span class="p">)</span>
+                <span class="k">if</span> <span class="n">msg</span><span class="o">.</span><span class="n">ui</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Several messages with ui:</span><span class="se">\n</span><span class="si">{</span><span class="n">msg</span><span class="o">.</span><span class="n">ui</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">TelegramUI</span><span class="p">(</span><span class="n">buttons</span><span class="o">=</span><span class="n">buttons</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">msg</span><span class="o">.</span><span class="n">ui</span> <span class="o">=</span> <span class="n">TelegramUI</span><span class="p">(</span><span class="n">buttons</span><span class="o">=</span><span class="n">buttons</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">reply_markup</span><span class="p">,</span> <span class="n">ReplyKeyboardHide</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">msg</span><span class="o">.</span><span class="n">ui</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Several messages with ui:</span><span class="se">\n</span><span class="si">{</span><span class="n">msg</span><span class="o">.</span><span class="n">ui</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">types</span><span class="o">.</span><span class="n">ReplyKeyboardRemove</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">msg</span><span class="o">.</span><span class="n">ui</span> <span class="o">=</span> <span class="n">RemoveKeyboard</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">geo</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">location</span> <span class="o">=</span> <span class="n">Location</span><span class="p">(</span><span class="n">latitude</span><span class="o">=</span><span class="n">response</span><span class="o">.</span><span class="n">geo</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span> <span class="n">longitude</span><span class="o">=</span><span class="n">response</span><span class="o">.</span><span class="n">geo</span><span class="o">.</span><span class="n">long</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">msg</span><span class="o">.</span><span class="n">location</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Several messages with location:</span><span class="se">\n</span><span class="si">{</span><span class="n">msg</span><span class="o">.</span><span class="n">location</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">location</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">msg</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="n">location</span>
+        <span class="k">return</span> <span class="n">msg</span></div>
+
+<div class="viewcode-block" id="TelegramTesting.run_bot_loop"><a class="viewcode-back" href="../../../../apiref/dff.utils.testing.telegram.html#dff.utils.testing.telegram.TelegramTesting.run_bot_loop">[docs]</a>    <span class="nd">@asynccontextmanager</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">run_bot_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;A context manager that returns a function to run one polling loop of a messenger interface.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pipeline</span><span class="o">.</span><span class="n">messenger_interface</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pipeline</span><span class="o">.</span><span class="n">messenger_interface</span><span class="o">.</span><span class="n">long_polling_timeout</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">forget_previous_updates</span><span class="p">()</span>
+
+        <span class="k">yield</span> <span class="k">lambda</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">pipeline</span><span class="o">.</span><span class="n">messenger_interface</span><span class="o">.</span><span class="n">_polling_loop</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pipeline</span><span class="o">.</span><span class="n">_run_pipeline</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">pipeline</span><span class="o">.</span><span class="n">messenger_interface</span><span class="o">.</span><span class="n">forget_processed_updates</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="TelegramTesting.send_and_check"><a class="viewcode-back" href="../../../../apiref/dff.utils.testing.telegram.html#dff.utils.testing.telegram.TelegramTesting.send_and_check">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">send_and_check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">Message</span><span class="p">,</span> <span class="n">file_download_destination</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Send a message from a bot, receive it as client, verify it.</span>
+
+<span class="sd">        :param message: Message to send and check.</span>
+<span class="sd">        :param file_download_destination:</span>
+<span class="sd">            Temporary directory (used to download sent files).</span>
+<span class="sd">            Defaults to :py:class:`tempfile.TemporaryDirectory`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">forget_previous_updates</span><span class="p">()</span>
+
+        <span class="k">async</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">:</span>
+            <span class="n">messenger_interface</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">PollingTelegramInterface</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pipeline</span><span class="o">.</span><span class="n">messenger_interface</span><span class="p">)</span>
+
+            <span class="n">messages</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get_messages</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bot</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">messages</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">last_message_id</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">last_message_id</span> <span class="o">=</span> <span class="n">messages</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">id</span>
+
+            <span class="n">messenger_interface</span><span class="o">.</span><span class="n">messenger</span><span class="o">.</span><span class="n">send_response</span><span class="p">((</span><span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get_me</span><span class="p">(</span><span class="n">input_peer</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span><span class="o">.</span><span class="n">user_id</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
+
+            <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+            <span class="n">bot_messages</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">x</span> <span class="k">async</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">iter_messages</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bot</span><span class="p">,</span> <span class="n">min_id</span><span class="o">=</span><span class="n">last_message_id</span><span class="p">,</span> <span class="n">from_user</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">bot</span><span class="p">)</span>
+            <span class="p">]</span>  <span class="c1"># iter_messages is used instead of get_messages because get_messages requires bot min_id and max_id</span>
+
+            <span class="k">if</span> <span class="n">file_download_destination</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">fd_context</span> <span class="o">=</span> <span class="n">TemporaryDirectory</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">fd_context</span> <span class="o">=</span> <span class="n">nullcontext</span><span class="p">(</span><span class="n">file_download_destination</span><span class="p">)</span>
+
+            <span class="k">with</span> <span class="n">fd_context</span> <span class="k">as</span> <span class="n">file_download_destination</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_responses</span><span class="p">(</span><span class="n">bot_messages</span><span class="p">,</span> <span class="n">file_download_destination</span><span class="p">)</span>
+
+                <span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="n">message</span></div>
+
+<div class="viewcode-block" id="TelegramTesting.forget_previous_updates"><a class="viewcode-back" href="../../../../apiref/dff.utils.testing.telegram.html#dff.utils.testing.telegram.TelegramTesting.forget_previous_updates">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">forget_previous_updates</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">messenger_interface</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">PollingTelegramInterface</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pipeline</span><span class="o">.</span><span class="n">messenger_interface</span><span class="p">)</span>
+        <span class="n">messenger</span> <span class="o">=</span> <span class="n">messenger_interface</span><span class="o">.</span><span class="n">messenger</span>
+        <span class="n">updates</span> <span class="o">=</span> <span class="n">messenger</span><span class="o">.</span><span class="n">get_updates</span><span class="p">(</span><span class="n">offset</span><span class="o">=</span><span class="n">messenger</span><span class="o">.</span><span class="n">last_update_id</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">long_polling_timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">max_update_id</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="o">*</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">update_id</span><span class="p">,</span> <span class="n">updates</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">messenger</span><span class="o">.</span><span class="n">get_updates</span><span class="p">(</span><span class="n">offset</span><span class="o">=</span><span class="n">max_update_id</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">long_polling_timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TelegramTesting.check_happy_path"><a class="viewcode-back" href="../../../../apiref/dff.utils.testing.telegram.html#dff.utils.testing.telegram.TelegramTesting.check_happy_path">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">check_happy_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">happy_path</span><span class="p">,</span> <span class="n">file_download_destination</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">run_bot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Play out a dialogue with the bot. Check that the dialogue is correct.</span>
+
+<span class="sd">        :param happy_path: Expected dialogue</span>
+<span class="sd">        :param file_download_destination: Temporary directory (used to download sent files)</span>
+<span class="sd">        :param run_bot: Whether a bot inside pipeline should be running (disable this to test non-async bots)</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">run_bot</span><span class="p">:</span>
+            <span class="n">bot</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">run_bot_loop</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="k">async</span> <span class="k">def</span> <span class="nf">null</span><span class="p">():</span> <span class="o">...</span>  <span class="c1"># noqa: E704</span>
+
+            <span class="n">bot</span> <span class="o">=</span> <span class="n">nullcontext</span><span class="p">(</span><span class="n">null</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">file_download_destination</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">fd_context</span> <span class="o">=</span> <span class="n">TemporaryDirectory</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">fd_context</span> <span class="o">=</span> <span class="n">nullcontext</span><span class="p">(</span><span class="n">file_download_destination</span><span class="p">)</span>
+
+        <span class="k">async</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">,</span> <span class="n">bot</span> <span class="k">as</span> <span class="n">boot_loop</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">fd_context</span> <span class="k">as</span> <span class="n">file_download_destination</span><span class="p">:</span>
+                <span class="n">bot_messages</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="n">last_message</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="k">for</span> <span class="n">request</span><span class="p">,</span> <span class="n">response</span> <span class="ow">in</span> <span class="n">happy_path</span><span class="p">:</span>
+                    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sending request </span><span class="si">{</span><span class="n">request</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="n">user_message</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">TelegramMessage</span><span class="o">.</span><span class="n">model_validate</span><span class="p">(</span><span class="n">request</span><span class="p">),</span> <span class="n">bot_messages</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">user_message</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">last_message</span> <span class="o">=</span> <span class="n">user_message</span>
+                    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Request sent&quot;</span><span class="p">)</span>
+                    <span class="k">await</span> <span class="n">boot_loop</span><span class="p">()</span>
+                    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+                    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Extracting responses&quot;</span><span class="p">)</span>
+                    <span class="n">bot_messages</span> <span class="o">=</span> <span class="p">[</span>
+                        <span class="n">x</span> <span class="k">async</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">iter_messages</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bot</span><span class="p">,</span> <span class="n">min_id</span><span class="o">=</span><span class="n">last_message</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">from_user</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">bot</span><span class="p">)</span>
+                    <span class="p">]</span>
+                    <span class="c1"># iter_messages is used instead of get_messages because get_messages requires bot min_id and max_id</span>
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">bot_messages</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="n">last_message</span> <span class="o">=</span> <span class="n">bot_messages</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Got responses&quot;</span><span class="p">)</span>
+                    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_responses</span><span class="p">(</span><span class="n">bot_messages</span><span class="p">,</span> <span class="n">file_download_destination</span><span class="p">)</span>
+                    <span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="n">TelegramMessage</span><span class="o">.</span><span class="n">model_validate</span><span class="p">(</span><span class="n">response</span><span class="p">)</span></div></div>
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2023, DeepPavlov.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

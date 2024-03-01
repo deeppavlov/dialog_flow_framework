@@ -1,0 +1,1162 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="../_static/images/logo-dff.svg" rel="icon" type="image/svg+xml">
+    <title>Actor &#8212; dff 0.7.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/katex-math.css?v=91adb8b6" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=b77b6cac" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=dc072ff8"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/katex.min.js?v=48ec3933"></script>
+    <script src="../_static/auto-render.min.js?v=8b9f325c"></script>
+    <script src="../_static/katex_autorenderer.js?v=bebc588a"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'apiref/dff.pipeline.pipeline.actor';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Utility Functions" href="dff.pipeline.service.utils.html" />
+    <link rel="prev" title="Service" href="dff.pipeline.service.service.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-simple.svg" class="logo__image only-light" alt="DFF logo (simple and nice)"/>
+    <script>document.write(`<img src="../_static/logo-simple.svg" class="logo__image only-dark" alt="DFF logo (simple and nice)"/>`);</script>
+  
+  
+    <p class="title logo__title">Dialog Flow Framework</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../get_started.html">
+                        Getting started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../user_guides.html">
+                        User guides
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tutorials.html">
+                        Tutorials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../examples.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../reference.html">
+                        API reference
+                      </a>
+                    </li>
+                
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../development.html">
+                        Development
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../community.html">
+                        Community
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../about_us.html">
+                        About us
+                      </a>
+                    </li>
+                
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.deeppavlov.ai" title="DeepPavlov Forum" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/images/logo-deeppavlov.svg" class="icon-link-image" alt="DeepPavlov Forum"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://t.me/DeepPavlovDreamDiscussions" title="Telegram" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-telegram fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Telegram</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/deeppavlov/dialog_flow_framework" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../get_started.html">
+                        Getting started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../user_guides.html">
+                        User guides
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tutorials.html">
+                        Tutorials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../examples.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../reference.html">
+                        API reference
+                      </a>
+                    </li>
+                
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links-2">
+                    More
+                </button>
+                <ul id="pst-nav-more-links-2" class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../development.html">
+                        Development
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../community.html">
+                        Community
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../about_us.html">
+                        About us
+                      </a>
+                    </li>
+                
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.deeppavlov.ai" title="DeepPavlov Forum" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/images/logo-deeppavlov.svg" class="icon-link-image" alt="DeepPavlov Forum"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://t.me/DeepPavlovDreamDiscussions" title="Telegram" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-telegram fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Telegram</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/deeppavlov/dialog_flow_framework" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="index_caching.html">Caching</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="dff.utils.turn_caching.singleton_turn_caching.html">Singleton Turn Caching</a></li>
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="index_context_storages.html">Context Storages</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="dff.context_storages.protocol.html">Protocol</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="dff.context_storages.json.html">JSON</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="dff.context_storages.sql.html">SQL</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="dff.context_storages.redis.html">Redis</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="dff.context_storages.ydb.html">Yandex DB</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="dff.context_storages.pickle.html">Pickle</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="dff.context_storages.database.html">Database</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="dff.context_storages.shelve.html">Shelve</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="dff.context_storages.mongo.html">Mongo</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="index_db_benchmark.html">DB Benchmark</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="dff.utils.db_benchmark.report.html">Report</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="dff.utils.db_benchmark.basic_config.html">Basic Config</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="dff.utils.db_benchmark.benchmark.html">Context storage benchmarking</a></li>
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="index_messenger_interfaces.html">Messenger Interfaces</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="dff.messengers.telegram.message.html">Telegram Message</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="dff.messengers.telegram.interface.html">Interface</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="dff.messengers.telegram.utils.html">Utils</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="dff.messengers.common.interface.html">Message Interfaces</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="dff.messengers.common.types.html">Types</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="dff.messengers.telegram.messenger.html">Messenger</a></li>
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index_pipeline.html">Pipeline</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dff.pipeline.service.group.html">Service Group</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="dff.pipeline.conditions.html">Conditions</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="dff.pipeline.pipeline.utils.html">Utils</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="dff.pipeline.service.extra.html">Extra Handler</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="dff.pipeline.types.html">Types</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="dff.pipeline.pipeline.component.html">Component</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="dff.pipeline.pipeline.pipeline.html">Pipeline</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="dff.pipeline.service.service.html">Service</a></li>
+
+
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Actor</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="dff.pipeline.service.utils.html">Utility Functions</a></li>
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="index_script.html">Script</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="dff.script.core.message.html">Message</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="dff.script.responses.std_responses.html">Responses</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="dff.script.extras.slots.html">dff.script.extras.slots package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dff.script.core.keywords.html">Keywords</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="dff.script.core.script.html">Script</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="dff.script.core.types.html">Types</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="dff.script.labels.std_labels.html">Labels</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="dff.script.conditions.std_conditions.html">Conditions</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="dff.script.core.context.html">Context</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="dff.script.extras.conditions.html">dff.script.extras.conditions package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dff.script.core.normalization.html">Normalization</a></li>
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="index_stats.html">Stats</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="dff.stats.default_extractors.html">Default Extractors</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="dff.stats.cli.html">Command Line Interface</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="dff.stats.instrumentor.html">Instrumentor</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="dff.stats.utils.html">Utils</a></li>
+
+
+
+
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="index_testing_utils.html">Testing Utils</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="dff.utils.testing.cleanup_db.html">Cleanup DB</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="dff.utils.testing.response_comparers.html">Response comparer</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="dff.utils.testing.common.html">Common</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="dff.utils.testing.toy_script.html">Toy script</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="dff.utils.testing.telegram.html">Telegram testing utils</a></li>
+
+
+
+</ul>
+</li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../reference.html" class="nav-link">API reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index_pipeline.html" class="nav-link">Pipeline</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Actor</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <span class="target" id="module-dff.pipeline.pipeline.actor"></span><section id="actor">
+<h1>Actor<a class="headerlink" href="#actor" title="Permalink to this heading">#</a></h1>
+<p>Actor is a component of <a class="reference internal" href="dff.pipeline.pipeline.pipeline.html#dff.pipeline.pipeline.pipeline.Pipeline" title="dff.pipeline.pipeline.pipeline.Pipeline"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pipeline</span></code></a>, that contains the <a class="reference internal" href="dff.script.core.script.html#dff.script.core.script.Script" title="dff.script.core.script.Script"><code class="xref py py-class docutils literal notranslate"><span class="pre">Script</span></code></a> and handles it.
+It is responsible for processing user input and determining the appropriate response based
+on the current state of the conversation and the script.
+The actor receives requests in the form of a <a class="reference internal" href="dff.script.core.context.html#dff.script.core.context.Context" title="dff.script.core.context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a> class, which contains
+information about the user’s input, the current state of the conversation, and other relevant data.</p>
+<p>The actor uses the dialog graph, represented by the <a class="reference internal" href="dff.script.core.script.html#dff.script.core.script.Script" title="dff.script.core.script.Script"><code class="xref py py-class docutils literal notranslate"><span class="pre">Script</span></code></a> class,
+to determine the appropriate response. The script contains the structure of the conversation,
+including the different <cite>nodes</cite> and <cite>transitions</cite>.
+It defines the possible paths that the conversation can take, and the conditions that must be met
+for a transition to occur. The actor uses this information to navigate the graph
+and determine the next step in the conversation.</p>
+<p>Overall, the actor acts as a bridge between the user’s input and the dialog graph,
+making sure that the conversation follows the expected flow and providing a personalized experience to the user.</p>
+<p>Below you can see a diagram of user request processing with Actor.
+Both <cite>request</cite> and <cite>response</cite> are saved to <a class="reference internal" href="dff.script.core.context.html#dff.script.core.context.Context" title="dff.script.core.context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>.</p>
+<figure class="align-default">
+<img alt="../_images/user_actor.png" src="../_images/user_actor.png" />
+</figure>
+</section>
+<dl class="py function">
+<dt class="sig sig-object py" id="dff.pipeline.pipeline.actor.error_handler">
+<span class="sig-name descname"><span class="pre">error_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error_msgs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exception</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logging_flag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dff/pipeline/pipeline/actor.html#error_handler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dff.pipeline.pipeline.actor.error_handler" title="Permalink to this definition">#</a></dt>
+<dd><p>This function handles errors during <code class="xref py py-class docutils literal notranslate"><span class="pre">Script</span></code> validation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>error_msgs</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – List that contains error messages. <code class="xref py py-func docutils literal notranslate"><span class="pre">error_handler()</span></code>
+adds every next error message to that list.</p></li>
+<li><p><strong>msg</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Error message which is to be added into <cite>error_msgs</cite>.</p></li>
+<li><p><strong>exception</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code>]</span>) – Invoked exception. If it has been set, it is used to obtain logging traceback.
+Defaults to <cite>None</cite>.</p></li>
+<li><p><strong>logging_flag</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – The flag which defines whether logging is necessary. Defaults to <cite>True</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dff.pipeline.pipeline.actor.Actor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Actor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">script</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fallback_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_priority</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition_handler</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handlers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dff/pipeline/pipeline/actor.html#Actor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dff.pipeline.pipeline.actor.Actor" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The class which is used to process <code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code>
+according to the <code class="xref py py-class docutils literal notranslate"><span class="pre">Script</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>script</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<a class="reference internal" href="dff.script.core.script.html#dff.script.core.script.Script" title="dff.script.core.script.Script"><code class="xref py py-class docutils literal notranslate"><span class="pre">Script</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>]</span>) – The dialog scenario: a graph described by the <a class="reference internal" href="dff.script.core.keywords.html#dff.script.core.keywords.Keywords" title="dff.script.core.keywords.Keywords"><code class="xref py py-class docutils literal notranslate"><span class="pre">Keywords</span></code></a>.
+While the graph is being initialized, it is validated and then used for the dialog.</p></li>
+<li><p><strong>start_label</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The start node of <code class="xref py py-class docutils literal notranslate"><span class="pre">Script</span></code>. The execution begins with it.</p></li>
+<li><p><strong>fallback_label</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]</span>) – The label of <code class="xref py py-class docutils literal notranslate"><span class="pre">Script</span></code>.
+Dialog comes into that label if all other transitions failed,
+or there was an error while executing the scenario.
+Defaults to <cite>None</cite>.</p></li>
+<li><p><strong>label_priority</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – Default priority value for all <code class="xref py py-const docutils literal notranslate"><span class="pre">labels</span></code>
+where there is no priority. Defaults to <cite>1.0</cite>.</p></li>
+<li><p><strong>condition_handler</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>]</span>) – Handler that processes a call of condition functions. Defaults to <cite>None</cite>.</p></li>
+<li><p><strong>handlers</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<a class="reference internal" href="dff.script.core.types.html#dff.script.core.types.ActorStage" title="dff.script.core.types.ActorStage"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActorStage</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>]]]</span>) – <p>This variable is responsible for the usage of external handlers on
+the certain stages of work of <code class="xref py py-class docutils literal notranslate"><span class="pre">Actor</span></code>.</p>
+<ul>
+<li><p>key (<code class="xref py py-class docutils literal notranslate"><span class="pre">ActorStage</span></code>) - Stage in which the handler is called.</p></li>
+<li><p>value (List[Callable]) - The list of called handlers for each stage.  Defaults to an empty <cite>dict</cite>.</p></li>
+</ul>
+</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="dff.pipeline.pipeline.actor.Actor._context_init">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_context_init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dff/pipeline/pipeline/actor.html#Actor._context_init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dff.pipeline.pipeline.actor.Actor._context_init" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dff.pipeline.pipeline.actor.Actor._get_previous_node">
+<span class="sig-name descname"><span class="pre">_get_previous_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dff/pipeline/pipeline/actor.html#Actor._get_previous_node"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dff.pipeline.pipeline.actor.Actor._get_previous_node" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dff.pipeline.pipeline.actor.Actor._get_true_labels">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_get_true_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipeline</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dff/pipeline/pipeline/actor.html#Actor._get_true_labels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dff.pipeline.pipeline.actor.Actor._get_true_labels" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dff.pipeline.pipeline.actor.Actor._get_next_node">
+<span class="sig-name descname"><span class="pre">_get_next_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dff/pipeline/pipeline/actor.html#Actor._get_next_node"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dff.pipeline.pipeline.actor.Actor._get_next_node" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dff.pipeline.pipeline.actor.Actor._rewrite_previous_node">
+<span class="sig-name descname"><span class="pre">_rewrite_previous_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dff/pipeline/pipeline/actor.html#Actor._rewrite_previous_node"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dff.pipeline.pipeline.actor.Actor._rewrite_previous_node" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dff.pipeline.pipeline.actor.Actor._rewrite_next_node">
+<span class="sig-name descname"><span class="pre">_rewrite_next_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dff/pipeline/pipeline/actor.html#Actor._rewrite_next_node"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dff.pipeline.pipeline.actor.Actor._rewrite_next_node" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dff.pipeline.pipeline.actor.Actor._overwrite_node">
+<span class="sig-name descname"><span class="pre">_overwrite_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current_node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flow_label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_current_node_transitions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dff/pipeline/pipeline/actor.html#Actor._overwrite_node"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dff.pipeline.pipeline.actor.Actor._overwrite_node" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="dff.script.core.script.html#dff.script.core.script.Node" title="dff.script.core.script.Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dff.pipeline.pipeline.actor.Actor.run_response">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">run_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipeline</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dff/pipeline/pipeline/actor.html#Actor.run_response"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dff.pipeline.pipeline.actor.Actor.run_response" title="Permalink to this definition">#</a></dt>
+<dd><p>Executes the normalized response as an asynchronous function.
+See the details in the <code class="xref py py-func docutils literal notranslate"><span class="pre">normalize_response()</span></code> function of <cite>normalization.py</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="dff.script.core.message.html#dff.script.core.message.Message" title="dff.script.core.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dff.pipeline.pipeline.actor.Actor._run_processing_parallel">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_run_processing_parallel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">processing</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipeline</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dff/pipeline/pipeline/actor.html#Actor._run_processing_parallel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dff.pipeline.pipeline.actor.Actor._run_processing_parallel" title="Permalink to this definition">#</a></dt>
+<dd><p>Execute the processing functions for a particular node simultaneously,
+independent of the order.</p>
+<p>Picked depending on the value of the <a class="reference internal" href="dff.pipeline.pipeline.pipeline.html#dff.pipeline.pipeline.pipeline.Pipeline" title="dff.pipeline.pipeline.pipeline.Pipeline"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pipeline</span></code></a>’s <cite>parallelize_processing</cite> flag.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dff.pipeline.pipeline.actor.Actor._run_processing_sequential">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_run_processing_sequential</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">processing</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipeline</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dff/pipeline/pipeline/actor.html#Actor._run_processing_sequential"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dff.pipeline.pipeline.actor.Actor._run_processing_sequential" title="Permalink to this definition">#</a></dt>
+<dd><p>Execute the processing functions for a particular node in-order.</p>
+<p>Picked depending on the value of the <a class="reference internal" href="dff.pipeline.pipeline.pipeline.html#dff.pipeline.pipeline.pipeline.Pipeline" title="dff.pipeline.pipeline.pipeline.Pipeline"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pipeline</span></code></a>’s <cite>parallelize_processing</cite> flag.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dff.pipeline.pipeline.actor.Actor._run_pre_transitions_processing">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_run_pre_transitions_processing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipeline</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dff/pipeline/pipeline/actor.html#Actor._run_pre_transitions_processing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dff.pipeline.pipeline.actor.Actor._run_pre_transitions_processing" title="Permalink to this definition">#</a></dt>
+<dd><p>Run <cite>PRE_TRANSITIONS_PROCESSING</cite> functions for a particular node.
+Pre-transition processing functions can modify the context state
+before the direction of the next transition is determined depending on that state.</p>
+<p>The execution order depends on the value of the <a class="reference internal" href="dff.pipeline.pipeline.pipeline.html#dff.pipeline.pipeline.pipeline.Pipeline" title="dff.pipeline.pipeline.pipeline.Pipeline"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pipeline</span></code></a>’s
+<cite>parallelize_processing</cite> flag.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dff.pipeline.pipeline.actor.Actor._run_pre_response_processing">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_run_pre_response_processing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipeline</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dff/pipeline/pipeline/actor.html#Actor._run_pre_response_processing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dff.pipeline.pipeline.actor.Actor._run_pre_response_processing" title="Permalink to this definition">#</a></dt>
+<dd><p>Run <cite>PRE_RESPONSE_PROCESSING</cite> functions for a particular node.
+Pre-response processing functions can modify the response before it is
+returned to the user.</p>
+<p>The execution order depends on the value of the <a class="reference internal" href="dff.pipeline.pipeline.pipeline.html#dff.pipeline.pipeline.pipeline.Pipeline" title="dff.pipeline.pipeline.pipeline.Pipeline"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pipeline</span></code></a>’s
+<cite>parallelize_processing</cite> flag.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dff.pipeline.pipeline.actor.Actor._get_true_label">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_get_true_label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transitions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipeline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flow_label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transition_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dff/pipeline/pipeline/actor.html#Actor._get_true_label"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dff.pipeline.pipeline.actor.Actor._get_true_label" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dff.pipeline.pipeline.actor.Actor._run_handlers">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_run_handlers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipeline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actor_stage</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dff/pipeline/pipeline/actor.html#Actor._run_handlers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dff.pipeline.pipeline.actor.Actor._run_handlers" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dff.pipeline.pipeline.actor.Actor._choose_label">
+<span class="sig-name descname"><span class="pre">_choose_label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">specific_label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">general_label</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dff/pipeline/pipeline/actor.html#Actor._choose_label"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dff.pipeline.pipeline.actor.Actor._choose_label" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dff.pipeline.pipeline.actor.Actor.validate_script">
+<span class="sig-name descname"><span class="pre">validate_script</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pipeline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dff/pipeline/pipeline/actor.html#Actor.validate_script"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dff.pipeline.pipeline.actor.Actor.validate_script" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="dff.pipeline.pipeline.actor.default_condition_handler">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">default_condition_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">condition</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipeline</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dff/pipeline/pipeline/actor.html#default_condition_handler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dff.pipeline.pipeline.actor.default_condition_handler" title="Permalink to this definition">#</a></dt>
+<dd><p>The simplest and quickest condition handler for trivial condition handling returns the callable condition:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>condition</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></span>) – Condition to copy.</p></li>
+<li><p><strong>ctx</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="dff.script.core.context.html#dff.script.core.context.Context" title="dff.script.core.context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a></span>) – Context of current condition.</p></li>
+<li><p><strong>pipeline</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="dff.pipeline.pipeline.pipeline.html#dff.pipeline.pipeline.pipeline.Pipeline" title="dff.pipeline.pipeline.pipeline.Pipeline"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pipeline</span></code></a></span>) – Pipeline we use in this condition.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<a class="reference internal" href="dff.script.core.context.html#dff.script.core.context.Context" title="dff.script.core.context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>, <a class="reference internal" href="dff.pipeline.pipeline.pipeline.html#dff.pipeline.pipeline.pipeline.Pipeline" title="dff.pipeline.pipeline.pipeline.Pipeline"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pipeline</span></code></a>], <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="dff.pipeline.service.service.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Service</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="dff.pipeline.service.utils.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Utility Functions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Actor</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dff.pipeline.pipeline.actor.error_handler"><code class="docutils literal notranslate"><span class="pre">error_handler()</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dff.pipeline.pipeline.actor.Actor"><code class="docutils literal notranslate"><span class="pre">Actor</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dff.pipeline.pipeline.actor.Actor._context_init"><code class="docutils literal notranslate"><span class="pre">Actor._context_init()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dff.pipeline.pipeline.actor.Actor._get_previous_node"><code class="docutils literal notranslate"><span class="pre">Actor._get_previous_node()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dff.pipeline.pipeline.actor.Actor._get_true_labels"><code class="docutils literal notranslate"><span class="pre">Actor._get_true_labels()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dff.pipeline.pipeline.actor.Actor._get_next_node"><code class="docutils literal notranslate"><span class="pre">Actor._get_next_node()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dff.pipeline.pipeline.actor.Actor._rewrite_previous_node"><code class="docutils literal notranslate"><span class="pre">Actor._rewrite_previous_node()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dff.pipeline.pipeline.actor.Actor._rewrite_next_node"><code class="docutils literal notranslate"><span class="pre">Actor._rewrite_next_node()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dff.pipeline.pipeline.actor.Actor._overwrite_node"><code class="docutils literal notranslate"><span class="pre">Actor._overwrite_node()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dff.pipeline.pipeline.actor.Actor.run_response"><code class="docutils literal notranslate"><span class="pre">Actor.run_response()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dff.pipeline.pipeline.actor.Actor._run_processing_parallel"><code class="docutils literal notranslate"><span class="pre">Actor._run_processing_parallel()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dff.pipeline.pipeline.actor.Actor._run_processing_sequential"><code class="docutils literal notranslate"><span class="pre">Actor._run_processing_sequential()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dff.pipeline.pipeline.actor.Actor._run_pre_transitions_processing"><code class="docutils literal notranslate"><span class="pre">Actor._run_pre_transitions_processing()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dff.pipeline.pipeline.actor.Actor._run_pre_response_processing"><code class="docutils literal notranslate"><span class="pre">Actor._run_pre_response_processing()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dff.pipeline.pipeline.actor.Actor._get_true_label"><code class="docutils literal notranslate"><span class="pre">Actor._get_true_label()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dff.pipeline.pipeline.actor.Actor._run_handlers"><code class="docutils literal notranslate"><span class="pre">Actor._run_handlers()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dff.pipeline.pipeline.actor.Actor._choose_label"><code class="docutils literal notranslate"><span class="pre">Actor._choose_label()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dff.pipeline.pipeline.actor.Actor.validate_script"><code class="docutils literal notranslate"><span class="pre">Actor.validate_script()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dff.pipeline.pipeline.actor.default_condition_handler"><code class="docutils literal notranslate"><span class="pre">default_condition_handler()</span></code></a></li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+    
+
+    <a href="https://github.com/deeppavlov/dialog_flow_framework/blob/master/dff/pipeline/pipeline/actor.py" data-behavior="call-to-action-event" data-response="View on Github" target="_blank">
+        <div id="github-view-link">
+            <span class="pytorch-github call-to-action-any"></span>
+            <div class="call-to-action-desktop-view">View on GitHub</div>
+            <div class="call-to-action-mobile-view">GitHub</div>
+        </div>
+    </a>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2023, DeepPavlov.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

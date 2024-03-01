@@ -1,0 +1,6 @@
+:source_name: dff/script/core/message
+
+.. automodule:: dff.script.core.message
+   :members:
+   :undoc-members:
+   :show-inheritance:

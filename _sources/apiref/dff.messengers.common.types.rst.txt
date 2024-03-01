@@ -1,0 +1,6 @@
+:source_name: dff/messengers/common/types
+
+.. automodule:: dff.messengers.common.types
+   :members:
+   :undoc-members:
+   :show-inheritance:

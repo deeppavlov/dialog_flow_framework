@@ -1,0 +1,2457 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index &#8212; dff 0.7.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/katex-math.css?v=91adb8b6" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=b77b6cac" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=dc072ff8"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/katex.min.js?v=48ec3933"></script>
+    <script src="_static/auto-render.min.js?v=8b9f325c"></script>
+    <script src="_static/katex_autorenderer.js?v=bebc588a"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo-simple.svg" class="logo__image only-light" alt="DFF logo (simple and nice)"/>
+    <script>document.write(`<img src="_static/logo-simple.svg" class="logo__image only-dark" alt="DFF logo (simple and nice)"/>`);</script>
+  
+  
+    <p class="title logo__title">Dialog Flow Framework</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="get_started.html">
+                        Getting started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="user_guides.html">
+                        User guides
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="tutorials.html">
+                        Tutorials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="examples.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="reference.html">
+                        API reference
+                      </a>
+                    </li>
+                
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="development.html">
+                        Development
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="community.html">
+                        Community
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="about_us.html">
+                        About us
+                      </a>
+                    </li>
+                
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.deeppavlov.ai" title="DeepPavlov Forum" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="_static/images/logo-deeppavlov.svg" class="icon-link-image" alt="DeepPavlov Forum"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://t.me/DeepPavlovDreamDiscussions" title="Telegram" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-telegram fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Telegram</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/deeppavlov/dialog_flow_framework" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="get_started.html">
+                        Getting started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="user_guides.html">
+                        User guides
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="tutorials.html">
+                        Tutorials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="examples.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="reference.html">
+                        API reference
+                      </a>
+                    </li>
+                
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links-2">
+                    More
+                </button>
+                <ul id="pst-nav-more-links-2" class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="development.html">
+                        Development
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="community.html">
+                        Community
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="about_us.html">
+                        About us
+                      </a>
+                    </li>
+                
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.deeppavlov.ai" title="DeepPavlov Forum" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="_static/images/logo-deeppavlov.svg" class="icon-link-image" alt="DeepPavlov Forum"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://t.me/DeepPavlovDreamDiscussions" title="Telegram" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-telegram fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Telegram</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/deeppavlov/dialog_flow_framework" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article"></div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#_"><strong>_</strong></a>
+ | <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#H"><strong>H</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#J"><strong>J</strong></a>
+ | <a href="#K"><strong>K</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#O"><strong>O</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#U"><strong>U</strong></a>
+ | <a href="#V"><strong>V</strong></a>
+ | <a href="#W"><strong>W</strong></a>
+ | <a href="#Y"><strong>Y</strong></a>
+ 
+</div>
+<h2 id="_">_</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.context_storages.mongo.html#dff.context_storages.mongo.MongoContextStorage._adjust_key">_adjust_key() (MongoContextStorage static method)</a>
+</li>
+      <li><a href="apiref/dff.script.conditions.std_conditions.html#dff.script.conditions.std_conditions._all">_all() (in module dff.script.conditions.std_conditions)</a>
+</li>
+      <li><a href="apiref/dff.script.conditions.std_conditions.html#dff.script.conditions.std_conditions._any">_any() (in module dff.script.conditions.std_conditions)</a>
+</li>
+      <li><a href="apiref/dff.context_storages.sql.html#dff.context_storages.sql.SQLContextStorage._check_availability">_check_availability() (SQLContextStorage method)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.Actor._choose_label">_choose_label() (Actor method)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.message.html#dff.messengers.telegram.message._ClickButton">_ClickButton (class in dff.messengers.telegram.message)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.service.extra.html#dff.pipeline.service.extra._ComponentExtraHandler">_ComponentExtraHandler (class in dff.pipeline.service.extra)</a>
+</li>
+      <li><a href="apiref/dff.stats.instrumentor.html#dff.stats.instrumentor.OtelInstrumentor._configure_providers">_configure_providers() (OtelInstrumentor method)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.Actor._context_init">_context_init() (Actor static method)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.service.group.html#dff.pipeline.service.group.ServiceGroup._create_components">_create_components() (ServiceGroup static method)</a>
+</li>
+      <li><a href="apiref/dff.context_storages.sql.html#dff.context_storages.sql.SQLContextStorage._create_self_table">_create_self_table() (SQLContextStorage method)</a>
+</li>
+      <li><a href="apiref/dff.context_storages.ydb.html#dff.context_storages.ydb._create_table">_create_table() (in module dff.context_storages.ydb)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ComponentExecutionState._generate_next_value_">_generate_next_value_() (ComponentExecutionState method)</a>
+
+      <ul>
+        <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ExtraHandlerType._generate_next_value_">(ExtraHandlerType method)</a>
+</li>
+        <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.GlobalExtraHandlerType._generate_next_value_">(GlobalExtraHandlerType method)</a>
+</li>
+        <li><a href="apiref/dff.script.core.keywords.html#dff.script.core.keywords.Keywords._generate_next_value_">(Keywords method)</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.pipeline.service.utils.html#dff.pipeline.service.utils._get_attrs_with_updates">_get_attrs_with_updates() (in module dff.pipeline.service.utils)</a>
+</li>
+      <li><a href="apiref/dff.script.labels.std_labels.html#dff.script.labels.std_labels._get_label_by_index_shifting">_get_label_by_index_shifting() (in module dff.script.labels.std_labels)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.Actor._get_next_node">_get_next_node() (Actor method)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.Actor._get_previous_node">_get_previous_node() (Actor method)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.component.html#dff.pipeline.pipeline.component.PipelineComponent._get_runtime_info">_get_runtime_info() (PipelineComponent method)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.Actor._get_true_label">_get_true_label() (Actor method)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.Actor._get_true_labels">_get_true_labels() (Actor method)</a>
+</li>
+      <li><a href="apiref/dff.context_storages.sql.html#dff.context_storages.sql.SQLContextStorage._get_update_stmt">_get_update_stmt() (SQLContextStorage method)</a>
+</li>
+      <li><a href="apiref/dff.context_storages.ydb.html#dff.context_storages.ydb._init_drive">_init_drive() (in module dff.context_storages.ydb)</a>
+</li>
+      <li><a href="apiref/dff.stats.instrumentor.html#dff.stats.instrumentor.OtelInstrumentor._instrument">_instrument() (OtelInstrumentor method)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.PipelineRunnerFunction._is_protocol">_is_protocol (PipelineRunnerFunction attribute)</a>
+</li>
+      <li><a href="apiref/dff.context_storages.ydb.html#dff.context_storages.ydb._is_table_exists">_is_table_exists() (in module dff.context_storages.ydb)</a>
+</li>
+      <li><a href="apiref/dff.context_storages.json.html#dff.context_storages.json.JSONContextStorage._load">_load() (JSONContextStorage method)</a>
+
+      <ul>
+        <li><a href="apiref/dff.context_storages.pickle.html#dff.context_storages.pickle.PickleContextStorage._load">(PickleContextStorage method)</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.context_storages.database.html#dff.context_storages.database.DBContextStorage._lock">_lock (DBContextStorage attribute)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ComponentExecutionState._member_map_">_member_map_ (ComponentExecutionState attribute)</a>
+
+      <ul>
+        <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ExtraHandlerType._member_map_">(ExtraHandlerType attribute)</a>
+</li>
+        <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.GlobalExtraHandlerType._member_map_">(GlobalExtraHandlerType attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.keywords.html#dff.script.core.keywords.Keywords._member_map_">(Keywords attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ComponentExecutionState._member_names_">_member_names_ (ComponentExecutionState attribute)</a>
+
+      <ul>
+        <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ExtraHandlerType._member_names_">(ExtraHandlerType attribute)</a>
+</li>
+        <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.GlobalExtraHandlerType._member_names_">(GlobalExtraHandlerType attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.keywords.html#dff.script.core.keywords.Keywords._member_names_">(Keywords attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ComponentExecutionState._member_type_">_member_type_ (ComponentExecutionState attribute)</a>
+
+      <ul>
+        <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ExtraHandlerType._member_type_">(ExtraHandlerType attribute)</a>
+</li>
+        <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.GlobalExtraHandlerType._member_type_">(GlobalExtraHandlerType attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.keywords.html#dff.script.core.keywords.Keywords._member_type_">(Keywords attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.messengers.common.interface.html#dff.messengers.common.interface.PollingMessengerInterface._on_exception">_on_exception() (PollingMessengerInterface method)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.Actor._overwrite_node">_overwrite_node() (Actor method)</a>
+</li>
+      <li><a href="apiref/dff.messengers.common.interface.html#dff.messengers.common.interface.PollingMessengerInterface._polling_loop">_polling_loop() (PollingMessengerInterface method)</a>
+</li>
+      <li><a href="apiref/dff.messengers.common.interface.html#dff.messengers.common.interface.CLIMessengerInterface._request">_request() (CLIMessengerInterface method)</a>
+
+      <ul>
+        <li><a href="apiref/dff.messengers.common.interface.html#dff.messengers.common.interface.PollingMessengerInterface._request">(PollingMessengerInterface method)</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.messengers.common.interface.html#dff.messengers.common.interface.CLIMessengerInterface._respond">_respond() (CLIMessengerInterface method)</a>
+
+      <ul>
+        <li><a href="apiref/dff.messengers.common.interface.html#dff.messengers.common.interface.PollingMessengerInterface._respond">(PollingMessengerInterface method)</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.Actor._rewrite_next_node">_rewrite_next_node() (Actor method)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.Actor._rewrite_previous_node">_rewrite_previous_node() (Actor method)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.service.extra.html#dff.pipeline.service.extra._ComponentExtraHandler._run">_run() (_ComponentExtraHandler method)</a>
+
+      <ul>
+        <li><a href="apiref/dff.utils.db_benchmark.benchmark.html#dff.utils.db_benchmark.benchmark.BenchmarkCase._run">(BenchmarkCase method)</a>
+</li>
+        <li><a href="apiref/dff.pipeline.pipeline.component.html#dff.pipeline.pipeline.component.PipelineComponent._run">(PipelineComponent method)</a>
+</li>
+        <li><a href="apiref/dff.pipeline.service.service.html#dff.pipeline.service.service.Service._run">(Service method)</a>
+</li>
+        <li><a href="apiref/dff.pipeline.service.group.html#dff.pipeline.service.group.ServiceGroup._run">(ServiceGroup method)</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.pipeline.service.service.html#dff.pipeline.service.service.Service._run_as_actor">_run_as_actor() (Service method)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.service.service.html#dff.pipeline.service.service.Service._run_as_service">_run_as_service() (Service method)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.service.extra.html#dff.pipeline.service.extra._ComponentExtraHandler._run_function">_run_function() (_ComponentExtraHandler method)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.service.service.html#dff.pipeline.service.service.Service._run_handler">_run_handler() (Service method)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.Actor._run_handlers">_run_handlers() (Actor method)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.pipeline.html#dff.pipeline.pipeline.pipeline.Pipeline._run_pipeline">_run_pipeline() (Pipeline method)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.Actor._run_pre_response_processing">_run_pre_response_processing() (Actor method)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.Actor._run_pre_transitions_processing">_run_pre_transitions_processing() (Actor method)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.Actor._run_processing_parallel">_run_processing_parallel() (Actor method)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.Actor._run_processing_sequential">_run_processing_sequential() (Actor method)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.service.group.html#dff.pipeline.service.group.ServiceGroup._run_services_group">_run_services_group() (ServiceGroup method)</a>
+</li>
+      <li><a href="apiref/dff.context_storages.json.html#dff.context_storages.json.JSONContextStorage._save">_save() (JSONContextStorage method)</a>
+
+      <ul>
+        <li><a href="apiref/dff.context_storages.pickle.html#dff.context_storages.pickle.PickleContextStorage._save">(PickleContextStorage method)</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.pipeline.pipeline.component.html#dff.pipeline.pipeline.component.PipelineComponent._set_state">_set_state() (PipelineComponent method)</a>
+</li>
+      <li><a href="apiref/dff.stats.instrumentor.html#dff.stats.instrumentor.OtelInstrumentor._uninstrument">_uninstrument() (OtelInstrumentor method)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ComponentExecutionState._value2member_map_">_value2member_map_ (ComponentExecutionState attribute)</a>
+
+      <ul>
+        <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ExtraHandlerType._value2member_map_">(ExtraHandlerType attribute)</a>
+</li>
+        <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.GlobalExtraHandlerType._value2member_map_">(GlobalExtraHandlerType attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.keywords.html#dff.script.core.keywords.Keywords._value2member_map_">(Keywords attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Session.ACTIVE">ACTIVE (Session attribute)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.Actor">Actor (class in dff.pipeline.pipeline.actor)</a>
+</li>
+      <li><a href="apiref/dff.script.core.types.html#dff.script.core.types.ActorStage">ActorStage (class in dff.script.core.types)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.component.html#dff.pipeline.pipeline.component.PipelineComponent.add_extra_handler">add_extra_handler() (PipelineComponent method)</a>
+
+      <ul>
+        <li><a href="apiref/dff.pipeline.service.group.html#dff.pipeline.service.group.ServiceGroup.add_extra_handler">(ServiceGroup method)</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.pipeline.pipeline.pipeline.html#dff.pipeline.pipeline.pipeline.Pipeline.add_global_handler">add_global_handler() (Pipeline method)</a>
+</li>
+      <li><a href="apiref/dff.script.core.context.html#dff.script.core.context.Context.add_label">add_label() (Context method)</a>
+</li>
+      <li><a href="apiref/dff.script.core.context.html#dff.script.core.context.Context.add_request">add_request() (Context method)</a>
+</li>
+      <li><a href="apiref/dff.script.core.context.html#dff.script.core.context.Context.add_response">add_response() (Context method)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ExtraHandlerType.AFTER">AFTER (ExtraHandlerType attribute)</a>
+
+      <ul>
+        <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.GlobalExtraHandlerType.AFTER">(GlobalExtraHandlerType attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.GlobalExtraHandlerType.AFTER_ALL">AFTER_ALL (GlobalExtraHandlerType attribute)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.PipelineBuilder.after_handler">after_handler (PipelineBuilder attribute)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.service.extra.html#dff.pipeline.service.extra.AfterHandler">AfterHandler (class in dff.pipeline.service.extra)</a>
+</li>
+      <li><a href="apiref/dff.script.conditions.std_conditions.html#dff.script.conditions.std_conditions.agg">agg() (in module dff.script.conditions.std_conditions)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.script.conditions.std_conditions.html#dff.script.conditions.std_conditions.aggregate">aggregate() (in module dff.script.conditions.std_conditions)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.conditions.html#dff.pipeline.conditions.aggregate_condition">aggregate_condition() (in module dff.pipeline.conditions)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.messenger.html#dff.messengers.telegram.messenger.UpdateType.ALL">ALL (UpdateType attribute)</a>
+</li>
+      <li><a href="apiref/dff.script.conditions.std_conditions.html#dff.script.conditions.std_conditions.all">all() (in module dff.script.conditions.std_conditions)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.conditions.html#dff.pipeline.conditions.all_condition">all_condition() (in module dff.pipeline.conditions)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.conditions.html#dff.pipeline.conditions.always_start_condition">always_start_condition() (in module dff.pipeline.conditions)</a>
+</li>
+      <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Message.annotations">annotations (Message attribute)</a>
+</li>
+      <li><a href="apiref/dff.script.conditions.std_conditions.html#dff.script.conditions.std_conditions.any">any() (in module dff.script.conditions.std_conditions)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.conditions.html#dff.pipeline.conditions.any_condition">any_condition() (in module dff.pipeline.conditions)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.service.extra.html#dff.pipeline.service.extra._ComponentExtraHandler.asynchronous">asynchronous (_ComponentExtraHandler property)</a>
+
+      <ul>
+        <li><a href="apiref/dff.pipeline.pipeline.component.html#dff.pipeline.pipeline.component.PipelineComponent.asynchronous">(PipelineComponent property)</a>
+</li>
+        <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ServiceRuntimeInfo.asynchronous">(ServiceRuntimeInfo attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Attachment">Attachment (class in dff.script.core.message)</a>
+</li>
+      <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Attachments">Attachments (class in dff.script.core.message)</a>
+</li>
+      <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Message.attachments">attachments (Message attribute)</a>
+</li>
+      <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Audio">Audio (class in dff.script.core.message)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.script.labels.std_labels.html#dff.script.labels.std_labels.backward">backward() (in module dff.script.labels.std_labels)</a>
+</li>
+      <li><a href="apiref/dff.utils.db_benchmark.basic_config.html#dff.utils.db_benchmark.basic_config.basic_configurations">basic_configurations (in module dff.utils.db_benchmark.basic_config)</a>
+</li>
+      <li><a href="apiref/dff.utils.db_benchmark.basic_config.html#dff.utils.db_benchmark.basic_config.BasicBenchmarkConfig">BasicBenchmarkConfig (class in dff.utils.db_benchmark.basic_config)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.utils.html#dff.messengers.telegram.utils.batch_open_io">batch_open_io() (in module dff.messengers.telegram.utils)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ExtraHandlerType.BEFORE">BEFORE (ExtraHandlerType attribute)</a>
+
+      <ul>
+        <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.GlobalExtraHandlerType.BEFORE">(GlobalExtraHandlerType attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.GlobalExtraHandlerType.BEFORE_ALL">BEFORE_ALL (GlobalExtraHandlerType attribute)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.PipelineBuilder.before_handler">before_handler (PipelineBuilder attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.pipeline.service.extra.html#dff.pipeline.service.extra.BeforeHandler">BeforeHandler (class in dff.pipeline.service.extra)</a>
+</li>
+      <li><a href="apiref/dff.utils.db_benchmark.benchmark.html#dff.utils.db_benchmark.benchmark.benchmark_all">benchmark_all() (in module dff.utils.db_benchmark.benchmark)</a>
+</li>
+      <li><a href="apiref/dff.utils.db_benchmark.benchmark.html#dff.utils.db_benchmark.benchmark.BenchmarkCase.benchmark_config">benchmark_config (BenchmarkCase attribute)</a>
+</li>
+      <li><a href="apiref/dff.utils.db_benchmark.benchmark.html#dff.utils.db_benchmark.benchmark.BenchmarkCase">BenchmarkCase (class in dff.utils.db_benchmark.benchmark)</a>
+</li>
+      <li><a href="apiref/dff.utils.db_benchmark.benchmark.html#dff.utils.db_benchmark.benchmark.BenchmarkConfig">BenchmarkConfig (class in dff.utils.db_benchmark.benchmark)</a>
+</li>
+      <li><a href="apiref/dff.utils.testing.telegram.html#dff.utils.testing.telegram.TelegramTesting.bot">bot (TelegramTesting attribute)</a>
+</li>
+      <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Button">Button (class in dff.script.core.message)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.message.html#dff.messengers.telegram.message._ClickButton.button_index">button_index (_ClickButton attribute)</a>
+</li>
+      <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Keyboard.buttons">buttons (Keyboard attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.utils.turn_caching.singleton_turn_caching.html#dff.utils.turn_caching.singleton_turn_caching.cache">cache() (in module dff.utils.turn_caching.singleton_turn_caching)</a>
+</li>
+      <li><a href="apiref/dff.utils.turn_caching.singleton_turn_caching.html#dff.utils.turn_caching.singleton_turn_caching.cache_clear">cache_clear() (in module dff.utils.turn_caching.singleton_turn_caching)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.component.html#dff.pipeline.pipeline.component.PipelineComponent.calculated_async_flag">calculated_async_flag (PipelineComponent attribute)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.message.html#dff.messengers.telegram.message.TelegramMessage.callback_query">callback_query (TelegramMessage attribute)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.messenger.html#dff.messengers.telegram.messenger.UpdateType.CALLBACK_QUERY">CALLBACK_QUERY (UpdateType attribute)</a>
+</li>
+      <li><a href="apiref/dff.messengers.common.interface.html#dff.messengers.common.interface.CallbackMessengerInterface">CallbackMessengerInterface (class in dff.messengers.common.interface)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.interface.html#dff.messengers.telegram.interface.CallbackTelegramInterface">CallbackTelegramInterface (class in dff.messengers.telegram.interface)</a>
+</li>
+      <li><a href="apiref/dff.script.core.context.html#dff.script.core.context.Context.cast">cast() (Context class method)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.messenger.html#dff.messengers.telegram.messenger.UpdateType.CHANNEL_POST">CHANNEL_POST (UpdateType attribute)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.messenger.html#dff.messengers.telegram.messenger.UpdateType.CHAT_JOIN_REQUEST">CHAT_JOIN_REQUEST (UpdateType attribute)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.messenger.html#dff.messengers.telegram.messenger.UpdateType.CHAT_MEMBER">CHAT_MEMBER (UpdateType attribute)</a>
+</li>
+      <li><a href="apiref/dff.script.conditions.std_conditions.html#dff.script.conditions.std_conditions.check_cond_seq">check_cond_seq() (in module dff.script.conditions.std_conditions)</a>
+</li>
+      <li><a href="apiref/dff.utils.testing.common.html#dff.utils.testing.common.check_happy_path">check_happy_path() (in module dff.utils.testing.common)</a>
+
+      <ul>
+        <li><a href="apiref/dff.utils.testing.telegram.html#dff.utils.testing.telegram.TelegramTesting.check_happy_path">(TelegramTesting method)</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.script.responses.std_responses.html#dff.script.responses.std_responses.choice">choice() (in module dff.script.responses.std_responses)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.messenger.html#dff.messengers.telegram.messenger.UpdateType.CHOSEN_INLINE_RESULT">CHOSEN_INLINE_RESULT (UpdateType attribute)</a>
+</li>
+      <li><a href="apiref/dff.script.core.context.html#dff.script.core.context.Context.clear">clear() (Context method)</a>
+
+      <ul>
+        <li><a href="apiref/dff.context_storages.database.html#dff.context_storages.database.DBContextStorage.clear">(DBContextStorage method)</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.context_storages.database.html#dff.context_storages.database.DBContextStorage.clear_async">clear_async() (DBContextStorage method)</a>
+
+      <ul>
+        <li><a href="apiref/dff.context_storages.json.html#dff.context_storages.json.JSONContextStorage.clear_async">(JSONContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.mongo.html#dff.context_storages.mongo.MongoContextStorage.clear_async">(MongoContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.pickle.html#dff.context_storages.pickle.PickleContextStorage.clear_async">(PickleContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.redis.html#dff.context_storages.redis.RedisContextStorage.clear_async">(RedisContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.shelve.html#dff.context_storages.shelve.ShelveContextStorage.clear_async">(ShelveContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.sql.html#dff.context_storages.sql.SQLContextStorage.clear_async">(SQLContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.ydb.html#dff.context_storages.ydb.YDBContextStorage.clear_async">(YDBContextStorage method)</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.utils.testing.telegram.html#dff.utils.testing.telegram.TelegramTesting.client">client (TelegramTesting attribute)</a>
+</li>
+      <li><a href="apiref/dff.messengers.common.interface.html#dff.messengers.common.interface.CLIMessengerInterface">CLIMessengerInterface (class in dff.messengers.common.interface)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.utils.html#dff.messengers.telegram.utils.close_io">close_io() (in module dff.messengers.telegram.utils)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.service.utils.html#dff.pipeline.service.utils.collect_defined_constructor_parameters_to_dict">collect_defined_constructor_parameters_to_dict() (in module dff.pipeline.service.utils)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Command">Command (class in dff.script.core.message)</a>
+</li>
+      <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Message.commands">commands (Message attribute)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ExtraHandlerRuntimeInfo.component">component (ExtraHandlerRuntimeInfo attribute)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ComponentExecutionState">ComponentExecutionState (class in dff.pipeline.types)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.PipelineBuilder.components">components (PipelineBuilder attribute)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.PipelineBuilder.condition_handler">condition_handler (PipelineBuilder attribute)</a>
+</li>
+      <li><a href="apiref/dff.script.core.types.html#dff.script.core.types.ConditionType">ConditionType (in module dff.script.core.types)</a>
+</li>
+      <li><a href="apiref/dff.messengers.common.interface.html#dff.messengers.common.interface.CallbackMessengerInterface.connect">connect() (CallbackMessengerInterface method)</a>
+
+      <ul>
+        <li><a href="apiref/dff.messengers.telegram.interface.html#dff.messengers.telegram.interface.CallbackTelegramInterface.connect">(CallbackTelegramInterface method)</a>
+</li>
+        <li><a href="apiref/dff.messengers.common.interface.html#dff.messengers.common.interface.CLIMessengerInterface.connect">(CLIMessengerInterface method)</a>
+</li>
+        <li><a href="apiref/dff.messengers.common.interface.html#dff.messengers.common.interface.MessengerInterface.connect">(MessengerInterface method)</a>
+</li>
+        <li><a href="apiref/dff.messengers.common.interface.html#dff.messengers.common.interface.PollingMessengerInterface.connect">(PollingMessengerInterface method)</a>
+</li>
+        <li><a href="apiref/dff.messengers.telegram.interface.html#dff.messengers.telegram.interface.PollingTelegramInterface.connect">(PollingTelegramInterface method)</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.context_storages.database.html#dff.context_storages.database.DBContextStorage.contains_async">contains_async() (DBContextStorage method)</a>
+
+      <ul>
+        <li><a href="apiref/dff.context_storages.json.html#dff.context_storages.json.JSONContextStorage.contains_async">(JSONContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.mongo.html#dff.context_storages.mongo.MongoContextStorage.contains_async">(MongoContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.pickle.html#dff.context_storages.pickle.PickleContextStorage.contains_async">(PickleContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.redis.html#dff.context_storages.redis.RedisContextStorage.contains_async">(RedisContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.shelve.html#dff.context_storages.shelve.ShelveContextStorage.contains_async">(ShelveContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.sql.html#dff.context_storages.sql.SQLContextStorage.contains_async">(SQLContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.ydb.html#dff.context_storages.ydb.YDBContextStorage.contains_async">(YDBContextStorage method)</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.script.core.context.html#dff.script.core.context.Context">Context (class in dff.script.core.context)</a>
+</li>
+      <li><a href="apiref/dff.script.core.types.html#dff.script.core.types.ActorStage.CONTEXT_INIT">CONTEXT_INIT (ActorStage attribute)</a>
+</li>
+      <li><a href="apiref/dff.utils.db_benchmark.basic_config.html#dff.utils.db_benchmark.basic_config.BasicBenchmarkConfig.context_num">context_num (BasicBenchmarkConfig attribute)</a>
+
+      <ul>
+        <li><a href="apiref/dff.utils.db_benchmark.benchmark.html#dff.utils.db_benchmark.benchmark.BenchmarkConfig.context_num">(BenchmarkConfig attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.PipelineBuilder.context_storage">context_storage (PipelineBuilder attribute)</a>
+</li>
+      <li><a href="apiref/dff.context_storages.database.html#dff.context_storages.database.context_storage_factory">context_storage_factory() (in module dff.context_storages.database)</a>
+</li>
+      <li><a href="apiref/dff.utils.db_benchmark.basic_config.html#dff.utils.db_benchmark.basic_config.BasicBenchmarkConfig.context_updater">context_updater() (BasicBenchmarkConfig method)</a>
+
+      <ul>
+        <li><a href="apiref/dff.utils.db_benchmark.benchmark.html#dff.utils.db_benchmark.benchmark.BenchmarkConfig.context_updater">(BenchmarkConfig method)</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.script.core.types.html#dff.script.core.types.ActorStage.CREATE_RESPONSE">CREATE_RESPONSE (ActorStage attribute)</a>
+</li>
+      <li><a href="apiref/dff.script.core.context.html#dff.script.core.context.Context.current_node">current_node (Context property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.stats.cli.html#dff.stats.cli.DASHBOARD_DIR">DASHBOARD_DIR (in module dff.stats.cli)</a>
+</li>
+      <li><a href="apiref/dff.stats.cli.html#dff.stats.cli.DASHBOARD_SLUG">DASHBOARD_SLUG (in module dff.stats.cli)</a>
+</li>
+      <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.DataModel">DataModel (class in dff.script.core.message)</a>
+</li>
+      <li><a href="apiref/dff.utils.db_benchmark.benchmark.html#dff.utils.db_benchmark.benchmark.DBFactory.db">db() (DBFactory method)</a>
+</li>
+      <li><a href="apiref/dff.utils.db_benchmark.benchmark.html#dff.utils.db_benchmark.benchmark.BenchmarkCase.db_factory">db_factory (BenchmarkCase attribute)</a>
+</li>
+      <li><a href="apiref/dff.context_storages.database.html#dff.context_storages.database.DBContextStorage">DBContextStorage (class in dff.context_storages.database)</a>
+</li>
+      <li><a href="apiref/dff.utils.db_benchmark.benchmark.html#dff.utils.db_benchmark.benchmark.DBFactory">DBFactory (class in dff.utils.db_benchmark.benchmark)</a>
+</li>
+      <li><a href="apiref/dff.utils.testing.response_comparers.html#dff.utils.testing.response_comparers.default_comparer">default_comparer() (in module dff.utils.testing.response_comparers)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.default_condition_handler">default_condition_handler() (in module dff.pipeline.pipeline.actor)</a>
+</li>
+      <li><a href="apiref/dff.stats.cli.html#dff.stats.cli.DEFAULT_SUPERSET_URL">DEFAULT_SUPERSET_URL (in module dff.stats.cli)</a>
+</li>
+      <li><a href="apiref/dff.context_storages.database.html#dff.context_storages.database.DBContextStorage.del_item_async">del_item_async() (DBContextStorage method)</a>
+
+      <ul>
+        <li><a href="apiref/dff.context_storages.json.html#dff.context_storages.json.JSONContextStorage.del_item_async">(JSONContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.mongo.html#dff.context_storages.mongo.MongoContextStorage.del_item_async">(MongoContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.pickle.html#dff.context_storages.pickle.PickleContextStorage.del_item_async">(PickleContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.redis.html#dff.context_storages.redis.RedisContextStorage.del_item_async">(RedisContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.shelve.html#dff.context_storages.shelve.ShelveContextStorage.del_item_async">(ShelveContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.sql.html#dff.context_storages.sql.SQLContextStorage.del_item_async">(SQLContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.ydb.html#dff.context_storages.ydb.YDBContextStorage.del_item_async">(YDBContextStorage method)</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.utils.testing.cleanup_db.html#dff.utils.testing.cleanup_db.delete_json">delete_json() (in module dff.utils.testing.cleanup_db)</a>
+</li>
+      <li><a href="apiref/dff.utils.testing.cleanup_db.html#dff.utils.testing.cleanup_db.delete_mongo">delete_mongo() (in module dff.utils.testing.cleanup_db)</a>
+</li>
+      <li><a href="apiref/dff.utils.testing.cleanup_db.html#dff.utils.testing.cleanup_db.delete_pickle">delete_pickle() (in module dff.utils.testing.cleanup_db)</a>
+</li>
+      <li><a href="apiref/dff.utils.testing.cleanup_db.html#dff.utils.testing.cleanup_db.delete_redis">delete_redis() (in module dff.utils.testing.cleanup_db)</a>
+</li>
+      <li><a href="apiref/dff.utils.testing.cleanup_db.html#dff.utils.testing.cleanup_db.delete_shelve">delete_shelve() (in module dff.utils.testing.cleanup_db)</a>
+</li>
+      <li><a href="apiref/dff.utils.testing.cleanup_db.html#dff.utils.testing.cleanup_db.delete_sql">delete_sql() (in module dff.utils.testing.cleanup_db)</a>
+</li>
+      <li><a href="apiref/dff.utils.testing.cleanup_db.html#dff.utils.testing.cleanup_db.delete_ydb">delete_ydb() (in module dff.utils.testing.cleanup_db)</a>
+</li>
+      <li><a href="apiref/dff.utils.db_benchmark.benchmark.html#dff.utils.db_benchmark.benchmark.BenchmarkCase.description">description (BenchmarkCase attribute)</a>
+</li>
+      <li>
+    dff.context_storages.database
+
+      <ul>
+        <li><a href="apiref/dff.context_storages.database.html#module-dff.context_storages.database">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.context_storages.json
+
+      <ul>
+        <li><a href="apiref/dff.context_storages.json.html#module-dff.context_storages.json">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.context_storages.mongo
+
+      <ul>
+        <li><a href="apiref/dff.context_storages.mongo.html#module-dff.context_storages.mongo">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.context_storages.pickle
+
+      <ul>
+        <li><a href="apiref/dff.context_storages.pickle.html#module-dff.context_storages.pickle">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.context_storages.protocol
+
+      <ul>
+        <li><a href="apiref/dff.context_storages.protocol.html#module-dff.context_storages.protocol">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.context_storages.redis
+
+      <ul>
+        <li><a href="apiref/dff.context_storages.redis.html#module-dff.context_storages.redis">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.context_storages.shelve
+
+      <ul>
+        <li><a href="apiref/dff.context_storages.shelve.html#module-dff.context_storages.shelve">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.context_storages.sql
+
+      <ul>
+        <li><a href="apiref/dff.context_storages.sql.html#module-dff.context_storages.sql">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.context_storages.ydb
+
+      <ul>
+        <li><a href="apiref/dff.context_storages.ydb.html#module-dff.context_storages.ydb">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.messengers.common.interface
+
+      <ul>
+        <li><a href="apiref/dff.messengers.common.interface.html#module-dff.messengers.common.interface">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.messengers.common.types
+
+      <ul>
+        <li><a href="apiref/dff.messengers.common.types.html#module-dff.messengers.common.types">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.messengers.telegram.interface
+
+      <ul>
+        <li><a href="apiref/dff.messengers.telegram.interface.html#module-dff.messengers.telegram.interface">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.messengers.telegram.message
+
+      <ul>
+        <li><a href="apiref/dff.messengers.telegram.message.html#module-dff.messengers.telegram.message">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.messengers.telegram.messenger
+
+      <ul>
+        <li><a href="apiref/dff.messengers.telegram.messenger.html#module-dff.messengers.telegram.messenger">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.messengers.telegram.utils
+
+      <ul>
+        <li><a href="apiref/dff.messengers.telegram.utils.html#module-dff.messengers.telegram.utils">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.pipeline.conditions
+
+      <ul>
+        <li><a href="apiref/dff.pipeline.conditions.html#module-dff.pipeline.conditions">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.pipeline.pipeline.actor
+
+      <ul>
+        <li><a href="apiref/dff.pipeline.pipeline.actor.html#module-dff.pipeline.pipeline.actor">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.pipeline.pipeline.component
+
+      <ul>
+        <li><a href="apiref/dff.pipeline.pipeline.component.html#module-dff.pipeline.pipeline.component">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.pipeline.pipeline.pipeline
+
+      <ul>
+        <li><a href="apiref/dff.pipeline.pipeline.pipeline.html#module-dff.pipeline.pipeline.pipeline">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    dff.pipeline.pipeline.utils
+
+      <ul>
+        <li><a href="apiref/dff.pipeline.pipeline.utils.html#module-dff.pipeline.pipeline.utils">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.pipeline.service.extra
+
+      <ul>
+        <li><a href="apiref/dff.pipeline.service.extra.html#module-dff.pipeline.service.extra">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.pipeline.service.group
+
+      <ul>
+        <li><a href="apiref/dff.pipeline.service.group.html#module-dff.pipeline.service.group">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.pipeline.service.service
+
+      <ul>
+        <li><a href="apiref/dff.pipeline.service.service.html#module-dff.pipeline.service.service">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.pipeline.service.utils
+
+      <ul>
+        <li><a href="apiref/dff.pipeline.service.utils.html#module-dff.pipeline.service.utils">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.pipeline.types
+
+      <ul>
+        <li><a href="apiref/dff.pipeline.types.html#module-dff.pipeline.types">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.script.conditions.std_conditions
+
+      <ul>
+        <li><a href="apiref/dff.script.conditions.std_conditions.html#module-dff.script.conditions.std_conditions">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.script.core.context
+
+      <ul>
+        <li><a href="apiref/dff.script.core.context.html#module-dff.script.core.context">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.script.core.keywords
+
+      <ul>
+        <li><a href="apiref/dff.script.core.keywords.html#module-dff.script.core.keywords">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.script.core.message
+
+      <ul>
+        <li><a href="apiref/dff.script.core.message.html#module-dff.script.core.message">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.script.core.normalization
+
+      <ul>
+        <li><a href="apiref/dff.script.core.normalization.html#module-dff.script.core.normalization">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.script.core.script
+
+      <ul>
+        <li><a href="apiref/dff.script.core.script.html#module-dff.script.core.script">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.script.core.types
+
+      <ul>
+        <li><a href="apiref/dff.script.core.types.html#module-dff.script.core.types">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.script.extras.conditions
+
+      <ul>
+        <li><a href="apiref/dff.script.extras.conditions.html#module-dff.script.extras.conditions">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.script.extras.slots
+
+      <ul>
+        <li><a href="apiref/dff.script.extras.slots.html#module-dff.script.extras.slots">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.script.labels.std_labels
+
+      <ul>
+        <li><a href="apiref/dff.script.labels.std_labels.html#module-dff.script.labels.std_labels">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.script.responses.std_responses
+
+      <ul>
+        <li><a href="apiref/dff.script.responses.std_responses.html#module-dff.script.responses.std_responses">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.stats.cli
+
+      <ul>
+        <li><a href="apiref/dff.stats.cli.html#module-dff.stats.cli">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.stats.default_extractors
+
+      <ul>
+        <li><a href="apiref/dff.stats.default_extractors.html#module-dff.stats.default_extractors">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.stats.instrumentor
+
+      <ul>
+        <li><a href="apiref/dff.stats.instrumentor.html#module-dff.stats.instrumentor">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.stats.utils
+
+      <ul>
+        <li><a href="apiref/dff.stats.utils.html#module-dff.stats.utils">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.utils.db_benchmark.basic_config
+
+      <ul>
+        <li><a href="apiref/dff.utils.db_benchmark.basic_config.html#module-dff.utils.db_benchmark.basic_config">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.utils.db_benchmark.benchmark
+
+      <ul>
+        <li><a href="apiref/dff.utils.db_benchmark.benchmark.html#module-dff.utils.db_benchmark.benchmark">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.utils.db_benchmark.report
+
+      <ul>
+        <li><a href="apiref/dff.utils.db_benchmark.report.html#module-dff.utils.db_benchmark.report">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.utils.testing.cleanup_db
+
+      <ul>
+        <li><a href="apiref/dff.utils.testing.cleanup_db.html#module-dff.utils.testing.cleanup_db">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.utils.testing.common
+
+      <ul>
+        <li><a href="apiref/dff.utils.testing.common.html#module-dff.utils.testing.common">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.utils.testing.response_comparers
+
+      <ul>
+        <li><a href="apiref/dff.utils.testing.response_comparers.html#module-dff.utils.testing.response_comparers">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.utils.testing.telegram
+
+      <ul>
+        <li><a href="apiref/dff.utils.testing.telegram.html#module-dff.utils.testing.telegram">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.utils.testing.toy_script
+
+      <ul>
+        <li><a href="apiref/dff.utils.testing.toy_script.html#module-dff.utils.testing.toy_script">module</a>
+</li>
+      </ul></li>
+      <li>
+    dff.utils.turn_caching.singleton_turn_caching
+
+      <ul>
+        <li><a href="apiref/dff.utils.turn_caching.singleton_turn_caching.html#module-dff.utils.turn_caching.singleton_turn_caching">module</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.stats.cli.html#dff.stats.cli.DFF_DIR">DFF_DIR (in module dff.stats.cli)</a>
+</li>
+      <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Document">Document (class in dff.script.core.message)</a>
+</li>
+      <li><a href="apiref/dff.stats.utils.html#dff.stats.utils.drop_superset_assets">drop_superset_assets() (in module dff.stats.utils)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.messengers.telegram.messenger.html#dff.messengers.telegram.messenger.UpdateType.EDITED_CHANNEL_POST">EDITED_CHANNEL_POST (UpdateType attribute)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.messenger.html#dff.messengers.telegram.messenger.UpdateType.EDITED_MESSAGE">EDITED_MESSAGE (UpdateType attribute)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.error_handler">error_handler() (in module dff.pipeline.pipeline.actor)</a>
+</li>
+      <li><a href="apiref/dff.script.conditions.std_conditions.html#dff.script.conditions.std_conditions.exact_match">exact_match() (in module dff.script.conditions.std_conditions)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ServiceRuntimeInfo.execution_state">execution_state (ServiceRuntimeInfo attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.messengers.telegram.interface.html#dff.messengers.telegram.interface.extract_telegram_request_and_id">extract_telegram_request_and_id() (in module dff.messengers.telegram.interface)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ExtraHandlerBuilder">ExtraHandlerBuilder (in module dff.pipeline.types)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ExtraHandlerConditionFunction">ExtraHandlerConditionFunction (in module dff.pipeline.types)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ExtraHandlerFunction">ExtraHandlerFunction (in module dff.pipeline.types)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ExtraHandlerRuntimeInfo">ExtraHandlerRuntimeInfo (class in dff.pipeline.types)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ExtraHandlerType">ExtraHandlerType (class in dff.pipeline.types)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.utils.db_benchmark.benchmark.html#dff.utils.db_benchmark.benchmark.DBFactory.factory">factory (DBFactory attribute)</a>
+</li>
+      <li><a href="apiref/dff.utils.db_benchmark.benchmark.html#dff.utils.db_benchmark.benchmark.DBFactory.factory_module">factory_module (DBFactory attribute)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ComponentExecutionState.FAILED">FAILED (ComponentExecutionState attribute)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.PipelineBuilder.fallback_label">fallback_label (PipelineBuilder attribute)</a>
+</li>
+      <li><a href="apiref/dff.script.conditions.std_conditions.html#dff.script.conditions.std_conditions.false">false() (in module dff.script.conditions.std_conditions)</a>
+</li>
+      <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Attachments.files">files (Attachments attribute)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.utils.html#dff.pipeline.pipeline.utils.finalize_service_group">finalize_service_group() (in module dff.pipeline.pipeline.utils)</a>
+</li>
+      <li><a href="apiref/dff.script.core.types.html#dff.script.core.types.ActorStage.FINISH_TURN">FINISH_TURN (ActorStage attribute)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ComponentExecutionState.FINISHED">FINISHED (ComponentExecutionState attribute)</a>
+
+      <ul>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Session.FINISHED">(Session attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.utils.testing.telegram.html#dff.utils.testing.telegram.TelegramTesting.forget_previous_updates">forget_previous_updates() (TelegramTesting method)</a>
+</li>
+      <li><a href="apiref/dff.script.labels.std_labels.html#dff.script.labels.std_labels.forward">forward() (in module dff.script.labels.std_labels)</a>
+</li>
+      <li><a href="apiref/dff.script.core.context.html#dff.script.core.context.Context.framework_states">framework_states (Context attribute)</a>
+</li>
+      <li><a href="apiref/dff.utils.db_benchmark.basic_config.html#dff.utils.db_benchmark.basic_config.BasicBenchmarkConfig.from_dialog_len">from_dialog_len (BasicBenchmarkConfig attribute)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.pipeline.html#dff.pipeline.pipeline.pipeline.Pipeline.from_dict">from_dict() (Pipeline class method)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.pipeline.html#dff.pipeline.pipeline.pipeline.Pipeline.from_script">from_script() (Pipeline class method)</a>
+</li>
+      <li><a href="apiref/dff.stats.instrumentor.html#dff.stats.instrumentor.OtelInstrumentor.from_url">from_url() (OtelInstrumentor class method)</a>
+</li>
+      <li><a href="apiref/dff.context_storages.database.html#dff.context_storages.database.DBContextStorage.full_path">full_path (DBContextStorage attribute)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ExtraHandlerRuntimeInfo.func">func (ExtraHandlerRuntimeInfo attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.context_storages.database.html#dff.context_storages.database.DBContextStorage.get">get() (DBContextStorage method)</a>
+
+      <ul>
+        <li><a href="apiref/dff.script.core.script.html#dff.script.core.script.Script.get">(Script method)</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.context_storages.database.html#dff.context_storages.database.DBContextStorage.get_async">get_async() (DBContextStorage method)</a>
+</li>
+      <li><a href="apiref/dff.utils.testing.telegram.html#dff.utils.testing.telegram.get_bot_user">get_bot_user() (in module dff.utils.testing.telegram)</a>
+</li>
+      <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Attachment.get_bytes">get_bytes() (Attachment method)</a>
+</li>
+      <li><a href="apiref/dff.utils.db_benchmark.basic_config.html#dff.utils.db_benchmark.basic_config.BasicBenchmarkConfig.get_context">get_context() (BasicBenchmarkConfig method)</a>
+
+      <ul>
+        <li><a href="apiref/dff.utils.db_benchmark.benchmark.html#dff.utils.db_benchmark.benchmark.BenchmarkConfig.get_context">(BenchmarkConfig method)</a>
+</li>
+        <li><a href="apiref/dff.utils.db_benchmark.basic_config.html#dff.utils.db_benchmark.basic_config.get_context">(in module dff.utils.db_benchmark.basic_config)</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.stats.default_extractors.html#dff.stats.default_extractors.get_current_label">get_current_label() (in module dff.stats.default_extractors)</a>
+</li>
+      <li><a href="apiref/dff.utils.db_benchmark.basic_config.html#dff.utils.db_benchmark.basic_config.get_dict">get_dict() (in module dff.utils.db_benchmark.basic_config)</a>
+</li>
+      <li><a href="apiref/dff.context_storages.database.html#dff.context_storages.database.DBContextStorage.get_item_async">get_item_async() (DBContextStorage method)</a>
+
+      <ul>
+        <li><a href="apiref/dff.context_storages.json.html#dff.context_storages.json.JSONContextStorage.get_item_async">(JSONContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.mongo.html#dff.context_storages.mongo.MongoContextStorage.get_item_async">(MongoContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.pickle.html#dff.context_storages.pickle.PickleContextStorage.get_item_async">(PickleContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.redis.html#dff.context_storages.redis.RedisContextStorage.get_item_async">(RedisContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.shelve.html#dff.context_storages.shelve.ShelveContextStorage.get_item_async">(ShelveContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.sql.html#dff.context_storages.sql.SQLContextStorage.get_item_async">(SQLContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.ydb.html#dff.context_storages.ydb.YDBContextStorage.get_item_async">(YDBContextStorage method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.script.core.context.html#dff.script.core.context.get_last_index">get_last_index() (in module dff.script.core.context)</a>
+</li>
+      <li><a href="apiref/dff.stats.default_extractors.html#dff.stats.default_extractors.get_last_request">get_last_request() (in module dff.stats.default_extractors)</a>
+</li>
+      <li><a href="apiref/dff.stats.default_extractors.html#dff.stats.default_extractors.get_last_response">get_last_response() (in module dff.stats.default_extractors)</a>
+</li>
+      <li><a href="apiref/dff.utils.db_benchmark.basic_config.html#dff.utils.db_benchmark.basic_config.get_message">get_message() (in module dff.utils.db_benchmark.basic_config)</a>
+</li>
+      <li><a href="apiref/dff.script.core.types.html#dff.script.core.types.ActorStage.GET_NEXT_NODE">GET_NEXT_NODE (ActorStage attribute)</a>
+</li>
+      <li><a href="apiref/dff.script.core.types.html#dff.script.core.types.ActorStage.GET_PREVIOUS_NODE">GET_PREVIOUS_NODE (ActorStage attribute)</a>
+</li>
+      <li><a href="apiref/dff.context_storages.protocol.html#dff.context_storages.protocol.get_protocol_install_suggestion">get_protocol_install_suggestion() (in module dff.context_storages.protocol)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.component.html#dff.pipeline.pipeline.component.PipelineComponent.get_state">get_state() (PipelineComponent method)</a>
+</li>
+      <li><a href="apiref/dff.stats.utils.html#dff.stats.utils.get_superset_session">get_superset_session() (in module dff.stats.utils)</a>
+</li>
+      <li><a href="apiref/dff.stats.default_extractors.html#dff.stats.default_extractors.get_timing_after">get_timing_after() (in module dff.stats.default_extractors)</a>
+</li>
+      <li><a href="apiref/dff.stats.default_extractors.html#dff.stats.default_extractors.get_timing_before">get_timing_before() (in module dff.stats.default_extractors)</a>
+</li>
+      <li><a href="apiref/dff.script.core.types.html#dff.script.core.types.ActorStage.GET_TRUE_LABELS">GET_TRUE_LABELS (ActorStage attribute)</a>
+</li>
+      <li><a href="apiref/dff.stats.utils.html#dff.stats.utils.get_wrapper_field">get_wrapper_field() (in module dff.stats.utils)</a>
+</li>
+      <li><a href="apiref/dff.script.core.keywords.html#dff.script.core.keywords.Keywords.GLOBAL">GLOBAL (Keywords attribute)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.GlobalExtraHandlerType">GlobalExtraHandlerType (class in dff.pipeline.types)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.PipelineBuilder.handlers">handlers (PipelineBuilder attribute)</a>
+</li>
+      <li><a href="apiref/dff.utils.testing.toy_script.html#dff.utils.testing.toy_script.HAPPY_PATH">HAPPY_PATH (in module dff.utils.testing.toy_script)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.script.conditions.std_conditions.html#dff.script.conditions.std_conditions.has_last_labels">has_last_labels() (in module dff.script.conditions.std_conditions)</a>
+</li>
+      <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Link.html">html (Link property)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.message.html#dff.messengers.telegram.message.ParseMode.HTML">HTML (ParseMode attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Attachment.id">id (Attachment attribute)</a>
+
+      <ul>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Audio.id">(Audio attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.context.html#dff.script.core.context.Context.id">(Context attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Document.id">(Document attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Image.id">(Image attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Video.id">(Video attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Image">Image (class in dff.script.core.message)</a>
+</li>
+      <li><a href="apiref/dff.stats.cli.html#dff.stats.cli.import_dashboard">import_dashboard() (in module dff.stats.cli)</a>
+</li>
+      <li><a href="apiref/dff.context_storages.sql.html#dff.context_storages.sql.import_insert_for_dialect">import_insert_for_dialect() (in module dff.context_storages.sql)</a>
+</li>
+      <li><a href="apiref/dff.utils.db_benchmark.basic_config.html#dff.utils.db_benchmark.basic_config.BasicBenchmarkConfig.info">info() (BasicBenchmarkConfig method)</a>
+
+      <ul>
+        <li><a href="apiref/dff.utils.db_benchmark.benchmark.html#dff.utils.db_benchmark.benchmark.BenchmarkConfig.info">(BenchmarkConfig method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.pipeline.service.extra.html#dff.pipeline.service.extra._ComponentExtraHandler.info_dict">info_dict (_ComponentExtraHandler property)</a>
+
+      <ul>
+        <li><a href="apiref/dff.pipeline.pipeline.pipeline.html#dff.pipeline.pipeline.pipeline.Pipeline.info_dict">(Pipeline property)</a>
+</li>
+        <li><a href="apiref/dff.pipeline.pipeline.component.html#dff.pipeline.pipeline.component.PipelineComponent.info_dict">(PipelineComponent property)</a>
+</li>
+        <li><a href="apiref/dff.pipeline.service.service.html#dff.pipeline.service.service.Service.info_dict">(Service property)</a>
+</li>
+        <li><a href="apiref/dff.pipeline.service.group.html#dff.pipeline.service.group.ServiceGroup.info_dict">(ServiceGroup property)</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.messengers.telegram.messenger.html#dff.messengers.telegram.messenger.UpdateType.INLINE_QUERY">INLINE_QUERY (UpdateType attribute)</a>
+</li>
+      <li><a href="apiref/dff.stats.instrumentor.html#dff.stats.instrumentor.OtelInstrumentor.instrumentation_dependencies">instrumentation_dependencies() (OtelInstrumentor method)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.message.html#dff.messengers.telegram.message.TelegramUI.is_inline">is_inline (TelegramUI attribute)</a>
+</li>
+      <li><a href="apiref/dff.utils.testing.common.html#dff.utils.testing.common.is_interactive_mode">is_interactive_mode() (in module dff.utils.testing.common)</a>
+</li>
+      <li><a href="apiref/dff.script.core.script.html#dff.script.core.script.Script.items">items() (Script method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="J">J</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.context_storages.json.html#dff.context_storages.json.JSONContextStorage">JSONContextStorage (class in dff.context_storages.json)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="K">K</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Keyboard">Keyboard (class in dff.script.core.message)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.script.core.script.html#dff.script.core.script.Script.keys">keys() (Script method)</a>
+</li>
+      <li><a href="apiref/dff.script.core.keywords.html#dff.script.core.keywords.Keywords">Keywords (class in dff.script.core.keywords)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.PipelineBuilder.label_priority">label_priority (PipelineBuilder attribute)</a>
+</li>
+      <li><a href="apiref/dff.script.core.context.html#dff.script.core.context.Context.labels">labels (Context attribute)</a>
+</li>
+      <li><a href="apiref/dff.script.core.types.html#dff.script.core.types.LabelType">LabelType (in module dff.script.core.types)</a>
+</li>
+      <li><a href="apiref/dff.script.core.context.html#dff.script.core.context.Context.last_label">last_label (Context property)</a>
+</li>
+      <li><a href="apiref/dff.script.core.context.html#dff.script.core.context.Context.last_request">last_request (Context property)</a>
+</li>
+      <li><a href="apiref/dff.script.core.context.html#dff.script.core.context.Context.last_response">last_response (Context property)</a>
+</li>
+      <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Location.latitude">latitude (Location attribute)</a>
+</li>
+      <li><a href="apiref/dff.context_storages.database.html#dff.context_storages.database.DBContextStorage.len_async">len_async() (DBContextStorage method)</a>
+
+      <ul>
+        <li><a href="apiref/dff.context_storages.json.html#dff.context_storages.json.JSONContextStorage.len_async">(JSONContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.mongo.html#dff.context_storages.mongo.MongoContextStorage.len_async">(MongoContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.pickle.html#dff.context_storages.pickle.PickleContextStorage.len_async">(PickleContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.redis.html#dff.context_storages.redis.RedisContextStorage.len_async">(RedisContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.shelve.html#dff.context_storages.shelve.ShelveContextStorage.len_async">(ShelveContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.sql.html#dff.context_storages.sql.SQLContextStorage.len_async">(SQLContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.ydb.html#dff.context_storages.ydb.YDBContextStorage.len_async">(YDBContextStorage method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Link">Link (class in dff.script.core.message)</a>
+</li>
+      <li><a href="apiref/dff.script.core.keywords.html#dff.script.core.keywords.Keywords.LOCAL">LOCAL (Keywords attribute)</a>
+</li>
+      <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Location">Location (class in dff.script.core.message)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.message.html#dff.messengers.telegram.message.TelegramMessage.location">location (TelegramMessage attribute)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.service.group.html#dff.pipeline.service.group.ServiceGroup.log_optimization_warnings">log_optimization_warnings() (ServiceGroup method)</a>
+</li>
+      <li><a href="apiref/dff.stats.utils.html#dff.stats.utils.logger_provider">logger_provider (in module dff.stats.utils)</a>
+</li>
+      <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Location.longitude">longitude (Location attribute)</a>
+</li>
+      <li><a href="apiref/dff.utils.turn_caching.singleton_turn_caching.html#dff.utils.turn_caching.singleton_turn_caching.lru_cache">lru_cache() (in module dff.utils.turn_caching.singleton_turn_caching)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.stats.cli.html#dff.stats.cli.make_zip_config">make_zip_config() (in module dff.stats.cli)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.message.html#dff.messengers.telegram.message.ParseMode.MARKDOWN">MARKDOWN (ParseMode attribute)</a>
+</li>
+      <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Message">Message (class in dff.script.core.message)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.messenger.html#dff.messengers.telegram.messenger.UpdateType.MESSAGE">MESSAGE (UpdateType attribute)</a>
+</li>
+      <li><a href="apiref/dff.utils.db_benchmark.basic_config.html#dff.utils.db_benchmark.basic_config.BasicBenchmarkConfig.message_dimensions">message_dimensions (BasicBenchmarkConfig attribute)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.PipelineBuilder.messenger_interface">messenger_interface (PipelineBuilder attribute)</a>
+</li>
+      <li><a href="apiref/dff.messengers.common.interface.html#dff.messengers.common.interface.MessengerInterface">MessengerInterface (class in dff.messengers.common.interface)</a>
+</li>
+      <li><a href="apiref/dff.script.core.context.html#dff.script.core.context.Context.misc">misc (Context attribute)</a>
+</li>
+      <li><a href="apiref/dff.script.core.keywords.html#dff.script.core.keywords.Keywords.MISC">MISC (Keywords attribute)</a>
+</li>
+      <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Message.misc">misc (Message attribute)</a>
+
+      <ul>
+        <li><a href="apiref/dff.script.core.script.html#dff.script.core.script.Node.misc">(Node attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.utils.db_benchmark.basic_config.html#dff.utils.db_benchmark.basic_config.BasicBenchmarkConfig.misc_dimensions">misc_dimensions (BasicBenchmarkConfig attribute)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.message.html#dff.messengers.telegram.message._ClickButton.model_computed_fields">model_computed_fields (_ClickButton attribute)</a>
+
+      <ul>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Attachment.model_computed_fields">(Attachment attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Attachments.model_computed_fields">(Attachments attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Audio.model_computed_fields">(Audio attribute)</a>
+</li>
+        <li><a href="apiref/dff.utils.db_benchmark.basic_config.html#dff.utils.db_benchmark.basic_config.BasicBenchmarkConfig.model_computed_fields">(BasicBenchmarkConfig attribute)</a>
+</li>
+        <li><a href="apiref/dff.utils.db_benchmark.benchmark.html#dff.utils.db_benchmark.benchmark.BenchmarkCase.model_computed_fields">(BenchmarkCase attribute)</a>
+</li>
+        <li><a href="apiref/dff.utils.db_benchmark.benchmark.html#dff.utils.db_benchmark.benchmark.BenchmarkConfig.model_computed_fields">(BenchmarkConfig attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Button.model_computed_fields">(Button attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Command.model_computed_fields">(Command attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.context.html#dff.script.core.context.Context.model_computed_fields">(Context attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.DataModel.model_computed_fields">(DataModel attribute)</a>
+</li>
+        <li><a href="apiref/dff.utils.db_benchmark.benchmark.html#dff.utils.db_benchmark.benchmark.DBFactory.model_computed_fields">(DBFactory attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Document.model_computed_fields">(Document attribute)</a>
+</li>
+        <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ExtraHandlerRuntimeInfo.model_computed_fields">(ExtraHandlerRuntimeInfo attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Image.model_computed_fields">(Image attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Keyboard.model_computed_fields">(Keyboard attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Link.model_computed_fields">(Link attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Location.model_computed_fields">(Location attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Message.model_computed_fields">(Message attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.script.html#dff.script.core.script.Node.model_computed_fields">(Node attribute)</a>
+</li>
+        <li><a href="apiref/dff.messengers.telegram.message.html#dff.messengers.telegram.message.RemoveKeyboard.model_computed_fields">(RemoveKeyboard attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.script.html#dff.script.core.script.Script.model_computed_fields">(Script attribute)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.json.html#dff.context_storages.json.SerializableStorage.model_computed_fields">(SerializableStorage attribute)</a>
+</li>
+        <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ServiceRuntimeInfo.model_computed_fields">(ServiceRuntimeInfo attribute)</a>
+</li>
+        <li><a href="apiref/dff.messengers.telegram.message.html#dff.messengers.telegram.message.TelegramMessage.model_computed_fields">(TelegramMessage attribute)</a>
+</li>
+        <li><a href="apiref/dff.messengers.telegram.message.html#dff.messengers.telegram.message.TelegramUI.model_computed_fields">(TelegramUI attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Video.model_computed_fields">(Video attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.messengers.telegram.message.html#dff.messengers.telegram.message._ClickButton.model_config">model_config (_ClickButton attribute)</a>
+
+      <ul>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Attachment.model_config">(Attachment attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Attachments.model_config">(Attachments attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Audio.model_config">(Audio attribute)</a>
+</li>
+        <li><a href="apiref/dff.utils.db_benchmark.basic_config.html#dff.utils.db_benchmark.basic_config.BasicBenchmarkConfig.model_config">(BasicBenchmarkConfig attribute)</a>
+</li>
+        <li><a href="apiref/dff.utils.db_benchmark.benchmark.html#dff.utils.db_benchmark.benchmark.BenchmarkCase.model_config">(BenchmarkCase attribute)</a>
+</li>
+        <li><a href="apiref/dff.utils.db_benchmark.benchmark.html#dff.utils.db_benchmark.benchmark.BenchmarkConfig.model_config">(BenchmarkConfig attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Button.model_config">(Button attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Command.model_config">(Command attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.context.html#dff.script.core.context.Context.model_config">(Context attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.DataModel.model_config">(DataModel attribute)</a>
+</li>
+        <li><a href="apiref/dff.utils.db_benchmark.benchmark.html#dff.utils.db_benchmark.benchmark.DBFactory.model_config">(DBFactory attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Document.model_config">(Document attribute)</a>
+</li>
+        <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ExtraHandlerRuntimeInfo.model_config">(ExtraHandlerRuntimeInfo attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Image.model_config">(Image attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Keyboard.model_config">(Keyboard attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Link.model_config">(Link attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Location.model_config">(Location attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Message.model_config">(Message attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.script.html#dff.script.core.script.Node.model_config">(Node attribute)</a>
+</li>
+        <li><a href="apiref/dff.messengers.telegram.message.html#dff.messengers.telegram.message.RemoveKeyboard.model_config">(RemoveKeyboard attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.script.html#dff.script.core.script.Script.model_config">(Script attribute)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.json.html#dff.context_storages.json.SerializableStorage.model_config">(SerializableStorage attribute)</a>
+</li>
+        <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ServiceRuntimeInfo.model_config">(ServiceRuntimeInfo attribute)</a>
+</li>
+        <li><a href="apiref/dff.messengers.telegram.message.html#dff.messengers.telegram.message.TelegramMessage.model_config">(TelegramMessage attribute)</a>
+</li>
+        <li><a href="apiref/dff.messengers.telegram.message.html#dff.messengers.telegram.message.TelegramUI.model_config">(TelegramUI attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Video.model_config">(Video attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    module
+
+      <ul>
+        <li><a href="apiref/dff.context_storages.database.html#module-dff.context_storages.database">dff.context_storages.database</a>
+</li>
+        <li><a href="apiref/dff.context_storages.json.html#module-dff.context_storages.json">dff.context_storages.json</a>
+</li>
+        <li><a href="apiref/dff.context_storages.mongo.html#module-dff.context_storages.mongo">dff.context_storages.mongo</a>
+</li>
+        <li><a href="apiref/dff.context_storages.pickle.html#module-dff.context_storages.pickle">dff.context_storages.pickle</a>
+</li>
+        <li><a href="apiref/dff.context_storages.protocol.html#module-dff.context_storages.protocol">dff.context_storages.protocol</a>
+</li>
+        <li><a href="apiref/dff.context_storages.redis.html#module-dff.context_storages.redis">dff.context_storages.redis</a>
+</li>
+        <li><a href="apiref/dff.context_storages.shelve.html#module-dff.context_storages.shelve">dff.context_storages.shelve</a>
+</li>
+        <li><a href="apiref/dff.context_storages.sql.html#module-dff.context_storages.sql">dff.context_storages.sql</a>
+</li>
+        <li><a href="apiref/dff.context_storages.ydb.html#module-dff.context_storages.ydb">dff.context_storages.ydb</a>
+</li>
+        <li><a href="apiref/dff.messengers.common.interface.html#module-dff.messengers.common.interface">dff.messengers.common.interface</a>
+</li>
+        <li><a href="apiref/dff.messengers.common.types.html#module-dff.messengers.common.types">dff.messengers.common.types</a>
+</li>
+        <li><a href="apiref/dff.messengers.telegram.interface.html#module-dff.messengers.telegram.interface">dff.messengers.telegram.interface</a>
+</li>
+        <li><a href="apiref/dff.messengers.telegram.message.html#module-dff.messengers.telegram.message">dff.messengers.telegram.message</a>
+</li>
+        <li><a href="apiref/dff.messengers.telegram.messenger.html#module-dff.messengers.telegram.messenger">dff.messengers.telegram.messenger</a>
+</li>
+        <li><a href="apiref/dff.messengers.telegram.utils.html#module-dff.messengers.telegram.utils">dff.messengers.telegram.utils</a>
+</li>
+        <li><a href="apiref/dff.pipeline.conditions.html#module-dff.pipeline.conditions">dff.pipeline.conditions</a>
+</li>
+        <li><a href="apiref/dff.pipeline.pipeline.actor.html#module-dff.pipeline.pipeline.actor">dff.pipeline.pipeline.actor</a>
+</li>
+        <li><a href="apiref/dff.pipeline.pipeline.component.html#module-dff.pipeline.pipeline.component">dff.pipeline.pipeline.component</a>
+</li>
+        <li><a href="apiref/dff.pipeline.pipeline.pipeline.html#module-dff.pipeline.pipeline.pipeline">dff.pipeline.pipeline.pipeline</a>
+</li>
+        <li><a href="apiref/dff.pipeline.pipeline.utils.html#module-dff.pipeline.pipeline.utils">dff.pipeline.pipeline.utils</a>
+</li>
+        <li><a href="apiref/dff.pipeline.service.extra.html#module-dff.pipeline.service.extra">dff.pipeline.service.extra</a>
+</li>
+        <li><a href="apiref/dff.pipeline.service.group.html#module-dff.pipeline.service.group">dff.pipeline.service.group</a>
+</li>
+        <li><a href="apiref/dff.pipeline.service.service.html#module-dff.pipeline.service.service">dff.pipeline.service.service</a>
+</li>
+        <li><a href="apiref/dff.pipeline.service.utils.html#module-dff.pipeline.service.utils">dff.pipeline.service.utils</a>
+</li>
+        <li><a href="apiref/dff.pipeline.types.html#module-dff.pipeline.types">dff.pipeline.types</a>
+</li>
+        <li><a href="apiref/dff.script.conditions.std_conditions.html#module-dff.script.conditions.std_conditions">dff.script.conditions.std_conditions</a>
+</li>
+        <li><a href="apiref/dff.script.core.context.html#module-dff.script.core.context">dff.script.core.context</a>
+</li>
+        <li><a href="apiref/dff.script.core.keywords.html#module-dff.script.core.keywords">dff.script.core.keywords</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#module-dff.script.core.message">dff.script.core.message</a>
+</li>
+        <li><a href="apiref/dff.script.core.normalization.html#module-dff.script.core.normalization">dff.script.core.normalization</a>
+</li>
+        <li><a href="apiref/dff.script.core.script.html#module-dff.script.core.script">dff.script.core.script</a>
+</li>
+        <li><a href="apiref/dff.script.core.types.html#module-dff.script.core.types">dff.script.core.types</a>
+</li>
+        <li><a href="apiref/dff.script.extras.conditions.html#module-dff.script.extras.conditions">dff.script.extras.conditions</a>
+</li>
+        <li><a href="apiref/dff.script.extras.slots.html#module-dff.script.extras.slots">dff.script.extras.slots</a>
+</li>
+        <li><a href="apiref/dff.script.labels.std_labels.html#module-dff.script.labels.std_labels">dff.script.labels.std_labels</a>
+</li>
+        <li><a href="apiref/dff.script.responses.std_responses.html#module-dff.script.responses.std_responses">dff.script.responses.std_responses</a>
+</li>
+        <li><a href="apiref/dff.stats.cli.html#module-dff.stats.cli">dff.stats.cli</a>
+</li>
+        <li><a href="apiref/dff.stats.default_extractors.html#module-dff.stats.default_extractors">dff.stats.default_extractors</a>
+</li>
+        <li><a href="apiref/dff.stats.instrumentor.html#module-dff.stats.instrumentor">dff.stats.instrumentor</a>
+</li>
+        <li><a href="apiref/dff.stats.utils.html#module-dff.stats.utils">dff.stats.utils</a>
+</li>
+        <li><a href="apiref/dff.utils.db_benchmark.basic_config.html#module-dff.utils.db_benchmark.basic_config">dff.utils.db_benchmark.basic_config</a>
+</li>
+        <li><a href="apiref/dff.utils.db_benchmark.benchmark.html#module-dff.utils.db_benchmark.benchmark">dff.utils.db_benchmark.benchmark</a>
+</li>
+        <li><a href="apiref/dff.utils.db_benchmark.report.html#module-dff.utils.db_benchmark.report">dff.utils.db_benchmark.report</a>
+</li>
+        <li><a href="apiref/dff.utils.testing.cleanup_db.html#module-dff.utils.testing.cleanup_db">dff.utils.testing.cleanup_db</a>
+</li>
+        <li><a href="apiref/dff.utils.testing.common.html#module-dff.utils.testing.common">dff.utils.testing.common</a>
+</li>
+        <li><a href="apiref/dff.utils.testing.response_comparers.html#module-dff.utils.testing.response_comparers">dff.utils.testing.response_comparers</a>
+</li>
+        <li><a href="apiref/dff.utils.testing.telegram.html#module-dff.utils.testing.telegram">dff.utils.testing.telegram</a>
+</li>
+        <li><a href="apiref/dff.utils.testing.toy_script.html#module-dff.utils.testing.toy_script">dff.utils.testing.toy_script</a>
+</li>
+        <li><a href="apiref/dff.utils.turn_caching.singleton_turn_caching.html#module-dff.utils.turn_caching.singleton_turn_caching">dff.utils.turn_caching.singleton_turn_caching</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.script.core.types.html#dff.script.core.types.ModuleName">ModuleName (in module dff.script.core.types)</a>
+</li>
+      <li><a href="apiref/dff.context_storages.mongo.html#dff.context_storages.mongo.MongoContextStorage">MongoContextStorage (class in dff.context_storages.mongo)</a>
+</li>
+      <li><a href="apiref/dff.utils.testing.toy_script.html#dff.utils.testing.toy_script.MULTIFLOW_REQUEST_OPTIONS">MULTIFLOW_REQUEST_OPTIONS (in module dff.utils.testing.toy_script)</a>
+</li>
+      <li><a href="apiref/dff.utils.testing.toy_script.html#dff.utils.testing.toy_script.MULTIFLOW_SCRIPT">MULTIFLOW_SCRIPT (in module dff.utils.testing.toy_script)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.messenger.html#dff.messengers.telegram.messenger.UpdateType.MY_CHAT_MEMBER">MY_CHAT_MEMBER (UpdateType attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.utils.db_benchmark.benchmark.html#dff.utils.db_benchmark.benchmark.BenchmarkCase.name">name (BenchmarkCase attribute)</a>
+
+      <ul>
+        <li><a href="apiref/dff.pipeline.pipeline.component.html#dff.pipeline.pipeline.component.PipelineComponent.name">(PipelineComponent attribute)</a>
+</li>
+        <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ServiceRuntimeInfo.name">(ServiceRuntimeInfo attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.script.conditions.std_conditions.html#dff.script.conditions.std_conditions.neg">neg() (in module dff.script.conditions.std_conditions)</a>
+</li>
+      <li><a href="apiref/dff.script.conditions.std_conditions.html#dff.script.conditions.std_conditions.negation">negation() (in module dff.script.conditions.std_conditions)</a>
+</li>
+      <li><a href="apiref/dff.script.core.script.html#dff.script.core.script.Node">Node (class in dff.script.core.script)</a>
+</li>
+      <li><a href="apiref/dff.script.core.types.html#dff.script.core.types.NodeLabel1Type">NodeLabel1Type (in module dff.script.core.types)</a>
+</li>
+      <li><a href="apiref/dff.script.core.types.html#dff.script.core.types.NodeLabel2Type">NodeLabel2Type (in module dff.script.core.types)</a>
+</li>
+      <li><a href="apiref/dff.script.core.types.html#dff.script.core.types.NodeLabel3Type">NodeLabel3Type (in module dff.script.core.types)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.script.core.types.html#dff.script.core.types.NodeLabelTupledType">NodeLabelTupledType (in module dff.script.core.types)</a>
+</li>
+      <li><a href="apiref/dff.script.core.types.html#dff.script.core.types.NodeLabelType">NodeLabelType (in module dff.script.core.types)</a>
+</li>
+      <li><a href="apiref/dff.script.core.normalization.html#dff.script.core.normalization.normalize_condition">normalize_condition() (in module dff.script.core.normalization)</a>
+</li>
+      <li><a href="apiref/dff.script.core.normalization.html#dff.script.core.normalization.normalize_label">normalize_label() (in module dff.script.core.normalization)</a>
+</li>
+      <li><a href="apiref/dff.script.core.normalization.html#dff.script.core.normalization.normalize_response">normalize_response() (in module dff.script.core.normalization)</a>
+</li>
+      <li><a href="apiref/dff.script.core.script.html#dff.script.core.script.Script.normalize_script">normalize_script() (Script class method)</a>
+</li>
+      <li><a href="apiref/dff.script.core.script.html#dff.script.core.script.Node.normalize_transitions">normalize_transitions() (Node class method)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.conditions.html#dff.pipeline.conditions.not_condition">not_condition() (in module dff.pipeline.conditions)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ComponentExecutionState.NOT_RUN">NOT_RUN (ComponentExecutionState attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.messengers.common.interface.html#dff.messengers.common.interface.CallbackMessengerInterface.on_request">on_request() (CallbackMessengerInterface method)</a>
+</li>
+      <li><a href="apiref/dff.messengers.common.interface.html#dff.messengers.common.interface.CallbackMessengerInterface.on_request_async">on_request_async() (CallbackMessengerInterface method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.messengers.telegram.utils.html#dff.messengers.telegram.utils.open_io">open_io() (in module dff.messengers.telegram.utils)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.PipelineBuilder.optimization_warnings">optimization_warnings (PipelineBuilder attribute)</a>
+</li>
+      <li><a href="apiref/dff.stats.instrumentor.html#dff.stats.instrumentor.OtelInstrumentor">OtelInstrumentor (class in dff.stats.instrumentor)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.PipelineBuilder.parallelize_processing">parallelize_processing (PipelineBuilder attribute)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.message.html#dff.messengers.telegram.message.TelegramMessage.parse_mode">parse_mode (TelegramMessage attribute)</a>
+</li>
+      <li><a href="apiref/dff.utils.testing.telegram.html#dff.utils.testing.telegram.TelegramTesting.parse_responses">parse_responses() (TelegramTesting static method)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.message.html#dff.messengers.telegram.message.ParseMode">ParseMode (class in dff.messengers.telegram.message)</a>
+</li>
+      <li><a href="apiref/dff.stats.utils.html#dff.stats.utils.PasswordAction">PasswordAction (class in dff.stats.utils)</a>
+</li>
+      <li><a href="apiref/dff.context_storages.database.html#dff.context_storages.database.DBContextStorage.path">path (DBContextStorage attribute)</a>
+
+      <ul>
+        <li><a href="apiref/dff.pipeline.pipeline.component.html#dff.pipeline.pipeline.component.PipelineComponent.path">(PipelineComponent attribute)</a>
+</li>
+        <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ServiceRuntimeInfo.path">(ServiceRuntimeInfo attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Button.payload">payload (Button attribute)</a>
+</li>
+      <li><a href="apiref/dff.context_storages.pickle.html#dff.context_storages.pickle.PickleContextStorage">PickleContextStorage (class in dff.context_storages.pickle)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.pipeline.html#dff.pipeline.pipeline.pipeline.Pipeline">Pipeline (class in dff.pipeline.pipeline.pipeline)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.PIPELINE_STATE_KEY">PIPELINE_STATE_KEY (in module dff.pipeline.types)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.PipelineBuilder">PipelineBuilder (class in dff.pipeline.types)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.component.html#dff.pipeline.pipeline.component.PipelineComponent">PipelineComponent (class in dff.pipeline.pipeline.component)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.PipelineRunnerFunction">PipelineRunnerFunction (class in dff.pipeline.types)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.messenger.html#dff.messengers.telegram.messenger.UpdateType.POLL">POLL (UpdateType attribute)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.messenger.html#dff.messengers.telegram.messenger.UpdateType.POLL_ANSWER">POLL_ANSWER (UpdateType attribute)</a>
+</li>
+      <li><a href="apiref/dff.messengers.common.types.html#dff.messengers.common.types.PollingInterfaceLoopFunction">PollingInterfaceLoopFunction (in module dff.messengers.common.types)</a>
+</li>
+      <li><a href="apiref/dff.messengers.common.interface.html#dff.messengers.common.interface.PollingMessengerInterface">PollingMessengerInterface (class in dff.messengers.common.interface)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.interface.html#dff.messengers.telegram.interface.PollingTelegramInterface">PollingTelegramInterface (class in dff.messengers.telegram.interface)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.messenger.html#dff.messengers.telegram.messenger.UpdateType.PRE_CHECKOUT_QUERY">PRE_CHECKOUT_QUERY (UpdateType attribute)</a>
+</li>
+      <li><a href="apiref/dff.script.core.keywords.html#dff.script.core.keywords.Keywords.PRE_RESPONSE_PROCESSING">PRE_RESPONSE_PROCESSING (Keywords attribute)</a>
+</li>
+      <li><a href="apiref/dff.script.core.script.html#dff.script.core.script.Node.pre_response_processing">pre_response_processing (Node attribute)</a>
+</li>
+      <li><a href="apiref/dff.script.core.keywords.html#dff.script.core.keywords.Keywords.PRE_TRANSITIONS_PROCESSING">PRE_TRANSITIONS_PROCESSING (Keywords attribute)</a>
+</li>
+      <li><a href="apiref/dff.script.core.script.html#dff.script.core.script.Node.pre_transitions_processing">pre_transitions_processing (Node attribute)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.pipeline.html#dff.pipeline.pipeline.pipeline.Pipeline.pretty_format">pretty_format() (Pipeline method)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.utils.html#dff.pipeline.pipeline.utils.pretty_format_component_info_dict">pretty_format_component_info_dict() (in module dff.pipeline.pipeline.utils)</a>
+</li>
+      <li><a href="apiref/dff.script.labels.std_labels.html#dff.script.labels.std_labels.previous">previous() (in module dff.script.labels.std_labels)</a>
+</li>
+      <li><a href="apiref/dff.script.core.keywords.html#dff.script.core.keywords.Keywords.PROCESSING">PROCESSING (Keywords attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.context_storages.redis.html#dff.context_storages.redis.RedisContextStorage">RedisContextStorage (class in dff.context_storages.redis)</a>
+</li>
+      <li><a href="apiref/dff.script.conditions.std_conditions.html#dff.script.conditions.std_conditions.regexp">regexp() (in module dff.script.conditions.std_conditions)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.message.html#dff.messengers.telegram.message.RemoveKeyboard">RemoveKeyboard (class in dff.messengers.telegram.message)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.utils.html#dff.pipeline.pipeline.utils.rename_component_incrementing">rename_component_incrementing() (in module dff.pipeline.pipeline.utils)</a>
+</li>
+      <li><a href="apiref/dff.script.labels.std_labels.html#dff.script.labels.std_labels.repeat">repeat() (in module dff.script.labels.std_labels)</a>
+</li>
+      <li><a href="apiref/dff.utils.testing.telegram.html#dff.utils.testing.telegram.replace_click_button">replace_click_button() (in module dff.utils.testing.telegram)</a>
+</li>
+      <li><a href="apiref/dff.utils.db_benchmark.report.html#dff.utils.db_benchmark.report.report">report() (in module dff.utils.db_benchmark.report)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.component.html#dff.pipeline.pipeline.component.PipelineComponent.requested_async_flag">requested_async_flag (PipelineComponent attribute)</a>
+</li>
+      <li><a href="apiref/dff.script.core.context.html#dff.script.core.context.Context.requests">requests (Context attribute)</a>
+</li>
+      <li><a href="apiref/dff.stats.utils.html#dff.stats.utils.resource">resource (in module dff.stats.utils)</a>
+</li>
+      <li><a href="apiref/dff.script.core.keywords.html#dff.script.core.keywords.Keywords.RESPONSE">RESPONSE (Keywords attribute)</a>
+</li>
+      <li><a href="apiref/dff.script.core.script.html#dff.script.core.script.Node.response">response (Node attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.script.core.context.html#dff.script.core.context.Context.responses">responses (Context attribute)</a>
+</li>
+      <li><a href="apiref/dff.script.core.types.html#dff.script.core.types.ActorStage.REWRITE_NEXT_NODE">REWRITE_NEXT_NODE (ActorStage attribute)</a>
+</li>
+      <li><a href="apiref/dff.script.core.types.html#dff.script.core.types.ActorStage.REWRITE_PREVIOUS_NODE">REWRITE_PREVIOUS_NODE (ActorStage attribute)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.message.html#dff.messengers.telegram.message.TelegramUI.row_width">row_width (TelegramUI attribute)</a>
+</li>
+      <li><a href="apiref/dff.utils.db_benchmark.benchmark.html#dff.utils.db_benchmark.benchmark.BenchmarkCase.run">run() (BenchmarkCase method)</a>
+
+      <ul>
+        <li><a href="apiref/dff.pipeline.pipeline.pipeline.html#dff.pipeline.pipeline.pipeline.Pipeline.run">(Pipeline method)</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.utils.testing.telegram.html#dff.utils.testing.telegram.TelegramTesting.run_bot_loop">run_bot_loop() (TelegramTesting method)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.component.html#dff.pipeline.pipeline.component.PipelineComponent.run_extra_handler">run_extra_handler() (PipelineComponent method)</a>
+</li>
+      <li><a href="apiref/dff.utils.testing.common.html#dff.utils.testing.common.run_interactive_mode">run_interactive_mode() (in module dff.utils.testing.common)</a>
+</li>
+      <li><a href="apiref/dff.script.core.types.html#dff.script.core.types.ActorStage.RUN_PRE_RESPONSE_PROCESSING">RUN_PRE_RESPONSE_PROCESSING (ActorStage attribute)</a>
+</li>
+      <li><a href="apiref/dff.script.core.types.html#dff.script.core.types.ActorStage.RUN_PRE_TRANSITIONS_PROCESSING">RUN_PRE_TRANSITIONS_PROCESSING (ActorStage attribute)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.Actor.run_response">run_response() (Actor method)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ComponentExecutionState.RUNNING">RUNNING (ComponentExecutionState attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.utils.db_benchmark.benchmark.html#dff.utils.db_benchmark.benchmark.save_results_to_file">save_results_to_file() (in module dff.utils.db_benchmark.benchmark)</a>
+</li>
+      <li><a href="apiref/dff.script.core.script.html#dff.script.core.script.Script">Script (class in dff.script.core.script)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.pipeline.html#dff.pipeline.pipeline.pipeline.Pipeline.script">script (Pipeline property)</a>
+
+      <ul>
+        <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.PipelineBuilder.script">(PipelineBuilder attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.script.html#dff.script.core.script.Script.script">(Script attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.utils.testing.telegram.html#dff.utils.testing.telegram.TelegramTesting.send_and_check">send_and_check() (TelegramTesting method)</a>
+</li>
+      <li><a href="apiref/dff.utils.testing.telegram.html#dff.utils.testing.telegram.TelegramTesting.send_message">send_message() (TelegramTesting method)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.messenger.html#dff.messengers.telegram.messenger.TelegramMessenger.send_response">send_response() (TelegramMessenger method)</a>
+</li>
+      <li><a href="apiref/dff.context_storages.json.html#dff.context_storages.json.SerializableStorage">SerializableStorage (class in dff.context_storages.json)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.service.service.html#dff.pipeline.service.service.Service">Service (class in dff.pipeline.service.service)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.conditions.html#dff.pipeline.conditions.service_successful_condition">service_successful_condition() (in module dff.pipeline.conditions)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ServiceBuilder">ServiceBuilder (in module dff.pipeline.types)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ServiceFunction">ServiceFunction (in module dff.pipeline.types)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.service.group.html#dff.pipeline.service.group.ServiceGroup">ServiceGroup (class in dff.pipeline.service.group)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ServiceGroupBuilder">ServiceGroupBuilder (in module dff.pipeline.types)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ServiceRuntimeInfo">ServiceRuntimeInfo (class in dff.pipeline.types)</a>
+</li>
+      <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Session">Session (class in dff.script.core.message)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.pipeline.html#dff.pipeline.pipeline.pipeline.Pipeline.set_actor">set_actor() (Pipeline method)</a>
+</li>
+      <li><a href="apiref/dff.utils.db_benchmark.benchmark.html#dff.utils.db_benchmark.benchmark.BenchmarkCase.set_average_results">set_average_results() (BenchmarkCase static method)</a>
+</li>
+      <li><a href="apiref/dff.context_storages.database.html#dff.context_storages.database.DBContextStorage.set_item_async">set_item_async() (DBContextStorage method)</a>
+
+      <ul>
+        <li><a href="apiref/dff.context_storages.json.html#dff.context_storages.json.JSONContextStorage.set_item_async">(JSONContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.mongo.html#dff.context_storages.mongo.MongoContextStorage.set_item_async">(MongoContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.pickle.html#dff.context_storages.pickle.PickleContextStorage.set_item_async">(PickleContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.redis.html#dff.context_storages.redis.RedisContextStorage.set_item_async">(RedisContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.shelve.html#dff.context_storages.shelve.ShelveContextStorage.set_item_async">(ShelveContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.sql.html#dff.context_storages.sql.SQLContextStorage.set_item_async">(SQLContextStorage method)</a>
+</li>
+        <li><a href="apiref/dff.context_storages.ydb.html#dff.context_storages.ydb.YDBContextStorage.set_item_async">(YDBContextStorage method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.stats.utils.html#dff.stats.utils.set_logger_destination">set_logger_destination() (in module dff.stats.utils)</a>
+</li>
+      <li><a href="apiref/dff.stats.utils.html#dff.stats.utils.set_meter_destination">set_meter_destination() (in module dff.stats.utils)</a>
+</li>
+      <li><a href="apiref/dff.stats.utils.html#dff.stats.utils.set_tracer_destination">set_tracer_destination() (in module dff.stats.utils)</a>
+</li>
+      <li><a href="apiref/dff.context_storages.shelve.html#dff.context_storages.shelve.ShelveContextStorage">ShelveContextStorage (class in dff.context_storages.shelve)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.messenger.html#dff.messengers.telegram.messenger.UpdateType.SHIPPING_QUERY">SHIPPING_QUERY (UpdateType attribute)</a>
+</li>
+      <li><a href="apiref/dff.script.core.context.html#dff.script.core.context.Context.sort_dict_keys">sort_dict_keys() (Context class method)</a>
+</li>
+      <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Attachment.source">source (Attachment attribute)</a>
+
+      <ul>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Audio.source">(Audio attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Button.source">(Button attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Document.source">(Document attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Image.source">(Image attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Link.source">(Link attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Video.source">(Video attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.stats.cli.html#dff.stats.cli.SQL_STATEMENT_MAPPING">SQL_STATEMENT_MAPPING (in module dff.stats.cli)</a>
+</li>
+      <li><a href="apiref/dff.context_storages.sql.html#dff.context_storages.sql.SQLContextStorage">SQLContextStorage (class in dff.context_storages.sql)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ExtraHandlerRuntimeInfo.stage">stage (ExtraHandlerRuntimeInfo attribute)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.component.html#dff.pipeline.pipeline.component.PipelineComponent.start_condition">start_condition (PipelineComponent attribute)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.PipelineBuilder.start_label">start_label (PipelineBuilder attribute)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.StartConditionCheckerAggregationFunction">StartConditionCheckerAggregationFunction (in module dff.pipeline.types)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.StartConditionCheckerFunction">StartConditionCheckerFunction (in module dff.pipeline.types)</a>
+</li>
+      <li><a href="apiref/dff.utils.db_benchmark.basic_config.html#dff.utils.db_benchmark.basic_config.BasicBenchmarkConfig.step_dialog_len">step_dialog_len (BasicBenchmarkConfig attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.messengers.telegram.messenger.html#dff.messengers.telegram.messenger.telegram_condition">telegram_condition() (in module dff.messengers.telegram.messenger)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.message.html#dff.messengers.telegram.message.TelegramMessage">TelegramMessage (class in dff.messengers.telegram.message)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.messenger.html#dff.messengers.telegram.messenger.TelegramMessenger">TelegramMessenger (class in dff.messengers.telegram.messenger)</a>
+</li>
+      <li><a href="apiref/dff.utils.testing.telegram.html#dff.utils.testing.telegram.TelegramTesting">TelegramTesting (class in dff.utils.testing.telegram)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.message.html#dff.messengers.telegram.message.TelegramUI">TelegramUI (class in dff.messengers.telegram.message)</a>
+</li>
+      <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Button.text">text (Button attribute)</a>
+
+      <ul>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Message.text">(Message attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.context_storages.database.html#dff.context_storages.database.threadsafe_method">threadsafe_method() (in module dff.context_storages.database)</a>
+</li>
+      <li><a href="apiref/dff.utils.db_benchmark.benchmark.html#dff.utils.db_benchmark.benchmark.time_context_read_write">time_context_read_write() (in module dff.utils.db_benchmark.benchmark)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.component.html#dff.pipeline.pipeline.component.PipelineComponent.timeout">timeout (PipelineComponent attribute)</a>
+
+      <ul>
+        <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ServiceRuntimeInfo.timeout">(ServiceRuntimeInfo attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Attachment.title">title (Attachment attribute)</a>
+
+      <ul>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Audio.title">(Audio attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Document.title">(Document attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Image.title">(Image attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Link.title">(Link attribute)</a>
+</li>
+        <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Video.title">(Video attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.utils.db_benchmark.basic_config.html#dff.utils.db_benchmark.basic_config.BasicBenchmarkConfig.to_dialog_len">to_dialog_len (BasicBenchmarkConfig attribute)</a>
+</li>
+      <li><a href="apiref/dff.script.labels.std_labels.html#dff.script.labels.std_labels.to_fallback">to_fallback() (in module dff.script.labels.std_labels)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.service.service.html#dff.pipeline.service.service.to_service">to_service() (in module dff.pipeline.service.service)</a>
+</li>
+      <li><a href="apiref/dff.script.labels.std_labels.html#dff.script.labels.std_labels.to_start">to_start() (in module dff.script.labels.std_labels)</a>
+</li>
+      <li><a href="apiref/dff.utils.testing.toy_script.html#dff.utils.testing.toy_script.TOY_SCRIPT">TOY_SCRIPT (in module dff.utils.testing.toy_script)</a>
+</li>
+      <li><a href="apiref/dff.utils.testing.toy_script.html#dff.utils.testing.toy_script.TOY_SCRIPT_ARGS">TOY_SCRIPT_ARGS (in module dff.utils.testing.toy_script)</a>
+</li>
+      <li><a href="apiref/dff.stats.utils.html#dff.stats.utils.tracer_provider">tracer_provider (in module dff.stats.utils)</a>
+</li>
+      <li><a href="apiref/dff.script.core.keywords.html#dff.script.core.keywords.Keywords.TRANSITIONS">TRANSITIONS (Keywords attribute)</a>
+</li>
+      <li><a href="apiref/dff.script.core.script.html#dff.script.core.script.Node.transitions">transitions (Node attribute)</a>
+</li>
+      <li><a href="apiref/dff.script.conditions.std_conditions.html#dff.script.conditions.std_conditions.true">true() (in module dff.script.conditions.std_conditions)</a>
+</li>
+      <li><a href="apiref/dff.stats.cli.html#dff.stats.cli.TYPE_MAPPING_CH">TYPE_MAPPING_CH (in module dff.stats.cli)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.messengers.telegram.message.html#dff.messengers.telegram.message.TelegramMessage.ui">ui (TelegramMessage attribute)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.ExtraHandlerType.UNDEFINED">UNDEFINED (ExtraHandlerType attribute)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.message.html#dff.messengers.telegram.message.TelegramMessage.update">update (TelegramMessage attribute)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.message.html#dff.messengers.telegram.message.TelegramMessage.update_id">update_id (TelegramMessage attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.messengers.telegram.message.html#dff.messengers.telegram.message.TelegramMessage.update_type">update_type (TelegramMessage attribute)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.messenger.html#dff.messengers.telegram.messenger.UpdateType">UpdateType (class in dff.messengers.telegram.messenger)</a>
+</li>
+      <li><a href="apiref/dff.utils.db_benchmark.benchmark.html#dff.utils.db_benchmark.benchmark.DBFactory.uri">uri (DBFactory attribute)</a>
+</li>
+      <li><a href="apiref/dff.utils.turn_caching.singleton_turn_caching.html#dff.utils.turn_caching.singleton_turn_caching.USED_CACHES">USED_CACHES (in module dff.utils.turn_caching.singleton_turn_caching)</a>
+</li>
+      <li><a href="apiref/dff.utils.db_benchmark.benchmark.html#dff.utils.db_benchmark.benchmark.BenchmarkCase.uuid">uuid (BenchmarkCase attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.context_storages.json.html#dff.context_storages.json.SerializableStorage.validate_any">validate_any() (SerializableStorage class method)</a>
+</li>
+      <li><a href="apiref/dff.messengers.telegram.message.html#dff.messengers.telegram.message.TelegramUI.validate_buttons">validate_buttons() (TelegramUI method)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.Actor.validate_script">validate_script() (Actor method)</a>
+</li>
+      <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Attachment.validate_source">validate_source() (Attachment class method)</a>
+</li>
+      <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Attachment.validate_source_or_id">validate_source_or_id() (Attachment class method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.script.core.context.html#dff.script.core.context.Context.validation">validation (Context attribute)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.PipelineBuilder.validation_stage">validation_stage (PipelineBuilder attribute)</a>
+</li>
+      <li><a href="apiref/dff.script.core.script.html#dff.script.core.script.Script.values">values() (Script method)</a>
+</li>
+      <li><a href="apiref/dff.pipeline.types.html#dff.pipeline.types.PipelineBuilder.verbose">verbose (PipelineBuilder attribute)</a>
+</li>
+      <li><a href="apiref/dff.script.core.message.html#dff.script.core.message.Video">Video (class in dff.script.core.message)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.pipeline.service.utils.html#dff.pipeline.service.utils.wrap_sync_function_in_async">wrap_sync_function_in_async() (in module dff.pipeline.service.utils)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Y">Y</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apiref/dff.context_storages.ydb.html#dff.context_storages.ydb.YDBContextStorage">YDBContextStorage (class in dff.context_storages.ydb)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2023, DeepPavlov.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

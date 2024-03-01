@@ -1,0 +1,6 @@
+:source_name: dff/messengers/telegram/utils
+
+.. automodule:: dff.messengers.telegram.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:

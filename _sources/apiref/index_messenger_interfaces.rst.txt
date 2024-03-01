@@ -1,0 +1,16 @@
+:orphan:
+
+.. This is an auto-generated RST file representing documentation source directory structure
+
+Messenger Interfaces
+====================
+
+.. autosummary::
+   :toctree:
+
+   dff.messengers.telegram.message
+   dff.messengers.telegram.interface
+   dff.messengers.telegram.utils
+   dff.messengers.common.interface
+   dff.messengers.common.types
+   dff.messengers.telegram.messenger

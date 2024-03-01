@@ -1,0 +1,979 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dff.pipeline.pipeline.pipeline &#8212; dff 0.7.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/katex-math.css?v=91adb8b6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css?v=b77b6cac" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=dc072ff8"></script>
+    <script src="../../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/katex.min.js?v=48ec3933"></script>
+    <script src="../../../../_static/auto-render.min.js?v=8b9f325c"></script>
+    <script src="../../../../_static/katex_autorenderer.js?v=bebc588a"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/dff/pipeline/pipeline/pipeline';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo-simple.svg" class="logo__image only-light" alt="DFF logo (simple and nice)"/>
+    <script>document.write(`<img src="../../../../_static/logo-simple.svg" class="logo__image only-dark" alt="DFF logo (simple and nice)"/>`);</script>
+  
+  
+    <p class="title logo__title">Dialog Flow Framework</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../get_started.html">
+                        Getting started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../user_guides.html">
+                        User guides
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../tutorials.html">
+                        Tutorials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../examples.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../reference.html">
+                        API reference
+                      </a>
+                    </li>
+                
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../../../../development.html">
+                        Development
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../../../../community.html">
+                        Community
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../../../../about_us.html">
+                        About us
+                      </a>
+                    </li>
+                
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.deeppavlov.ai" title="DeepPavlov Forum" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../../_static/images/logo-deeppavlov.svg" class="icon-link-image" alt="DeepPavlov Forum"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://t.me/DeepPavlovDreamDiscussions" title="Telegram" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-telegram fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Telegram</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/deeppavlov/dialog_flow_framework" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../get_started.html">
+                        Getting started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../user_guides.html">
+                        User guides
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../tutorials.html">
+                        Tutorials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../examples.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../reference.html">
+                        API reference
+                      </a>
+                    </li>
+                
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links-2">
+                    More
+                </button>
+                <ul id="pst-nav-more-links-2" class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../../../../development.html">
+                        Development
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../../../../community.html">
+                        Community
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../../../../about_us.html">
+                        About us
+                      </a>
+                    </li>
+                
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.deeppavlov.ai" title="DeepPavlov Forum" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../../_static/images/logo-deeppavlov.svg" class="icon-link-image" alt="DeepPavlov Forum"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://t.me/DeepPavlovDreamDiscussions" title="Telegram" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-telegram fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Telegram</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/deeppavlov/dialog_flow_framework" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">dff.pipeline...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Source code for dff.pipeline.pipeline.pipeline</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Pipeline</span>
+<span class="sd">--------</span>
+<span class="sd">The Pipeline module contains the :py:class:`.Pipeline` class,</span>
+<span class="sd">which is a fundamental element of the DFF. The Pipeline class is responsible</span>
+<span class="sd">for managing and executing the various components (:py:class:`.PipelineComponent`)which make up</span>
+<span class="sd">the processing of messages from and to users.</span>
+<span class="sd">It provides a way to organize and structure the messages processing flow.</span>
+<span class="sd">The Pipeline class is designed to be highly customizable and configurable,</span>
+<span class="sd">allowing developers to add, remove, or modify the components that make up the messages processing flow.</span>
+
+<span class="sd">The Pipeline class is designed to be used in conjunction with the :py:class:`.PipelineComponent`</span>
+<span class="sd">class, which is defined in the Component module. Together, these classes provide a powerful and flexible way</span>
+<span class="sd">to structure and manage the messages processing flow.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Hashable</span><span class="p">,</span> <span class="n">Callable</span>
+
+<span class="kn">from</span> <span class="nn">dff.context_storages</span> <span class="kn">import</span> <span class="n">DBContextStorage</span>
+<span class="kn">from</span> <span class="nn">dff.script</span> <span class="kn">import</span> <span class="n">Script</span><span class="p">,</span> <span class="n">Context</span><span class="p">,</span> <span class="n">ActorStage</span>
+<span class="kn">from</span> <span class="nn">dff.script</span> <span class="kn">import</span> <span class="n">NodeLabel2Type</span><span class="p">,</span> <span class="n">Message</span>
+<span class="kn">from</span> <span class="nn">dff.utils.turn_caching</span> <span class="kn">import</span> <span class="n">cache_clear</span>
+
+<span class="kn">from</span> <span class="nn">dff.messengers.common</span> <span class="kn">import</span> <span class="n">MessengerInterface</span><span class="p">,</span> <span class="n">CLIMessengerInterface</span>
+<span class="kn">from</span> <span class="nn">..service.group</span> <span class="kn">import</span> <span class="n">ServiceGroup</span>
+<span class="kn">from</span> <span class="nn">..types</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ServiceBuilder</span><span class="p">,</span>
+    <span class="n">ServiceGroupBuilder</span><span class="p">,</span>
+    <span class="n">PipelineBuilder</span><span class="p">,</span>
+    <span class="n">GlobalExtraHandlerType</span><span class="p">,</span>
+    <span class="n">ExtraHandlerFunction</span><span class="p">,</span>
+    <span class="n">ExtraHandlerBuilder</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">..types</span> <span class="kn">import</span> <span class="n">PIPELINE_STATE_KEY</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">finalize_service_group</span><span class="p">,</span> <span class="n">pretty_format_component_info_dict</span>
+<span class="kn">from</span> <span class="nn">dff.pipeline.pipeline.actor</span> <span class="kn">import</span> <span class="n">Actor</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="n">ACTOR</span> <span class="o">=</span> <span class="s2">&quot;ACTOR&quot;</span>
+
+
+<div class="viewcode-block" id="Pipeline"><a class="viewcode-back" href="../../../../apiref/dff.pipeline.pipeline.pipeline.html#dff.pipeline.pipeline.pipeline.Pipeline">[docs]</a><span class="k">class</span> <span class="nc">Pipeline</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class that automates service execution and creates service pipeline.</span>
+<span class="sd">    It accepts constructor parameters:</span>
+
+<span class="sd">    :param script: (required) A :py:class:`~.Script` instance (object or dict).</span>
+<span class="sd">    :param start_label: (required) Actor start label.</span>
+<span class="sd">    :param fallback_label: Actor fallback label.</span>
+<span class="sd">    :param label_priority: Default priority value for all actor :py:const:`labels &lt;dff.script.NodeLabel3Type&gt;`</span>
+<span class="sd">        where there is no priority. Defaults to `1.0`.</span>
+<span class="sd">    :param validation_stage: This flag sets whether the validation stage is executed after actor creation.</span>
+<span class="sd">        It is executed by default. Defaults to `None`.</span>
+<span class="sd">    :param condition_handler: Handler that processes a call of actor condition functions. Defaults to `None`.</span>
+<span class="sd">    :param verbose: If it is `True`, logging is used in actor. Defaults to `True`.</span>
+<span class="sd">    :param handlers: This variable is responsible for the usage of external handlers on</span>
+<span class="sd">        the certain stages of work of :py:class:`~dff.script.Actor`.</span>
+
+<span class="sd">        - key: :py:class:`~dff.script.ActorStage` - Stage in which the handler is called.</span>
+<span class="sd">        - value: List[Callable] - The list of called handlers for each stage. Defaults to an empty `dict`.</span>
+
+<span class="sd">    :param messenger_interface: An `AbsMessagingInterface` instance for this pipeline.</span>
+<span class="sd">    :param context_storage: An :py:class:`~.DBContextStorage` instance for this pipeline or</span>
+<span class="sd">        a dict to store dialog :py:class:`~.Context`.</span>
+<span class="sd">    :param services: (required) A :py:data:`~.ServiceGroupBuilder` object,</span>
+<span class="sd">        that will be transformed to root service group. It should include :py:class:`~.Actor`,</span>
+<span class="sd">        but only once (raises exception otherwise). It will always be named pipeline.</span>
+<span class="sd">    :param wrappers: List of wrappers to add to pipeline root service group.</span>
+<span class="sd">    :param timeout: Timeout to add to pipeline root service group.</span>
+<span class="sd">    :param optimization_warnings: Asynchronous pipeline optimization check request flag;</span>
+<span class="sd">        warnings will be sent to logs. Additionally it has some calculated fields:</span>
+
+<span class="sd">        - `_services_pipeline` is a pipeline root :py:class:`~.ServiceGroup` object,</span>
+<span class="sd">        - `actor` is a pipeline actor, found among services.</span>
+<span class="sd">    :param parallelize_processing: This flag determines whether or not the functions</span>
+<span class="sd">        defined in the ``PRE_RESPONSE_PROCESSING`` and ``PRE_TRANSITIONS_PROCESSING`` sections</span>
+<span class="sd">        of the script should be parallelized over respective groups.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">components</span><span class="p">:</span> <span class="n">ServiceGroupBuilder</span><span class="p">,</span>
+        <span class="n">script</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Script</span><span class="p">,</span> <span class="n">Dict</span><span class="p">],</span>
+        <span class="n">start_label</span><span class="p">:</span> <span class="n">NodeLabel2Type</span><span class="p">,</span>
+        <span class="n">fallback_label</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">NodeLabel2Type</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">label_priority</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">validation_stage</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">condition_handler</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">handlers</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="n">ActorStage</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Callable</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">messenger_interface</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">MessengerInterface</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">context_storage</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">DBContextStorage</span><span class="p">,</span> <span class="n">Dict</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">before_handler</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ExtraHandlerBuilder</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">after_handler</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ExtraHandlerBuilder</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">timeout</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">optimization_warnings</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">parallelize_processing</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">actor</span><span class="p">:</span> <span class="n">Actor</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">messenger_interface</span> <span class="o">=</span> <span class="n">CLIMessengerInterface</span><span class="p">()</span> <span class="k">if</span> <span class="n">messenger_interface</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">messenger_interface</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">context_storage</span> <span class="o">=</span> <span class="p">{}</span> <span class="k">if</span> <span class="n">context_storage</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">context_storage</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_services_pipeline</span> <span class="o">=</span> <span class="n">ServiceGroup</span><span class="p">(</span>
+            <span class="n">components</span><span class="p">,</span>
+            <span class="n">before_handler</span><span class="o">=</span><span class="n">before_handler</span><span class="p">,</span>
+            <span class="n">after_handler</span><span class="o">=</span><span class="n">after_handler</span><span class="p">,</span>
+            <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_services_pipeline</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;pipeline&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_services_pipeline</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;.pipeline&quot;</span>
+        <span class="n">actor_exists</span> <span class="o">=</span> <span class="n">finalize_service_group</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_services_pipeline</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_services_pipeline</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">actor_exists</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Actor not found in the pipeline!&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_actor</span><span class="p">(</span>
+                <span class="n">script</span><span class="p">,</span>
+                <span class="n">start_label</span><span class="p">,</span>
+                <span class="n">fallback_label</span><span class="p">,</span>
+                <span class="n">label_priority</span><span class="p">,</span>
+                <span class="n">validation_stage</span><span class="p">,</span>
+                <span class="n">condition_handler</span><span class="p">,</span>
+                <span class="n">verbose</span><span class="p">,</span>
+                <span class="n">handlers</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">actor</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Actor wasn&#39;t initialized correctly!&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">optimization_warnings</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_services_pipeline</span><span class="o">.</span><span class="n">log_optimization_warnings</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">parallelize_processing</span> <span class="o">=</span> <span class="n">parallelize_processing</span>
+
+        <span class="c1"># NB! The following API is highly experimental and may be removed at ANY time WITHOUT FURTHER NOTICE!!</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_clean_turn_cache</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clean_turn_cache</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">actor</span><span class="o">.</span><span class="n">_clean_turn_cache</span> <span class="o">=</span> <span class="kc">False</span>
+
+<div class="viewcode-block" id="Pipeline.add_global_handler"><a class="viewcode-back" href="../../../../apiref/dff.pipeline.pipeline.pipeline.html#dff.pipeline.pipeline.pipeline.Pipeline.add_global_handler">[docs]</a>    <span class="k">def</span> <span class="nf">add_global_handler</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">global_handler_type</span><span class="p">:</span> <span class="n">GlobalExtraHandlerType</span><span class="p">,</span>
+        <span class="n">extra_handler</span><span class="p">:</span> <span class="n">ExtraHandlerFunction</span><span class="p">,</span>
+        <span class="n">whitelist</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">blacklist</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method for adding global wrappers to pipeline.</span>
+<span class="sd">        Different types of global wrappers are called before/after pipeline execution</span>
+<span class="sd">        or before/after each pipeline component.</span>
+<span class="sd">        They can be used for pipeline statistics collection or other functionality extensions.</span>
+<span class="sd">        NB! Global wrappers are still wrappers,</span>
+<span class="sd">        they shouldn&#39;t be used for much time-consuming tasks (see ../service/wrapper.py).</span>
+
+<span class="sd">        :param global_handler_type: (required) indication where the wrapper</span>
+<span class="sd">            function should be executed.</span>
+<span class="sd">        :param extra_handler: (required) wrapper function itself.</span>
+<span class="sd">        :type extra_handler: ExtraHandlerFunction</span>
+<span class="sd">        :param whitelist: a list of services to only add this wrapper to.</span>
+<span class="sd">        :param blacklist: a list of services to not add this wrapper to.</span>
+<span class="sd">        :return: `None`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">def</span> <span class="nf">condition</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">whitelist</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">whitelist</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">blacklist</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">blacklist</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="n">global_handler_type</span> <span class="ow">is</span> <span class="n">GlobalExtraHandlerType</span><span class="o">.</span><span class="n">BEFORE_ALL</span>
+            <span class="ow">or</span> <span class="n">global_handler_type</span> <span class="ow">is</span> <span class="n">GlobalExtraHandlerType</span><span class="o">.</span><span class="n">AFTER_ALL</span>
+        <span class="p">):</span>
+            <span class="n">whitelist</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;pipeline&quot;</span><span class="p">]</span>
+            <span class="n">global_handler_type</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">GlobalExtraHandlerType</span><span class="o">.</span><span class="n">BEFORE</span>
+                <span class="k">if</span> <span class="n">global_handler_type</span> <span class="ow">is</span> <span class="n">GlobalExtraHandlerType</span><span class="o">.</span><span class="n">BEFORE_ALL</span>
+                <span class="k">else</span> <span class="n">GlobalExtraHandlerType</span><span class="o">.</span><span class="n">AFTER</span>
+            <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_services_pipeline</span><span class="o">.</span><span class="n">add_extra_handler</span><span class="p">(</span><span class="n">global_handler_type</span><span class="p">,</span> <span class="n">extra_handler</span><span class="p">,</span> <span class="n">condition</span><span class="p">)</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">info_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Property for retrieving info dictionary about this pipeline.</span>
+<span class="sd">        Returns info dict, containing most important component public fields as well as its type.</span>
+<span class="sd">        All complex or unserializable fields here are replaced with &#39;Instance of [type]&#39;.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+            <span class="s2">&quot;messenger_interface&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Instance of </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">messenger_interface</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;context_storage&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Instance of </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">context_storage</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;services&quot;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_services_pipeline</span><span class="o">.</span><span class="n">info_dict</span><span class="p">],</span>
+        <span class="p">}</span>
+
+<div class="viewcode-block" id="Pipeline.pretty_format"><a class="viewcode-back" href="../../../../apiref/dff.pipeline.pipeline.pipeline.html#dff.pipeline.pipeline.pipeline.Pipeline.pretty_format">[docs]</a>    <span class="k">def</span> <span class="nf">pretty_format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">show_extra_handlers</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method for receiving pretty-formatted string description of the pipeline.</span>
+<span class="sd">        Resulting string structure is somewhat similar to YAML string.</span>
+<span class="sd">        Should be used in debugging/logging purposes and should not be parsed.</span>
+
+<span class="sd">        :param show_wrappers: Whether to include Wrappers or not (could be many and/or generated).</span>
+<span class="sd">        :param indent: Offset from new line to add before component children.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">pretty_format_component_info_dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">info_dict</span><span class="p">,</span> <span class="n">show_extra_handlers</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="n">indent</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Pipeline.from_script"><a class="viewcode-back" href="../../../../apiref/dff.pipeline.pipeline.pipeline.html#dff.pipeline.pipeline.pipeline.Pipeline.from_script">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_script</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span>
+        <span class="n">script</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Script</span><span class="p">,</span> <span class="n">Dict</span><span class="p">],</span>
+        <span class="n">start_label</span><span class="p">:</span> <span class="n">NodeLabel2Type</span><span class="p">,</span>
+        <span class="n">fallback_label</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">NodeLabel2Type</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">label_priority</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">validation_stage</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">condition_handler</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">parallelize_processing</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">handlers</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="n">ActorStage</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Callable</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">context_storage</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">DBContextStorage</span><span class="p">,</span> <span class="n">Dict</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">messenger_interface</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">MessengerInterface</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">pre_services</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">ServiceBuilder</span><span class="p">,</span> <span class="n">ServiceGroupBuilder</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">post_services</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">ServiceBuilder</span><span class="p">,</span> <span class="n">ServiceGroupBuilder</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Pipeline&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Pipeline script-based constructor.</span>
+<span class="sd">        It creates :py:class:`~.Actor` object and wraps it with pipeline.</span>
+<span class="sd">        NB! It is generally not designed for projects with complex structure.</span>
+<span class="sd">        :py:class:`~.Service` and :py:class:`~.ServiceGroup` customization</span>
+<span class="sd">        becomes not as obvious as it could be with it.</span>
+<span class="sd">        Should be preferred for simple workflows with Actor auto-execution.</span>
+
+<span class="sd">        :param script: (required) A :py:class:`~.Script` instance (object or dict).</span>
+<span class="sd">        :param start_label: (required) Actor start label.</span>
+<span class="sd">        :param fallback_label: Actor fallback label.</span>
+<span class="sd">        :param label_priority: Default priority value for all actor :py:const:`labels &lt;dff.script.NodeLabel3Type&gt;`</span>
+<span class="sd">            where there is no priority. Defaults to `1.0`.</span>
+<span class="sd">        :param validation_stage: This flag sets whether the validation stage is executed after actor creation.</span>
+<span class="sd">            It is executed by default. Defaults to `None`.</span>
+<span class="sd">        :param condition_handler: Handler that processes a call of actor condition functions. Defaults to `None`.</span>
+<span class="sd">        :param verbose: If it is `True`, logging is used in actor. Defaults to `True`.</span>
+<span class="sd">        :param parallelize_processing: This flag determines whether or not the functions</span>
+<span class="sd">            defined in the ``PRE_RESPONSE_PROCESSING`` and ``PRE_TRANSITIONS_PROCESSING`` sections</span>
+<span class="sd">            of the script should be parallelized over respective groups.</span>
+<span class="sd">        :param handlers: This variable is responsible for the usage of external handlers on</span>
+<span class="sd">            the certain stages of work of :py:class:`~dff.script.Actor`.</span>
+
+<span class="sd">            - key: :py:class:`~dff.script.ActorStage` - Stage in which the handler is called.</span>
+<span class="sd">            - value: List[Callable] - The list of called handlers for each stage. Defaults to an empty `dict`.</span>
+
+<span class="sd">        :param context_storage: An :py:class:`~.DBContextStorage` instance for this pipeline</span>
+<span class="sd">            or a dict to store dialog :py:class:`~.Context`.</span>
+<span class="sd">        :param messenger_interface: An instance for this pipeline.</span>
+<span class="sd">        :param pre_services: List of :py:data:`~.ServiceBuilder` or</span>
+<span class="sd">            :py:data:`~.ServiceGroupBuilder` that will be executed before Actor.</span>
+<span class="sd">        :type pre_services: Optional[List[Union[ServiceBuilder, ServiceGroupBuilder]]]</span>
+<span class="sd">        :param post_services: List of :py:data:`~.ServiceBuilder` or</span>
+<span class="sd">            :py:data:`~.ServiceGroupBuilder` that will be executed after Actor.</span>
+<span class="sd">            It constructs root service group by merging `pre_services` + actor + `post_services`.</span>
+<span class="sd">        :type post_services: Optional[List[Union[ServiceBuilder, ServiceGroupBuilder]]]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">pre_services</span> <span class="o">=</span> <span class="p">[]</span> <span class="k">if</span> <span class="n">pre_services</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">pre_services</span>
+        <span class="n">post_services</span> <span class="o">=</span> <span class="p">[]</span> <span class="k">if</span> <span class="n">post_services</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">post_services</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="n">script</span><span class="o">=</span><span class="n">script</span><span class="p">,</span>
+            <span class="n">start_label</span><span class="o">=</span><span class="n">start_label</span><span class="p">,</span>
+            <span class="n">fallback_label</span><span class="o">=</span><span class="n">fallback_label</span><span class="p">,</span>
+            <span class="n">label_priority</span><span class="o">=</span><span class="n">label_priority</span><span class="p">,</span>
+            <span class="n">validation_stage</span><span class="o">=</span><span class="n">validation_stage</span><span class="p">,</span>
+            <span class="n">condition_handler</span><span class="o">=</span><span class="n">condition_handler</span><span class="p">,</span>
+            <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span>
+            <span class="n">parallelize_processing</span><span class="o">=</span><span class="n">parallelize_processing</span><span class="p">,</span>
+            <span class="n">handlers</span><span class="o">=</span><span class="n">handlers</span><span class="p">,</span>
+            <span class="n">messenger_interface</span><span class="o">=</span><span class="n">messenger_interface</span><span class="p">,</span>
+            <span class="n">context_storage</span><span class="o">=</span><span class="n">context_storage</span><span class="p">,</span>
+            <span class="n">components</span><span class="o">=</span><span class="p">[</span><span class="o">*</span><span class="n">pre_services</span><span class="p">,</span> <span class="n">ACTOR</span><span class="p">,</span> <span class="o">*</span><span class="n">post_services</span><span class="p">],</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Pipeline.set_actor"><a class="viewcode-back" href="../../../../apiref/dff.pipeline.pipeline.pipeline.html#dff.pipeline.pipeline.pipeline.Pipeline.set_actor">[docs]</a>    <span class="k">def</span> <span class="nf">set_actor</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">script</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Script</span><span class="p">,</span> <span class="n">Dict</span><span class="p">],</span>
+        <span class="n">start_label</span><span class="p">:</span> <span class="n">NodeLabel2Type</span><span class="p">,</span>
+        <span class="n">fallback_label</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">NodeLabel2Type</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">label_priority</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">validation_stage</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">condition_handler</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">handlers</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="n">ActorStage</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Callable</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set actor for the current pipeline and conducts necessary checks.</span>
+<span class="sd">        Reset actor to previous if any errors are found.</span>
+
+<span class="sd">        :param script: (required) A :py:class:`~.Script` instance (object or dict).</span>
+<span class="sd">        :param start_label: (required) Actor start label.</span>
+<span class="sd">            The start node of :py:class:`~dff.script.Script`. The execution begins with it.</span>
+<span class="sd">        :param fallback_label: Actor fallback label. The label of :py:class:`~dff.script.Script`.</span>
+<span class="sd">            Dialog comes into that label if all other transitions failed,</span>
+<span class="sd">            or there was an error while executing the scenario.</span>
+<span class="sd">        :param label_priority: Default priority value for all actor :py:const:`labels &lt;dff.script.NodeLabel3Type&gt;`</span>
+<span class="sd">            where there is no priority. Defaults to `1.0`.</span>
+<span class="sd">        :param validation_stage: This flag sets whether the validation stage is executed in actor.</span>
+<span class="sd">            It is executed by default. Defaults to `None`.</span>
+<span class="sd">        :param condition_handler: Handler that processes a call of actor condition functions. Defaults to `None`.</span>
+<span class="sd">        :param verbose: If it is `True`, logging is used in actor. Defaults to `True`.</span>
+<span class="sd">        :param handlers: This variable is responsible for the usage of external handlers on</span>
+<span class="sd">            the certain stages of work of :py:class:`~dff.script.Actor`.</span>
+
+<span class="sd">            - key :py:class:`~dff.script.ActorStage` - Stage in which the handler is called.</span>
+<span class="sd">            - value List[Callable] - The list of called handlers for each stage. Defaults to an empty `dict`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">old_actor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">actor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">actor</span> <span class="o">=</span> <span class="n">Actor</span><span class="p">(</span><span class="n">script</span><span class="p">,</span> <span class="n">start_label</span><span class="p">,</span> <span class="n">fallback_label</span><span class="p">,</span> <span class="n">label_priority</span><span class="p">,</span> <span class="n">condition_handler</span><span class="p">,</span> <span class="n">handlers</span><span class="p">)</span>
+        <span class="n">errors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">actor</span><span class="o">.</span><span class="n">validate_script</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span> <span class="k">if</span> <span class="n">validation_stage</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">False</span> <span class="k">else</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">errors</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">actor</span> <span class="o">=</span> <span class="n">old_actor</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span><span class="si">}</span><span class="s2"> errors: &quot;</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">) </span><span class="si">{</span><span class="n">er</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">er</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">errors</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
+            <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Pipeline.from_dict"><a class="viewcode-back" href="../../../../apiref/dff.pipeline.pipeline.pipeline.html#dff.pipeline.pipeline.pipeline.Pipeline.from_dict">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_dict</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">dictionary</span><span class="p">:</span> <span class="n">PipelineBuilder</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Pipeline&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Pipeline dictionary-based constructor.</span>
+<span class="sd">        Dictionary should have the fields defined in Pipeline main constructor,</span>
+<span class="sd">        it will be split and passed to it as `**kwargs`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="o">**</span><span class="n">dictionary</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Pipeline._run_pipeline"><a class="viewcode-back" href="../../../../apiref/dff.pipeline.pipeline.pipeline.html#dff.pipeline.pipeline.pipeline.Pipeline._run_pipeline">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">_run_pipeline</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Message</span><span class="p">,</span> <span class="n">ctx_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Hashable</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">update_ctx_misc</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Context</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method that should be invoked on user input.</span>
+<span class="sd">        This method has the same signature as :py:class:`~dff.pipeline.types.PipelineRunnerFunction`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">ctx_id</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ctx</span> <span class="o">=</span> <span class="n">Context</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">context_storage</span><span class="p">,</span> <span class="n">DBContextStorage</span><span class="p">):</span>
+            <span class="n">ctx</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">context_storage</span><span class="o">.</span><span class="n">get_async</span><span class="p">(</span><span class="n">ctx_id</span><span class="p">,</span> <span class="n">Context</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">ctx_id</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ctx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">context_storage</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ctx_id</span><span class="p">,</span> <span class="n">Context</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">ctx_id</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">update_ctx_misc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ctx</span><span class="o">.</span><span class="n">misc</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">update_ctx_misc</span><span class="p">)</span>
+
+        <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="n">PIPELINE_STATE_KEY</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">add_request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_services_pipeline</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">iscoroutine</span><span class="p">(</span><span class="n">result</span><span class="p">):</span>
+            <span class="k">await</span> <span class="n">result</span>
+
+        <span class="k">del</span> <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="n">PIPELINE_STATE_KEY</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">context_storage</span><span class="p">,</span> <span class="n">DBContextStorage</span><span class="p">):</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">context_storage</span><span class="o">.</span><span class="n">set_item_async</span><span class="p">(</span><span class="n">ctx_id</span><span class="p">,</span> <span class="n">ctx</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">context_storage</span><span class="p">[</span><span class="n">ctx_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">ctx</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clean_turn_cache</span><span class="p">:</span>
+            <span class="n">cache_clear</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">ctx</span></div>
+
+<div class="viewcode-block" id="Pipeline.run"><a class="viewcode-back" href="../../../../apiref/dff.pipeline.pipeline.pipeline.html#dff.pipeline.pipeline.pipeline.Pipeline.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method that starts a pipeline and connects to `messenger_interface`.</span>
+<span class="sd">        It passes `_run_pipeline` to `messenger_interface` as a callbacks,</span>
+<span class="sd">        so every time user request is received, `_run_pipeline` will be called.</span>
+<span class="sd">        This method can be both blocking and non-blocking. It depends on current `messenger_interface` nature.</span>
+<span class="sd">        Message interfaces that run in a loop block current thread.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">messenger_interface</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_run_pipeline</span><span class="p">))</span></div>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Message</span><span class="p">,</span> <span class="n">ctx_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Hashable</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">update_ctx_misc</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Context</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method that executes pipeline once.</span>
+<span class="sd">        Basically, it is a shortcut for `_run_pipeline`.</span>
+<span class="sd">        NB! When pipeline is executed this way, `messenger_interface` won&#39;t be initiated nor connected.</span>
+
+<span class="sd">        This method has the same signature as :py:class:`~dff.pipeline.types.PipelineRunnerFunction`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_run_pipeline</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">ctx_id</span><span class="p">,</span> <span class="n">update_ctx_misc</span><span class="p">))</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">script</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Script</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">actor</span><span class="o">.</span><span class="n">script</span></div>
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2023, DeepPavlov.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

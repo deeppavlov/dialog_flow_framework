@@ -1,0 +1,6 @@
+:source_name: dff/script/core/context
+
+.. automodule:: dff.script.core.context
+   :members:
+   :undoc-members:
+   :show-inheritance:

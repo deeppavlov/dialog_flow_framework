@@ -1,0 +1,6 @@
+:source_name: dff/context_storages/shelve
+
+.. automodule:: dff.context_storages.shelve
+   :members:
+   :undoc-members:
+   :show-inheritance:

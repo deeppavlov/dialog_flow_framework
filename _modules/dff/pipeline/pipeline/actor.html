@@ -1,0 +1,1024 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dff.pipeline.pipeline.actor &#8212; dff 0.7.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/katex-math.css?v=91adb8b6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css?v=b77b6cac" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=dc072ff8"></script>
+    <script src="../../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/katex.min.js?v=48ec3933"></script>
+    <script src="../../../../_static/auto-render.min.js?v=8b9f325c"></script>
+    <script src="../../../../_static/katex_autorenderer.js?v=bebc588a"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/dff/pipeline/pipeline/actor';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo-simple.svg" class="logo__image only-light" alt="DFF logo (simple and nice)"/>
+    <script>document.write(`<img src="../../../../_static/logo-simple.svg" class="logo__image only-dark" alt="DFF logo (simple and nice)"/>`);</script>
+  
+  
+    <p class="title logo__title">Dialog Flow Framework</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../get_started.html">
+                        Getting started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../user_guides.html">
+                        User guides
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../tutorials.html">
+                        Tutorials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../examples.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../reference.html">
+                        API reference
+                      </a>
+                    </li>
+                
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../../../../development.html">
+                        Development
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../../../../community.html">
+                        Community
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../../../../about_us.html">
+                        About us
+                      </a>
+                    </li>
+                
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.deeppavlov.ai" title="DeepPavlov Forum" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../../_static/images/logo-deeppavlov.svg" class="icon-link-image" alt="DeepPavlov Forum"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://t.me/DeepPavlovDreamDiscussions" title="Telegram" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-telegram fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Telegram</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/deeppavlov/dialog_flow_framework" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../get_started.html">
+                        Getting started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../user_guides.html">
+                        User guides
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../tutorials.html">
+                        Tutorials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../examples.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../reference.html">
+                        API reference
+                      </a>
+                    </li>
+                
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links-2">
+                    More
+                </button>
+                <ul id="pst-nav-more-links-2" class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../../../../development.html">
+                        Development
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../../../../community.html">
+                        Community
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../../../../about_us.html">
+                        About us
+                      </a>
+                    </li>
+                
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://forum.deeppavlov.ai" title="DeepPavlov Forum" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../../_static/images/logo-deeppavlov.svg" class="icon-link-image" alt="DeepPavlov Forum"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://t.me/DeepPavlovDreamDiscussions" title="Telegram" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-telegram fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Telegram</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/deeppavlov/dialog_flow_framework" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">dff.pipeline...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Source code for dff.pipeline.pipeline.actor</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Actor</span>
+<span class="sd">-----</span>
+<span class="sd">Actor is a component of :py:class:`.Pipeline`, that contains the :py:class:`.Script` and handles it.</span>
+<span class="sd">It is responsible for processing user input and determining the appropriate response based</span>
+<span class="sd">on the current state of the conversation and the script.</span>
+<span class="sd">The actor receives requests in the form of a :py:class:`.Context` class, which contains</span>
+<span class="sd">information about the user&#39;s input, the current state of the conversation, and other relevant data.</span>
+
+<span class="sd">The actor uses the dialog graph, represented by the :py:class:`.Script` class,</span>
+<span class="sd">to determine the appropriate response. The script contains the structure of the conversation,</span>
+<span class="sd">including the different `nodes` and `transitions`.</span>
+<span class="sd">It defines the possible paths that the conversation can take, and the conditions that must be met</span>
+<span class="sd">for a transition to occur. The actor uses this information to navigate the graph</span>
+<span class="sd">and determine the next step in the conversation.</span>
+
+<span class="sd">Overall, the actor acts as a bridge between the user&#39;s input and the dialog graph,</span>
+<span class="sd">making sure that the conversation follows the expected flow and providing a personalized experience to the user.</span>
+
+<span class="sd">Below you can see a diagram of user request processing with Actor.</span>
+<span class="sd">Both `request` and `response` are saved to :py:class:`.Context`.</span>
+
+<span class="sd">.. figure:: /_static/drawio/dfe/user_actor.png</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">TYPE_CHECKING</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+
+<span class="kn">from</span> <span class="nn">dff.utils.turn_caching</span> <span class="kn">import</span> <span class="n">cache_clear</span>
+<span class="kn">from</span> <span class="nn">dff.script.core.types</span> <span class="kn">import</span> <span class="n">ActorStage</span><span class="p">,</span> <span class="n">NodeLabel2Type</span><span class="p">,</span> <span class="n">NodeLabel3Type</span><span class="p">,</span> <span class="n">LabelType</span>
+<span class="kn">from</span> <span class="nn">dff.script.core.message</span> <span class="kn">import</span> <span class="n">Message</span>
+
+<span class="kn">from</span> <span class="nn">dff.script.core.context</span> <span class="kn">import</span> <span class="n">Context</span>
+<span class="kn">from</span> <span class="nn">dff.script.core.script</span> <span class="kn">import</span> <span class="n">Script</span><span class="p">,</span> <span class="n">Node</span>
+<span class="kn">from</span> <span class="nn">dff.script.core.normalization</span> <span class="kn">import</span> <span class="n">normalize_label</span><span class="p">,</span> <span class="n">normalize_response</span>
+<span class="kn">from</span> <span class="nn">dff.script.core.keywords</span> <span class="kn">import</span> <span class="n">GLOBAL</span><span class="p">,</span> <span class="n">LOCAL</span>
+<span class="kn">from</span> <span class="nn">dff.pipeline.service.utils</span> <span class="kn">import</span> <span class="n">wrap_sync_function_in_async</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">dff.pipeline.pipeline.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+
+
+<div class="viewcode-block" id="error_handler"><a class="viewcode-back" href="../../../../apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.error_handler">[docs]</a><span class="k">def</span> <span class="nf">error_handler</span><span class="p">(</span><span class="n">error_msgs</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">exception</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="ne">Exception</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">logging_flag</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function handles errors during :py:class:`~dff.script.Script` validation.</span>
+
+<span class="sd">    :param error_msgs: List that contains error messages. :py:func:`~dff.script.error_handler`</span>
+<span class="sd">        adds every next error message to that list.</span>
+<span class="sd">    :param msg: Error message which is to be added into `error_msgs`.</span>
+<span class="sd">    :param exception: Invoked exception. If it has been set, it is used to obtain logging traceback.</span>
+<span class="sd">        Defaults to `None`.</span>
+<span class="sd">    :param logging_flag: The flag which defines whether logging is necessary. Defaults to `True`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">error_msgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">logging_flag</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="n">exception</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Actor"><a class="viewcode-back" href="../../../../apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.Actor">[docs]</a><span class="k">class</span> <span class="nc">Actor</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The class which is used to process :py:class:`~dff.script.Context`</span>
+<span class="sd">    according to the :py:class:`~dff.script.Script`.</span>
+
+<span class="sd">    :param script: The dialog scenario: a graph described by the :py:class:`.Keywords`.</span>
+<span class="sd">        While the graph is being initialized, it is validated and then used for the dialog.</span>
+<span class="sd">    :param start_label: The start node of :py:class:`~dff.script.Script`. The execution begins with it.</span>
+<span class="sd">    :param fallback_label: The label of :py:class:`~dff.script.Script`.</span>
+<span class="sd">        Dialog comes into that label if all other transitions failed,</span>
+<span class="sd">        or there was an error while executing the scenario.</span>
+<span class="sd">        Defaults to `None`.</span>
+<span class="sd">    :param label_priority: Default priority value for all :py:const:`labels &lt;dff.script.NodeLabel3Type&gt;`</span>
+<span class="sd">        where there is no priority. Defaults to `1.0`.</span>
+<span class="sd">    :param condition_handler: Handler that processes a call of condition functions. Defaults to `None`.</span>
+<span class="sd">    :param handlers: This variable is responsible for the usage of external handlers on</span>
+<span class="sd">        the certain stages of work of :py:class:`~dff.script.Actor`.</span>
+
+<span class="sd">        - key (:py:class:`~dff.script.ActorStage`) - Stage in which the handler is called.</span>
+<span class="sd">        - value (List[Callable]) - The list of called handlers for each stage.  Defaults to an empty `dict`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">script</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Script</span><span class="p">,</span> <span class="nb">dict</span><span class="p">],</span>
+        <span class="n">start_label</span><span class="p">:</span> <span class="n">NodeLabel2Type</span><span class="p">,</span>
+        <span class="n">fallback_label</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">NodeLabel2Type</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">label_priority</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">condition_handler</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">handlers</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="n">ActorStage</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Callable</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="c1"># script validation</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">script</span> <span class="o">=</span> <span class="n">script</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">script</span><span class="p">,</span> <span class="n">Script</span><span class="p">)</span> <span class="k">else</span> <span class="n">Script</span><span class="p">(</span><span class="n">script</span><span class="o">=</span><span class="n">script</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label_priority</span> <span class="o">=</span> <span class="n">label_priority</span>
+
+        <span class="c1"># node labels validation</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start_label</span> <span class="o">=</span> <span class="n">normalize_label</span><span class="p">(</span><span class="n">start_label</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">start_label</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">start_label</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown start_label=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">start_label</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">fallback_label</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fallback_label</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_label</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fallback_label</span> <span class="o">=</span> <span class="n">normalize_label</span><span class="p">(</span><span class="n">fallback_label</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fallback_label</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fallback_label</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown fallback_label=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">fallback_label</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">condition_handler</span> <span class="o">=</span> <span class="n">default_condition_handler</span> <span class="k">if</span> <span class="n">condition_handler</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">condition_handler</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span> <span class="o">=</span> <span class="p">{}</span> <span class="k">if</span> <span class="n">handlers</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">handlers</span>
+
+        <span class="c1"># NB! The following API is highly experimental and may be removed at ANY time WITHOUT FURTHER NOTICE!!</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_clean_turn_cache</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">:</span> <span class="n">Pipeline</span><span class="p">,</span> <span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">):</span>
+        <span class="c1"># context init</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_context_init</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run_handlers</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">ActorStage</span><span class="o">.</span><span class="n">CONTEXT_INIT</span><span class="p">)</span>
+
+        <span class="c1"># get previous node</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_get_previous_node</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run_handlers</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">ActorStage</span><span class="o">.</span><span class="n">GET_PREVIOUS_NODE</span><span class="p">)</span>
+
+        <span class="c1"># rewrite previous node</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_rewrite_previous_node</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run_handlers</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">ActorStage</span><span class="o">.</span><span class="n">REWRITE_PREVIOUS_NODE</span><span class="p">)</span>
+
+        <span class="c1"># run pre transitions processing</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run_pre_transitions_processing</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">)</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run_handlers</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">ActorStage</span><span class="o">.</span><span class="n">RUN_PRE_TRANSITIONS_PROCESSING</span><span class="p">)</span>
+
+        <span class="c1"># get true labels for scopes (GLOBAL, LOCAL, NODE)</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_true_labels</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">)</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run_handlers</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">ActorStage</span><span class="o">.</span><span class="n">GET_TRUE_LABELS</span><span class="p">)</span>
+
+        <span class="c1"># get next node</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_get_next_node</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run_handlers</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">ActorStage</span><span class="o">.</span><span class="n">GET_NEXT_NODE</span><span class="p">)</span>
+
+        <span class="n">ctx</span><span class="o">.</span><span class="n">add_label</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;next_label&quot;</span><span class="p">][:</span><span class="mi">2</span><span class="p">])</span>
+
+        <span class="c1"># rewrite next node</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_rewrite_next_node</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run_handlers</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">ActorStage</span><span class="o">.</span><span class="n">REWRITE_NEXT_NODE</span><span class="p">)</span>
+
+        <span class="c1"># run pre response processing</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run_pre_response_processing</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">)</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run_handlers</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">ActorStage</span><span class="o">.</span><span class="n">RUN_PRE_RESPONSE_PROCESSING</span><span class="p">)</span>
+
+        <span class="c1"># create response</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;response&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">run_response</span><span class="p">(</span>
+            <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;pre_response_processed_node&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">response</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">pipeline</span>
+        <span class="p">)</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run_handlers</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">ActorStage</span><span class="o">.</span><span class="n">CREATE_RESPONSE</span><span class="p">)</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">add_response</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;response&quot;</span><span class="p">])</span>
+
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run_handlers</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">ActorStage</span><span class="o">.</span><span class="n">FINISH_TURN</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clean_turn_cache</span><span class="p">:</span>
+            <span class="n">cache_clear</span><span class="p">()</span>
+
+        <span class="k">del</span> <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="Actor._context_init"><a class="viewcode-back" href="../../../../apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.Actor._context_init">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_context_init</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">Context</span><span class="p">,</span> <span class="nb">dict</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span></div>
+
+<div class="viewcode-block" id="Actor._get_previous_node"><a class="viewcode-back" href="../../../../apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.Actor._get_previous_node">[docs]</a>    <span class="k">def</span> <span class="nf">_get_previous_node</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">):</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;previous_label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">normalize_label</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">last_label</span><span class="p">)</span> <span class="k">if</span> <span class="n">ctx</span><span class="o">.</span><span class="n">last_label</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_label</span>
+        <span class="p">)</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;previous_node&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;previous_label&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="p">{}</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;previous_label&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">Node</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="Actor._get_true_labels"><a class="viewcode-back" href="../../../../apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.Actor._get_true_labels">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">_get_true_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">:</span> <span class="n">Pipeline</span><span class="p">):</span>
+        <span class="c1"># GLOBAL</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;global_transitions&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">GLOBAL</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">GLOBAL</span><span class="p">,</span> <span class="n">Node</span><span class="p">())</span><span class="o">.</span><span class="n">transitions</span>
+        <span class="p">)</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;global_true_label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_true_label</span><span class="p">(</span>
+            <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;global_transitions&quot;</span><span class="p">],</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">GLOBAL</span><span class="p">,</span> <span class="s2">&quot;global&quot;</span>
+        <span class="p">)</span>
+
+        <span class="c1"># LOCAL</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;local_transitions&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;previous_label&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">LOCAL</span><span class="p">,</span> <span class="n">Node</span><span class="p">())</span><span class="o">.</span><span class="n">transitions</span>
+        <span class="p">)</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;local_true_label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_true_label</span><span class="p">(</span>
+            <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;local_transitions&quot;</span><span class="p">],</span>
+            <span class="n">ctx</span><span class="p">,</span>
+            <span class="n">pipeline</span><span class="p">,</span>
+            <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;previous_label&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+            <span class="s2">&quot;local&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># NODE</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;node_transitions&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span>
+            <span class="s2">&quot;pre_transitions_processed_node&quot;</span>
+        <span class="p">]</span><span class="o">.</span><span class="n">transitions</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;node_true_label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_true_label</span><span class="p">(</span>
+            <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;node_transitions&quot;</span><span class="p">],</span>
+            <span class="n">ctx</span><span class="p">,</span>
+            <span class="n">pipeline</span><span class="p">,</span>
+            <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;previous_label&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+            <span class="s2">&quot;node&quot;</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Actor._get_next_node"><a class="viewcode-back" href="../../../../apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.Actor._get_next_node">[docs]</a>    <span class="k">def</span> <span class="nf">_get_next_node</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">):</span>
+        <span class="c1"># choose next label</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;next_label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_choose_label</span><span class="p">(</span>
+            <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;node_true_label&quot;</span><span class="p">],</span> <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;local_true_label&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;next_label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_choose_label</span><span class="p">(</span>
+            <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;next_label&quot;</span><span class="p">],</span> <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;global_true_label&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="c1"># get next node</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;next_node&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;next_label&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="p">{}</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;next_label&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="Actor._rewrite_previous_node"><a class="viewcode-back" href="../../../../apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.Actor._rewrite_previous_node">[docs]</a>    <span class="k">def</span> <span class="nf">_rewrite_previous_node</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">):</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;previous_node&quot;</span><span class="p">]</span>
+        <span class="n">flow_label</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;previous_label&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;previous_node&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_overwrite_node</span><span class="p">(</span>
+            <span class="n">node</span><span class="p">,</span>
+            <span class="n">flow_label</span><span class="p">,</span>
+            <span class="n">only_current_node_transitions</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Actor._rewrite_next_node"><a class="viewcode-back" href="../../../../apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.Actor._rewrite_next_node">[docs]</a>    <span class="k">def</span> <span class="nf">_rewrite_next_node</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">):</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;next_node&quot;</span><span class="p">]</span>
+        <span class="n">flow_label</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;next_label&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;next_node&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_overwrite_node</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">flow_label</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Actor._overwrite_node"><a class="viewcode-back" href="../../../../apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.Actor._overwrite_node">[docs]</a>    <span class="k">def</span> <span class="nf">_overwrite_node</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">current_node</span><span class="p">:</span> <span class="n">Node</span><span class="p">,</span>
+        <span class="n">flow_label</span><span class="p">:</span> <span class="n">LabelType</span><span class="p">,</span>
+        <span class="n">only_current_node_transitions</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Node</span><span class="p">:</span>
+        <span class="n">overwritten_node</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">GLOBAL</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">GLOBAL</span><span class="p">,</span> <span class="n">Node</span><span class="p">()))</span>
+        <span class="n">local_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">flow_label</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">LOCAL</span><span class="p">,</span> <span class="n">Node</span><span class="p">())</span>
+        <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="n">local_node</span><span class="p">,</span> <span class="n">current_node</span><span class="p">]:</span>
+            <span class="n">overwritten_node</span><span class="o">.</span><span class="n">pre_transitions_processing</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">pre_transitions_processing</span><span class="p">)</span>
+            <span class="n">overwritten_node</span><span class="o">.</span><span class="n">pre_response_processing</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">pre_response_processing</span><span class="p">)</span>
+            <span class="n">overwritten_node</span><span class="o">.</span><span class="n">response</span> <span class="o">=</span> <span class="n">overwritten_node</span><span class="o">.</span><span class="n">response</span> <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">response</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">node</span><span class="o">.</span><span class="n">response</span>
+            <span class="n">overwritten_node</span><span class="o">.</span><span class="n">misc</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">misc</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">only_current_node_transitions</span><span class="p">:</span>
+                <span class="n">overwritten_node</span><span class="o">.</span><span class="n">transitions</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">transitions</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">only_current_node_transitions</span><span class="p">:</span>
+            <span class="n">overwritten_node</span><span class="o">.</span><span class="n">transitions</span> <span class="o">=</span> <span class="n">current_node</span><span class="o">.</span><span class="n">transitions</span>
+        <span class="k">return</span> <span class="n">overwritten_node</span></div>
+
+<div class="viewcode-block" id="Actor.run_response"><a class="viewcode-back" href="../../../../apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.Actor.run_response">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">run_response</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">response</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">Message</span><span class="p">,</span> <span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">Message</span><span class="p">]]],</span>
+        <span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">,</span>
+        <span class="n">pipeline</span><span class="p">:</span> <span class="n">Pipeline</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Message</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Executes the normalized response as an asynchronous function.</span>
+<span class="sd">        See the details in the :py:func:`~normalize_response` function of `normalization.py`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">normalize_response</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="n">wrap_sync_function_in_async</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Actor._run_processing_parallel"><a class="viewcode-back" href="../../../../apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.Actor._run_processing_parallel">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">_run_processing_parallel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">processing</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">:</span> <span class="n">Pipeline</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Execute the processing functions for a particular node simultaneously,</span>
+<span class="sd">        independent of the order.</span>
+
+<span class="sd">        Picked depending on the value of the :py:class:`.Pipeline`&#39;s `parallelize_processing` flag.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span>
+            <span class="o">*</span><span class="p">[</span><span class="n">wrap_sync_function_in_async</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">)</span> <span class="k">for</span> <span class="n">func</span> <span class="ow">in</span> <span class="n">processing</span><span class="o">.</span><span class="n">values</span><span class="p">()],</span>
+            <span class="n">return_exceptions</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">for</span> <span class="n">exc</span><span class="p">,</span> <span class="p">(</span><span class="n">processing_name</span><span class="p">,</span> <span class="n">processing_func</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">processing</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">exc</span><span class="p">,</span> <span class="ne">Exception</span><span class="p">):</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Exception </span><span class="si">{</span><span class="n">exc</span><span class="si">}</span><span class="s2"> for processing_name=</span><span class="si">{</span><span class="n">processing_name</span><span class="si">}</span><span class="s2"> and processing_func=</span><span class="si">{</span><span class="n">processing_func</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                    <span class="n">exc_info</span><span class="o">=</span><span class="n">exc</span><span class="p">,</span>
+                <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Actor._run_processing_sequential"><a class="viewcode-back" href="../../../../apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.Actor._run_processing_sequential">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">_run_processing_sequential</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">processing</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">:</span> <span class="n">Pipeline</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Execute the processing functions for a particular node in-order.</span>
+
+<span class="sd">        Picked depending on the value of the :py:class:`.Pipeline`&#39;s `parallelize_processing` flag.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">processing_name</span><span class="p">,</span> <span class="n">processing_func</span> <span class="ow">in</span> <span class="n">processing</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">await</span> <span class="n">wrap_sync_function_in_async</span><span class="p">(</span><span class="n">processing_func</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Exception </span><span class="si">{</span><span class="n">exc</span><span class="si">}</span><span class="s2"> for processing_name=</span><span class="si">{</span><span class="n">processing_name</span><span class="si">}</span><span class="s2"> and processing_func=</span><span class="si">{</span><span class="n">processing_func</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                    <span class="n">exc_info</span><span class="o">=</span><span class="n">exc</span><span class="p">,</span>
+                <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Actor._run_pre_transitions_processing"><a class="viewcode-back" href="../../../../apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.Actor._run_pre_transitions_processing">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">_run_pre_transitions_processing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">:</span> <span class="n">Pipeline</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Run `PRE_TRANSITIONS_PROCESSING` functions for a particular node.</span>
+<span class="sd">        Pre-transition processing functions can modify the context state</span>
+<span class="sd">        before the direction of the next transition is determined depending on that state.</span>
+
+<span class="sd">        The execution order depends on the value of the :py:class:`.Pipeline`&#39;s</span>
+<span class="sd">        `parallelize_processing` flag.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;processed_node&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;previous_node&quot;</span><span class="p">])</span>
+        <span class="n">pre_transitions_processing</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;previous_node&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">pre_transitions_processing</span>
+
+        <span class="k">if</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">parallelize_processing</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run_processing_parallel</span><span class="p">(</span><span class="n">pre_transitions_processing</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run_processing_sequential</span><span class="p">(</span><span class="n">pre_transitions_processing</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">)</span>
+
+        <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;pre_transitions_processed_node&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span>
+            <span class="s2">&quot;processed_node&quot;</span>
+        <span class="p">]</span>
+        <span class="k">del</span> <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;processed_node&quot;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="Actor._run_pre_response_processing"><a class="viewcode-back" href="../../../../apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.Actor._run_pre_response_processing">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">_run_pre_response_processing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">:</span> <span class="n">Pipeline</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Run `PRE_RESPONSE_PROCESSING` functions for a particular node.</span>
+<span class="sd">        Pre-response processing functions can modify the response before it is</span>
+<span class="sd">        returned to the user.</span>
+
+<span class="sd">        The execution order depends on the value of the :py:class:`.Pipeline`&#39;s</span>
+<span class="sd">        `parallelize_processing` flag.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;processed_node&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;next_node&quot;</span><span class="p">])</span>
+        <span class="n">pre_response_processing</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;next_node&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">pre_response_processing</span>
+
+        <span class="k">if</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">parallelize_processing</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run_processing_parallel</span><span class="p">(</span><span class="n">pre_response_processing</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run_processing_sequential</span><span class="p">(</span><span class="n">pre_response_processing</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">)</span>
+
+        <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;pre_response_processed_node&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;processed_node&quot;</span><span class="p">]</span>
+        <span class="k">del</span> <span class="n">ctx</span><span class="o">.</span><span class="n">framework_states</span><span class="p">[</span><span class="s2">&quot;actor&quot;</span><span class="p">][</span><span class="s2">&quot;processed_node&quot;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="Actor._get_true_label"><a class="viewcode-back" href="../../../../apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.Actor._get_true_label">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">_get_true_label</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">transitions</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+        <span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">,</span>
+        <span class="n">pipeline</span><span class="p">:</span> <span class="n">Pipeline</span><span class="p">,</span>
+        <span class="n">flow_label</span><span class="p">:</span> <span class="n">LabelType</span><span class="p">,</span>
+        <span class="n">transition_info</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">NodeLabel3Type</span><span class="p">]:</span>
+        <span class="n">true_labels</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="n">cond_booleans</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span>
+            <span class="o">*</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">condition_handler</span><span class="p">(</span><span class="n">condition</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">)</span> <span class="k">for</span> <span class="n">condition</span> <span class="ow">in</span> <span class="n">transitions</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+        <span class="p">)</span>
+        <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">cond_is_true</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">transitions</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">cond_booleans</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">cond_is_true</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">label</span><span class="p">):</span>
+                    <span class="n">label</span> <span class="o">=</span> <span class="k">await</span> <span class="n">wrap_sync_function_in_async</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">)</span>
+                    <span class="c1"># TODO: explicit handling of errors</span>
+                    <span class="k">if</span> <span class="n">label</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="k">continue</span>
+                <span class="n">true_labels</span> <span class="o">+=</span> <span class="p">[</span><span class="n">label</span><span class="p">]</span>
+        <span class="n">true_labels</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">((</span><span class="n">label</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">label</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">else</span> <span class="n">flow_label</span><span class="p">),)</span>
+            <span class="o">+</span> <span class="n">label</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+            <span class="o">+</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">label_priority</span> <span class="k">if</span> <span class="n">label</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;-inf&quot;</span><span class="p">)</span> <span class="k">else</span> <span class="n">label</span><span class="p">[</span><span class="mi">2</span><span class="p">]),)</span>
+            <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">true_labels</span>
+        <span class="p">]</span>
+        <span class="n">true_labels</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">label</span><span class="p">:</span> <span class="o">-</span><span class="n">label</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+        <span class="n">true_label</span> <span class="o">=</span> <span class="n">true_labels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">true_labels</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">transition_info</span><span class="si">}</span><span class="s2"> transitions sorted by priority = </span><span class="si">{</span><span class="n">true_labels</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">true_label</span></div>
+
+<div class="viewcode-block" id="Actor._run_handlers"><a class="viewcode-back" href="../../../../apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.Actor._run_handlers">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">_run_handlers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">:</span> <span class="n">Pipeline</span><span class="p">,</span> <span class="n">actor_stage</span><span class="p">:</span> <span class="n">ActorStage</span><span class="p">):</span>
+        <span class="n">stage_handlers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">actor_stage</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="n">async_handlers</span> <span class="o">=</span> <span class="p">[</span><span class="n">wrap_sync_function_in_async</span><span class="p">(</span><span class="n">handler</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">)</span> <span class="k">for</span> <span class="n">handler</span> <span class="ow">in</span> <span class="n">stage_handlers</span><span class="p">]</span>
+        <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="n">async_handlers</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Actor._choose_label"><a class="viewcode-back" href="../../../../apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.Actor._choose_label">[docs]</a>    <span class="k">def</span> <span class="nf">_choose_label</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">specific_label</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">NodeLabel3Type</span><span class="p">],</span> <span class="n">general_label</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">NodeLabel3Type</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NodeLabel3Type</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">all</span><span class="p">([</span><span class="n">specific_label</span><span class="p">,</span> <span class="n">general_label</span><span class="p">]):</span>
+            <span class="n">chosen_label</span> <span class="o">=</span> <span class="n">specific_label</span> <span class="k">if</span> <span class="n">specific_label</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">general_label</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">else</span> <span class="n">general_label</span>
+        <span class="k">elif</span> <span class="nb">any</span><span class="p">([</span><span class="n">specific_label</span><span class="p">,</span> <span class="n">general_label</span><span class="p">]):</span>
+            <span class="n">chosen_label</span> <span class="o">=</span> <span class="n">specific_label</span> <span class="k">if</span> <span class="n">specific_label</span> <span class="k">else</span> <span class="n">general_label</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">chosen_label</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fallback_label</span>
+        <span class="k">return</span> <span class="n">chosen_label</span></div>
+
+<div class="viewcode-block" id="Actor.validate_script"><a class="viewcode-back" href="../../../../apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.Actor.validate_script">[docs]</a>    <span class="k">def</span> <span class="nf">validate_script</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">:</span> <span class="n">Pipeline</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="c1"># TODO: script has to not contain priority == -inf, because it uses for miss values</span>
+        <span class="n">flow_labels</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">node_labels</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">conditions</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">flow_name</span><span class="p">,</span> <span class="n">flow</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">node_name</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">flow</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">flow_labels</span> <span class="o">+=</span> <span class="p">[</span><span class="n">flow_name</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">transitions</span><span class="p">)</span>
+                <span class="n">node_labels</span> <span class="o">+=</span> <span class="p">[</span><span class="n">node_name</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">transitions</span><span class="p">)</span>
+                <span class="n">labels</span> <span class="o">+=</span> <span class="nb">list</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">transitions</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+                <span class="n">conditions</span> <span class="o">+=</span> <span class="nb">list</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">transitions</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+        <span class="n">error_msgs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">flow_label</span><span class="p">,</span> <span class="n">node_label</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">condition</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">flow_labels</span><span class="p">,</span> <span class="n">node_labels</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">conditions</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">callable</span><span class="p">(</span><span class="n">label</span><span class="p">):</span>
+                <span class="n">label</span> <span class="o">=</span> <span class="n">normalize_label</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">flow_label</span><span class="p">)</span>
+
+                <span class="c1"># validate labeling</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">script</span><span class="p">[</span><span class="n">label</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span><span class="n">label</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+                    <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;Could not find node with label=</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">, &quot;</span>
+                        <span class="sa">f</span><span class="s2">&quot;error was found in (flow_label, node_label)=</span><span class="si">{</span><span class="p">(</span><span class="n">flow_label</span><span class="p">,</span><span class="w"> </span><span class="n">node_label</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="p">)</span>
+                    <span class="n">error_handler</span><span class="p">(</span><span class="n">error_msgs</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">exc</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
+                    <span class="k">break</span>
+        <span class="k">return</span> <span class="n">error_msgs</span></div></div>
+
+
+<div class="viewcode-block" id="default_condition_handler"><a class="viewcode-back" href="../../../../apiref/dff.pipeline.pipeline.actor.html#dff.pipeline.pipeline.actor.default_condition_handler">[docs]</a><span class="k">async</span> <span class="k">def</span> <span class="nf">default_condition_handler</span><span class="p">(</span>
+    <span class="n">condition</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">:</span> <span class="n">Pipeline</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Context</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">],</span> <span class="nb">bool</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The simplest and quickest condition handler for trivial condition handling returns the callable condition:</span>
+
+<span class="sd">    :param condition: Condition to copy.</span>
+<span class="sd">    :param ctx: Context of current condition.</span>
+<span class="sd">    :param pipeline: Pipeline we use in this condition.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="k">await</span> <span class="n">wrap_sync_function_in_async</span><span class="p">(</span><span class="n">condition</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">)</span></div>
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2023, DeepPavlov.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

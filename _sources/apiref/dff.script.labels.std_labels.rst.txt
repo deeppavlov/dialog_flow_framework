@@ -1,0 +1,6 @@
+:source_name: dff/script/labels/std_labels
+
+.. automodule:: dff.script.labels.std_labels
+   :members:
+   :undoc-members:
+   :show-inheritance:

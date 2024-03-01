@@ -1,0 +1,6 @@
+:source_name: dff/pipeline/service/service
+
+.. automodule:: dff.pipeline.service.service
+   :members:
+   :undoc-members:
+   :show-inheritance:

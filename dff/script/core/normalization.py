@@ -34,6 +34,16 @@ def normalize_label(
     :return: Result of the label normalization,
         if Callable is returned, the normalized result is returned.
     """
+
+    if not (
+        callable(label)
+        or (isinstance(label, str) or isinstance(label, Keywords))
+        or (isinstance(label, tuple) and len(label) == 2 and isinstance(label[-1], float))
+        or (isinstance(label, tuple) and len(label) == 2 and isinstance(label[-1], str))
+        or (isinstance(label, tuple) and len(label) == 3)
+    ):
+        raise TypeError("Label function returned type:", type(label), "which is not supported.")
+
     if callable(label):
 
         def get_label_handler(ctx: Context, pipeline: Pipeline) -> NodeLabel3Type:

@@ -13,10 +13,46 @@ import importlib
 import threading
 from functools import wraps
 from abc import ABC, abstractmethod
-from typing import Callable, Hashable, Optional
+from inspect import signature
+from typing import Any, Callable, Dict, Hashable, List, Optional, Set, Tuple
 
+from .serializer import DefaultSerializer, validate_serializer
+from .context_schema import ContextSchema
 from .protocol import PROTOCOLS
 from ..script import Context
+
+
+def threadsafe_method(func: Callable):
+    """
+    A decorator that makes sure methods of an object instance are threadsafe.
+    """
+
+    @wraps(func)
+    def _synchronized(self, *args, **kwargs):
+        with self._lock:
+            return func(self, *args, **kwargs)
+
+    return _synchronized
+
+
+def cast_key_to_string(key_name: str = "key"):
+    """
+    A decorator that casts function parameter (`key_name`) to string.
+    """
+
+    def stringify_args(func: Callable):
+        all_keys = signature(func).parameters.keys()
+
+        @wraps(func)
+        async def inner(*args, **kwargs):
+            return await func(
+                *[str(arg) if name == key_name else arg for arg, name in zip(args, all_keys)],
+                **{name: str(value) if name == key_name else value for name, value in kwargs.items()},
+            )
+
+        return inner
+
+    return stringify_args
 
 
 class DBContextStorage(ABC):
@@ -33,16 +69,36 @@ class DBContextStorage(ABC):
         Keep in mind that in Windows you will have to use double backslashes '\\'
         instead of forward slashes '/' when defining the file path.
 
+    :param context_schema: Initial :py:class:`~.ContextSchema`.
+        If None, the default context schema is set.
+
+    :param serializer: Serializer to use with this context storage.
+        If None, the :py:class:`~.DefaultSerializer` is used.
+        Any object that passes :py:func:`validate_serializer` check can be a serializer.
+
     """
 
-    def __init__(self, path: str):
+    def __init__(
+        self, path: str, context_schema: Optional[ContextSchema] = None, serializer: Any = DefaultSerializer()
+    ):
         _, _, file_path = path.partition("://")
         self.full_path = path
         """Full path to access the context storage, as it was provided by user."""
         self.path = file_path
-        """`full_path` without a prefix defining db used"""
+        """`full_path` without a prefix defining db used."""
         self._lock = threading.Lock()
         """Threading for methods that require single thread access."""
+        self._insert_limit = False
+        """Maximum number of items that can be inserted simultaneously, False if no such limit exists."""
+        self.serializer = validate_serializer(serializer)
+        """Serializer that will be used with this storage (for serializing contexts in CONTEXT table)."""
+        self.set_context_schema(context_schema)
+
+    def set_context_schema(self, context_schema: Optional[ContextSchema]):
+        """
+        Set given :py:class:`~.ContextSchema` or the default if None.
+        """
+        self.context_schema = context_schema if context_schema else ContextSchema()
 
     def __getitem__(self, key: Hashable) -> Context:
         """
@@ -53,15 +109,16 @@ class DBContextStorage(ABC):
         """
         return asyncio.run(self.get_item_async(key))
 
-    @abstractmethod
-    async def get_item_async(self, key: Hashable) -> Context:
+    @threadsafe_method
+    @cast_key_to_string()
+    async def get_item_async(self, key: str) -> Context:
         """
         Asynchronous method for accessing stored Context.
 
         :param key: Hashable key used to store Context instance.
         :return: The stored context, associated with the given key.
         """
-        raise NotImplementedError
+        return await self.context_schema.read_context(self._read_pac_ctx, self._read_log_ctx, key)
 
     def __setitem__(self, key: Hashable, value: Context):
         """
@@ -72,15 +129,18 @@ class DBContextStorage(ABC):
         """
         return asyncio.run(self.set_item_async(key, value))
 
-    @abstractmethod
-    async def set_item_async(self, key: Hashable, value: Context):
+    @threadsafe_method
+    @cast_key_to_string()
+    async def set_item_async(self, key: str, value: Context):
         """
         Asynchronous method for storing Context.
 
         :param key: Hashable key used to store Context instance.
         :param value: Context to store.
         """
-        raise NotImplementedError
+        await self.context_schema.write_context(
+            value, self._write_pac_ctx, self._write_log_ctx, key, self._insert_limit
+        )
 
     def __delitem__(self, key: Hashable):
         """
@@ -135,7 +195,35 @@ class DBContextStorage(ABC):
         """
         raise NotImplementedError
 
-    def get(self, key: Hashable, default: Optional[Context] = None) -> Context:
+    def clear(self, prune_history: bool = False):
+        """
+        Synchronous method for clearing context storage, removing all the stored Contexts.
+
+        :param prune_history: also delete the history from the storage.
+        """
+        return asyncio.run(self.clear_async(prune_history))
+
+    @abstractmethod
+    async def clear_async(self, prune_history: bool = False):
+        """
+        Asynchronous method for clearing context storage, removing all the stored Contexts.
+        """
+        raise NotImplementedError
+
+    def keys(self) -> Set[str]:
+        """
+        Synchronous method for getting set of all storage keys.
+        """
+        return asyncio.run(self.keys_async())
+
+    @abstractmethod
+    async def keys_async(self) -> Set[str]:
+        """
+        Asynchronous method for getting set of all storage keys.
+        """
+        raise NotImplementedError
+
+    def get(self, key: Hashable, default: Optional[Context] = None) -> Optional[Context]:
         """
         Synchronous method for accessing stored Context, returning default if no Context is stored with the given key.
 
@@ -145,7 +233,7 @@ class DBContextStorage(ABC):
         """
         return asyncio.run(self.get_async(key, default))
 
-    async def get_async(self, key: Hashable, default: Optional[Context] = None) -> Context:
+    async def get_async(self, key: Hashable, default: Optional[Context] = None) -> Optional[Context]:
         """
         Asynchronous method for accessing stored Context, returning default if no Context is stored with the given key.
 
@@ -154,35 +242,56 @@ class DBContextStorage(ABC):
         :return: The stored context, associated with the given key or default value.
         """
         try:
-            return await self.get_item_async(str(key))
+            return await self.get_item_async(key)
         except KeyError:
             return default
 
-    def clear(self):
-        """
-        Synchronous method for clearing context storage, removing all the stored Contexts.
-        """
-        return asyncio.run(self.clear_async())
-
     @abstractmethod
-    async def clear_async(self):
+    async def _read_pac_ctx(self, storage_key: str) -> Tuple[Dict, Optional[str]]:
         """
-        Asynchronous method for clearing context storage, removing all the stored Contexts.
+        Method for reading context data from `CONTEXT` table for given key.
+
+        :param storage_key: Hashable key used to retrieve Context instance.
+        :return: Tuple of context dictionary and its primary ID,
+        if no context is found dictionary will be empty and ID will be None.
         """
         raise NotImplementedError
 
+    @abstractmethod
+    async def _read_log_ctx(self, keys_limit: Optional[int], field_name: str, primary_id: str) -> Dict:
+        """
+        Method for reading context data from `LOGS` table for given key.
 
-def threadsafe_method(func: Callable):
-    """
-    A decorator that makes sure methods of an object instance are threadsafe.
-    """
+        :param keys_limit: Integer, how many latest entries to read, if None all keys will be read.
+        :param field_name: Field name for that the entries will be read.
+        :param primary_id: Primary ID of the context whose entries will be read.
+        :return: Dictionary of read entries.
+        """
+        raise NotImplementedError
 
-    @wraps(func)
-    def _synchronized(self, *args, **kwargs):
-        with self._lock:
-            return func(self, *args, **kwargs)
+    @abstractmethod
+    async def _write_pac_ctx(self, data: Dict, created: int, updated: int, storage_key: str, primary_id: str):
+        """
+        Method for writing context data to `CONTEXT` table for given key.
 
-    return _synchronized
+        :param data: Data that will be written.
+        :param created: Timestamp of the context creation (integer, nanoseconds).
+        :param updated: Timestamp of the context updated (integer, nanoseconds).
+        :param storage_key: Storage key to store the context under.
+        :param primary_id: Primary ID of the context that will be stored.
+        """
+        raise NotImplementedError
+
+    @abstractmethod
+    async def _write_log_ctx(self, data: List[Tuple[str, int, Dict]], updated: int, primary_id: str):
+        """
+        Method for writing context data to `LOGS` table for given key.
+
+        :param data: Data entries list that will be written (tuple of field name, key number and value dict).
+        :param updated: Timestamp of the context updated (integer, nanoseconds).
+        :param primary_id: Primary ID of the context whose entries will be stored.
+        """
+        raise NotImplementedError
 
 
 def context_storage_factory(path: str, **kwargs) -> DBContextStorage:

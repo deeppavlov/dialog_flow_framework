@@ -18,12 +18,12 @@ This allows developers to save the context data and resume the conversation late
 """
 
 from __future__ import annotations
+import time
 import logging
-from uuid import UUID, uuid4
+from uuid import uuid4
 from typing import Any, Optional, Union, Dict, List, Set, TYPE_CHECKING
 
-from pydantic import BaseModel, Field, field_validator
-
+from pydantic import BaseModel, PrivateAttr, field_validator
 from .types import NodeLabel2Type, ModuleName
 from .message import Message
 
@@ -52,10 +52,26 @@ class Context(BaseModel):
     context storages to work.
     """
 
-    id: Union[UUID, int, str] = Field(default_factory=uuid4)
+    _storage_key: Optional[str] = PrivateAttr(default=None)
     """
-    `id` is the unique context identifier. By default, randomly generated using `uuid4` `id` is used.
-    `id` can be used to trace the user behavior, e.g while collecting the statistical data.
+    `_storage_key` is the storage-unique context identifier, by which it's stored in context storage.
+    By default, randomly generated using `uuid4` `_storage_key` is used.
+    `_storage_key` can be used to trace the user behavior, e.g while collecting the statistical data.
+    """
+    _primary_id: str = PrivateAttr(default_factory=lambda: str(uuid4()))
+    """
+    Primary id is the globally unique ID of the context.
+    It is set (and managed) by :py:class:`~dff.context_storages.DBContextStorage`.
+    """
+    _created_at: int = PrivateAttr(default_factory=time.time_ns)
+    """
+    Timestamp when the context was _first time saved to database_.
+    It is set (and managed) by :py:class:`~dff.context_storages.DBContextStorage`.
+    """
+    _updated_at: int = PrivateAttr(default_factory=time.time_ns)
+    """
+    Timestamp when the context was _last time saved to database_.
+    It is set (and managed) by :py:class:`~dff.context_storages.DBContextStorage`.
     """
     labels: Dict[int, NodeLabel2Type] = {}
     """
@@ -121,6 +137,14 @@ class Context(BaseModel):
         :return: Dictionary with sorted keys.
         """
         return {key: dictionary[key] for key in sorted(dictionary)}
+
+    @property
+    def storage_key(self) -> Optional[str]:
+        """
+        Returns the key the context was saved in storage the last time.
+        Returns None if the context wasn't saved yet.
+        """
+        return self._storage_key
 
     @classmethod
     def cast(cls, ctx: Optional[Union[Context, dict, str]] = None, *args, **kwargs) -> Context:

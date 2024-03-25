@@ -327,7 +327,7 @@ class Pipeline:
         return cls(**dictionary)
 
     async def _run_pipeline(
-        self, request: Message, ctx_id: Optional[Hashable] = None, update_ctx_misc: Optional[dict] = None
+        self, request: Message, ctx_id: Optional[str] = None, update_ctx_misc: Optional[dict] = None
     ) -> Context:
         """
         Method that should be invoked on user input.

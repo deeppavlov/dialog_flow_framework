@@ -5,12 +5,6 @@
 This tutorial demonstrates, how to add an inline keyboard and utilize
 inline queries.
 
-Here, %mddoclink(api,messengers.telegram.message,TelegramMessage)
-class is used to represent telegram message,
-%mddoclink(api,messengers.telegram.message,TelegramUI) and
-%mddoclink(api,messengers.telegram.message,RemoveKeyboard)
-classes are used for configuring additional telegram message features.
-
 Different %mddoclink(api,script.core.message,message)
 classes are used for representing different common message features,
 like Attachment, Audio, Button, Image, etc.
@@ -25,13 +19,8 @@ import os
 import dff.script.conditions as cnd
 from dff.script import TRANSITIONS, RESPONSE
 from dff.pipeline import Pipeline
-from dff.script.core.message import Button
-from dff.messengers.telegram import (
-    PollingTelegramInterface,
-    TelegramUI,
-    TelegramMessage,
-)
-from dff.messengers.telegram.message import _ClickButton
+from dff.script.core.message import Button, Keyboard, Message
+from dff.messengers.telegram import PollingTelegramInterface
 from dff.utils.testing.common import is_interactive_mode
 
 
@@ -59,7 +48,7 @@ script = {
             },
         },
         "fallback": {
-            RESPONSE: TelegramMessage(
+            RESPONSE: Message(
                 text="Finishing test, send /restart command to restart"
             ),
             TRANSITIONS: {
@@ -72,33 +61,30 @@ script = {
     },
     "general": {
         "keyboard": {
-            RESPONSE: TelegramMessage(
-                **{
-                    "text": "Starting test! What's 9 + 10?",
-                    "ui": TelegramUI(
+            RESPONSE: Message(
+                text="Starting test! What's 9 + 10?",
+                attachments=[
+                    Keyboard(
                         buttons=[
-                            Button(text="19", payload="correct"),
-                            Button(text="21", payload="wrong"),
+                            [
+                                Button(text="19", data="correct"),
+                                Button(text="21", data="wrong"),
+                            ],
                         ],
-                        is_inline=True,
                     ),
-                }
+                ],
             ),
             TRANSITIONS: {
-                ("general", "success"): cnd.exact_match(
-                    TelegramMessage(callback_query="correct")
-                ),
-                ("general", "fail"): cnd.exact_match(
-                    TelegramMessage(callback_query="wrong")
-                ),
+                ("general", "success"): cnd.has_callback_query("correct"),
+                ("general", "fail"): cnd.has_callback_query("wrong"),
             },
         },
         "success": {
-            RESPONSE: TelegramMessage(text="Success!"),
+            RESPONSE: Message(text="Success!"),
             TRANSITIONS: {("root", "fallback"): cnd.true()},
         },
         "fail": {
-            RESPONSE: TelegramMessage(
+            RESPONSE: Message(
                 text="Incorrect answer, type anything to try again"
             ),
             TRANSITIONS: {("general", "keyboard"): cnd.true()},
@@ -109,53 +95,63 @@ script = {
 # this variable is only for testing
 happy_path = (
     (
-        TelegramMessage(text="/start"),
-        TelegramMessage(
+        Message(text="/start"),
+        Message(
             text="Starting test! What's 9 + 10?",
-            ui=TelegramUI(
-                buttons=[
-                    Button(text="19", payload="correct"),
-                    Button(text="21", payload="wrong"),
-                ],
-            ),
+            attachments=[
+                Keyboard(
+                    buttons=[
+                        [
+                            Button(text="19", data="correct"),
+                            Button(text="21", data="wrong"),
+                        ],
+                    ],
+                ),
+            ],
         ),
     ),
     (
-        TelegramMessage(callback_query=_ClickButton(button_index=1)),
-        TelegramMessage(text="Incorrect answer, type anything to try again"),
+        Message(text="wrong"),
+        Message(text="Incorrect answer, type anything to try again"),
     ),
     (
-        TelegramMessage(text="try again"),
-        TelegramMessage(
+        Message(text="try again"),
+        Message(
             text="Starting test! What's 9 + 10?",
-            ui=TelegramUI(
-                buttons=[
-                    Button(text="19", payload="correct"),
-                    Button(text="21", payload="wrong"),
-                ],
-            ),
+            attachments=[
+                Keyboard(
+                    buttons=[
+                        [
+                            Button(text="19", data="correct"),
+                            Button(text="21", data="wrong"),
+                        ],
+                    ],
+                ),
+            ],
         ),
     ),
     (
-        TelegramMessage(callback_query=_ClickButton(button_index=0)),
-        TelegramMessage(text="Success!"),
+        Message(text="correct"),
+        Message(text="Success!"),
     ),
     (
-        TelegramMessage(text="Yay!"),
-        TelegramMessage(
-            text="Finishing test, send /restart command to restart"
-        ),
+        Message(text="Yay!"),
+        Message(text="Finishing test, send /restart command to restart"),
     ),
     (
-        TelegramMessage(text="/restart"),
-        TelegramMessage(
+        Message(text="/restart"),
+        Message(
             text="Starting test! What's 9 + 10?",
-            ui=TelegramUI(
-                buttons=[
-                    Button(text="19", payload="correct"),
-                    Button(text="21", payload="wrong"),
-                ],
-            ),
+            attachments=[
+                Keyboard(
+                    buttons=[
+                        [
+                            Button(text="19", data="correct"),
+                            Button(text="21", data="wrong"),
+                        ],
+                    ],
+                ),
+            ],
         ),
     ),
 )

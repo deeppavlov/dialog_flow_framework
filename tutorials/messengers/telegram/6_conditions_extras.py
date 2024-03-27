@@ -5,10 +5,9 @@
 This tutorial shows how to use additional update filters
 inherited from the `pytelegrambotapi` library.
 
-%mddoclink(api,messengers.telegram.messenger,telegram_condition)
-function and different types of
-%mddoclink(api,messengers.telegram.messenger,UpdateType)
-are used for telegram message type checking.
+Here, %mddoclink(api,messengers.telegram)
+message `original_message` component
+is used for telegram message type checking.
 """
 
 
@@ -19,13 +18,10 @@ import os
 
 from dff.script import TRANSITIONS, RESPONSE, GLOBAL
 import dff.script.conditions as cnd
-from dff.messengers.telegram import (
-    PollingTelegramInterface,
-    TelegramMessage,
-    telegram_condition,
-    UpdateType,
-)
+from dff.messengers.telegram import PollingTelegramInterface
 from dff.pipeline import Pipeline
+from dff.script.core.context import Context
+from dff.script.core.message import Message
 from dff.utils.testing.common import is_interactive_mode
 
 
@@ -60,45 +56,67 @@ or in the docs for the `telebot` library.
 
 
 # %%
+def check_if_latest_message_is_new_chat_member(
+    ctx: Context, _: Pipeline
+) -> bool:
+    if ctx.last_request is None:
+        return False
+    if ctx.last_request.original_message is None:
+        return False
+    if ctx.last_request.original_message.message is None:
+        return False
+    return (
+        ctx.last_request.original_message.message.new_chat_members is not None
+    )
+
+
+def check_if_latest_message_is_callback_query(
+    ctx: Context, _: Pipeline
+) -> bool:
+    if ctx.last_request is None:
+        return False
+    if ctx.last_request.original_message is None:
+        return False
+    return ctx.last_request.original_message.inline_query is not None
+
+
+# %%
 script = {
     GLOBAL: {
         TRANSITIONS: {
-            ("greeting_flow", "node1"): cnd.any(
-                [
-                    # say hi when invited to a chat
-                    telegram_condition(
-                        update_type=UpdateType.CHAT_JOIN_REQUEST,
-                        func=lambda x: True,
-                    ),
-                    # say hi when someone enters the chat
-                    telegram_condition(
-                        update_type=UpdateType.MY_CHAT_MEMBER,
-                        func=lambda x: True,
-                    ),
-                ]
-            ),
+            # say hi when someone enters the chat
+            (
+                "greeting_flow",
+                "node1",
+            ): check_if_latest_message_is_new_chat_member,
             # send a message when inline query is received
-            ("greeting_flow", "node2"): telegram_condition(
-                update_type=UpdateType.INLINE_QUERY,
-            ),
+            (
+                "greeting_flow",
+                "node2",
+            ): check_if_latest_message_is_callback_query,
         },
     },
     "greeting_flow": {
         "start_node": {
             TRANSITIONS: {
-                "node1": telegram_condition(commands=["start", "restart"])
+                "node1": cnd.any(
+                    [
+                        cnd.exact_match(Message(text="/start")),
+                        cnd.exact_match(Message(text="/restart")),
+                    ]
+                )
             },
         },
         "node1": {
-            RESPONSE: TelegramMessage(text="Hi"),
+            RESPONSE: Message(text="Hi"),
             TRANSITIONS: {"start_node": cnd.true()},
         },
         "node2": {
-            RESPONSE: TelegramMessage(text="Inline query received."),
+            RESPONSE: Message(text="Inline query received."),
             TRANSITIONS: {"start_node": cnd.true()},
         },
         "fallback_node": {
-            RESPONSE: TelegramMessage(text="Ooops"),
+            RESPONSE: Message(text="Ooops"),
         },
     },
 }

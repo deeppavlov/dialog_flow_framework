@@ -12,6 +12,7 @@ from dff.script import (
     Message,
 )
 from dff.script.conditions import true
+from dff.script.labels import repeat
 
 
 def positive_test(samples, custom_class):
@@ -39,8 +40,6 @@ def std_func(ctx, pipeline):
 
 
 def fake_label(ctx: Context, pipeline):
-    if not ctx.validation:
-        return ("123", "123", 0)
     return ("flow", "node1", 1)
 
 
@@ -68,6 +67,17 @@ async def test_actor():
         raise Exception("can not be passed: fail of missing node")
     except ValueError:
         pass
+    try:
+        # fail of response returned Callable
+        pipeline = Pipeline.from_script(
+            {"flow": {"node1": {RESPONSE: lambda c, a: lambda x: 1, TRANSITIONS: {repeat(): true()}}}},
+            start_label=("flow", "node1"),
+        )
+        ctx = Context()
+        await pipeline.actor(pipeline, ctx)
+        raise Exception("can not be passed: fail of response returned Callable")
+    except ValueError:
+        pass
 
     # empty ctx stability
     pipeline = Pipeline.from_script(
@@ -76,7 +86,7 @@ async def test_actor():
     ctx = Context()
     await pipeline.actor(pipeline, ctx)
 
-    # fake label stability
+    # fake label stability # TODO: what does it mean?
     pipeline = Pipeline.from_script(
         {"flow": {"node1": {TRANSITIONS: {fake_label: true()}}}}, start_label=("flow", "node1")
     )
@@ -185,7 +195,7 @@ async def test_call_limit():
         },
     }
     # script = {"flow": {"node1": {TRANSITIONS: {"node1": true()}}}}
-    pipeline = Pipeline.from_script(script=script, start_label=("flow1", "node1"), validation_stage=False)
+    pipeline = Pipeline.from_script(script=script, start_label=("flow1", "node1"))
     for i in range(4):
         await pipeline._run_pipeline(Message("req1"), 0)
     if limit_errors:
